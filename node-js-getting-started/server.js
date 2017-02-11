@@ -1,3 +1,23 @@
+var express = require('express');
+var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
+
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+app.get('/', function(request, response) {
+  response.render('pages/index');
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
+
 // Run a node.js web server for local development of a static web site.
 // Put this program in a site folder and start with "node server.js".
 // Then visit the site at the address printed on the console.
@@ -14,7 +34,7 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var sql = require('sqlite3').verbose();
- 
+
 // Create the database if there isn't one and load it
 if(!fs.existsSync("./database/database.sqlite3")){
   var createDB = require('./database/setup/create.js');
