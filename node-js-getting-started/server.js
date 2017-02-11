@@ -30,8 +30,10 @@ app.listen(app.get('port'), function() {
 // Define the list of banned urls, and the table of file types, and run tests.
 // Then start the server on the given port: use the default 80, or use 8080 to
 // avoid privilege or port number clash problems or to add firewall protection.
-var http = require('http');
-var https = require('https');
+
+
+// var http = require('http');
+// var https = require('https');
 var fs = require('fs');
 var sql = require('sqlite3').verbose();
 
@@ -94,15 +96,15 @@ function start(ports, options) {
 }
 
 // Print out the server addresses.
-function printAddresses() {
-  var httpAddress = "http://localhost";
-  if (ports[0] != 80) httpAddress += ":" + ports[0];
-  httpAddress += "/";
-  var httpsAddress = "https://localhost";
-  if (ports[1] != 443) httpsAddress += ":" + ports[1];
-  httpsAddress += "/";
-  console.log('Server running at', httpAddress, 'and', httpsAddress);
-}
+// function printAddresses() {
+//   var httpAddress = "http://localhost";
+//   if (ports[0] != 80) httpAddress += ":" + ports[0];
+//   httpAddress += "/";
+//   var httpsAddress = "https://localhost";
+//   if (ports[1] != 443) httpsAddress += ":" + ports[1];
+//   httpsAddress += "/";
+//   console.log('Server running at', httpAddress, 'and', httpsAddress);
+// }
 
 // Serve a request.  Process and validate the url, then deliver the file.
 function handle(request, response) {
