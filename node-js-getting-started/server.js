@@ -3,7 +3,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
 // app.set('views', __dirname + '/views');
@@ -38,15 +38,15 @@ var fs = require('fs');
 var sql = require('sqlite3').verbose();
 
 // Create the database if there isn't one and load it
-if(!fs.existsSync("./database/database.sqlite3")){
-  var createDB = require('./database/setup/create.js');
-  createDB.startup();
-}
-var db = new sql.Database('./database/database.sqlite3');
+// if(!fs.existsSync("./database/database.sqlite3")){
+//   var createDB = require('./database/setup/create.js');
+//   createDB.startup();
+// }
+// var db = new sql.Database('./database/database.sqlite3');
 
 // Load up the modules that were developed around this server.js
-var t = require("./nodeScripts/test.js");
-var authenticate = require('./nodeScripts/authenticate.js')
+// var t = require("./nodeScripts/test.js");
+// var authenticate = require('./nodeScripts/authenticate.js')
 var commentFormSql = require("./nodeScripts/comments_form.js");
 var buildInfo = require("./nodeScripts/build_info.js");
 var buildMessgP = require("./nodeScripts/build_messages.js");
