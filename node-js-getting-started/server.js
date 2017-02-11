@@ -1,23 +1,3 @@
-var express = require('express');
-var app = express();
-
-app.set('port', (process.env.PORT || 5000));
-
-// app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-// app.set('views', __dirname + '/views');
-// app.set('view engine', 'ejs');
-//
-// app.get('/', function(request, response) {
-//   response.render('pages/index');
-// });
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
-
-
 // Run a node.js web server for local development of a static web site.
 // Put this program in a site folder and start with "node server.js".
 // Then visit the site at the address printed on the console.
@@ -30,23 +10,21 @@ app.listen(app.get('port'), function() {
 // Define the list of banned urls, and the table of file types, and run tests.
 // Then start the server on the given port: use the default 80, or use 8080 to
 // avoid privilege or port number clash problems or to add firewall protection.
-
-
-// var http = require('http');
-// var https = require('https');
+var http = require('http');
+var https = require('https');
 var fs = require('fs');
 var sql = require('sqlite3').verbose();
-
+ 
 // Create the database if there isn't one and load it
-// if(!fs.existsSync("./database/database.sqlite3")){
-//   var createDB = require('./database/setup/create.js');
-//   createDB.startup();
-// }
-// var db = new sql.Database('./database/database.sqlite3');
+if(!fs.existsSync("./database/database.sqlite3")){
+  var createDB = require('./database/setup/create.js');
+  createDB.startup();
+}
+var db = new sql.Database('./database/database.sqlite3');
 
 // Load up the modules that were developed around this server.js
-// var t = require("./nodeScripts/test.js");
-// var authenticate = require('./nodeScripts/authenticate.js')
+var t = require("./nodeScripts/test.js");
+var authenticate = require('./nodeScripts/authenticate.js')
 var commentFormSql = require("./nodeScripts/comments_form.js");
 var buildInfo = require("./nodeScripts/build_info.js");
 var buildMessgP = require("./nodeScripts/build_messages.js");
@@ -83,28 +61,28 @@ start(ports,options);
 // The http service redirects everything to https for security (login)
 // Accept only requests from localhost, for security.
 function start(ports, options) {
-  // test();
+  test();
   commentFormSql.test();
   buildInfo.test();
   buildMessgP.test();
-  // authenticate.test();
-  // var httpService = http.createServer(redirectToHTTPS);
-  // httpService.listen(ports[0], 'localhost');
-  // var httpsService = https.createServer(options, handle);
-  // httpsService.listen(ports[1], 'localhost');
-  // printAddresses();
+  authenticate.test();
+  var httpService = http.createServer(redirectToHTTPS);
+  httpService.listen(ports[0], 'localhost');
+  var httpsService = https.createServer(options, handle);
+  httpsService.listen(ports[1], 'localhost');
+  printAddresses();
 }
 
 // Print out the server addresses.
-// function printAddresses() {
-//   var httpAddress = "http://localhost";
-//   if (ports[0] != 80) httpAddress += ":" + ports[0];
-//   httpAddress += "/";
-//   var httpsAddress = "https://localhost";
-//   if (ports[1] != 443) httpsAddress += ":" + ports[1];
-//   httpsAddress += "/";
-//   console.log('Server running at', httpAddress, 'and', httpsAddress);
-// }
+function printAddresses() {
+  var httpAddress = "http://localhost";
+  if (ports[0] != 80) httpAddress += ":" + ports[0];
+  httpAddress += "/";
+  var httpsAddress = "https://localhost";
+  if (ports[1] != 443) httpsAddress += ":" + ports[1];
+  httpsAddress += "/";
+  console.log('Server running at', httpAddress, 'and', httpsAddress);
+}
 
 // Serve a request.  Process and validate the url, then deliver the file.
 function handle(request, response) {
@@ -399,32 +377,32 @@ function defineTypes() {
   }
 }
 
-// // Test the server's logic, and make sure there's an index file.
-// function test() {
-//   t.check(removeQuery("/index.html?x=1"), "/index.html");
-//   t.check(lower("/index.html"), "/index.html");
-//   t.check(lower("/INDEX.HTML"), "/index.html");
-//   t.check(addIndex("/index.html"), "/index.html");
-//   t.check(addIndex("/admin/"), "/admin/index.html");
-//   t.check(valid("/index.html"), true);
-//   t.check(valid("../x"), false, "urls must start with /");
-//   t.check(valid("/x/../y"), false, "urls must not contain /../");
-//   t.check(valid("/x//y"), false, "urls must not contain //");
-//   t.check(valid("/x/./y"), false, "urls must not contain /./");
-//   t.check(valid("/.txt"), false, "urls must not contain /.");
-//   t.check(valid("/x"), false, "filenames must have extensions");
-//   t.check(safe("/index.html"), true);
-//   t.check(safe("/\n/"), false);
-//   t.check(safe("/x y/"), false);
-//   t.check(open("/index.html"), true);
-//   t.check(open("/server.js"), false);
-//   t.check(findType("/x.txt"), "text/plain");
-//   t.check(findType("/x"), undefined);
-//   t.check(findType("/x.abc"), undefined);
-//   t.check(findType("/x.htm"), undefined);
-//   t.check(negotiate("xxx,text/html"), "text/html");
-//   t.check(negotiate("xxx,application/xhtml+xml"), "application/xhtml+xml");
-//   t.check(fs.existsSync('./index.html'), true, "site contains no index.html");
-//   // additional tests to the original.
-//   t.check(free("/admin/messages.html"),false);
-// }
+// Test the server's logic, and make sure there's an index file.
+function test() {
+  t.check(removeQuery("/index.html?x=1"), "/index.html");
+  t.check(lower("/index.html"), "/index.html");
+  t.check(lower("/INDEX.HTML"), "/index.html");
+  t.check(addIndex("/index.html"), "/index.html");
+  t.check(addIndex("/admin/"), "/admin/index.html");
+  t.check(valid("/index.html"), true);
+  t.check(valid("../x"), false, "urls must start with /");
+  t.check(valid("/x/../y"), false, "urls must not contain /../");
+  t.check(valid("/x//y"), false, "urls must not contain //");
+  t.check(valid("/x/./y"), false, "urls must not contain /./");
+  t.check(valid("/.txt"), false, "urls must not contain /.");
+  t.check(valid("/x"), false, "filenames must have extensions");
+  t.check(safe("/index.html"), true);
+  t.check(safe("/\n/"), false);
+  t.check(safe("/x y/"), false);
+  t.check(open("/index.html"), true);
+  t.check(open("/server.js"), false);
+  t.check(findType("/x.txt"), "text/plain");
+  t.check(findType("/x"), undefined);
+  t.check(findType("/x.abc"), undefined);
+  t.check(findType("/x.htm"), undefined);
+  t.check(negotiate("xxx,text/html"), "text/html");
+  t.check(negotiate("xxx,application/xhtml+xml"), "application/xhtml+xml");
+  t.check(fs.existsSync('./index.html'), true, "site contains no index.html");
+  // additional tests to the original.
+  t.check(free("/admin/messages.html"),false);
+}
