@@ -15,8 +15,7 @@
     "http":"7.11.0",
     "https":"",
     "fs":"",
-    "sql":"",
-
+    "sql":""
   },
   "repository": {
     "type": "git",
