@@ -52,7 +52,7 @@ const options = {
   ca:   fs.readFileSync('certificates/ca-crt.pem'),
 };
 // Declaring the ports to listen, ports[0]:http and ports[1]:https
-var ports = [5000, 443];
+var ports = [process.env.PORT || 8080,process.env.PORT || 8083];
 
 // Start the server (including tests)
 start(ports,options);

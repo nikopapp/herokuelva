@@ -7,7 +7,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodejs server.js"
   },
   "dependencies": {
     "ejs": "2.4.1",
