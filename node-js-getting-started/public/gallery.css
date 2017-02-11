@@ -1,0 +1,137 @@
+/*
+ *  This piece of code is originated from:
+ *  http://www.w3schools.com/css/tryit.asp?filename=trycss_image_gallery_responsive_js
+ *  and has been subject to changes
+ */
+div.img{
+  height: 80%;
+}
+div.img img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+/* Add Responsiveness */
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 49.99999%;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (image) */
+.modal-content {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    margin: auto;
+    max-height: 90%;
+    max-width: 95%;
+    width: auto;
+}
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 750px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.5s;
+    animation-name: zoom;
+    animation-duration: 0.5s;
+}
+@-webkit-keyframes zoom {
+    from {transform:scale(0.3)}
+    to {transform:scale(1)}
+}
+@keyframes zoom {
+    from {transform:scale(0.3)}
+    to {transform:scale(1)}
+}
+
+@-webkit-keyframes unzoom {
+    from {transform:scale(1)}
+    to {transform:scale(0.3)}
+}
+@keyframes unzoom {
+    from {
+      transform:scale(1)
+    }
+    to {
+      transform:scale(0.3)
+    }
+}
+/* The Close Button */
+#close {
+    z-index: 2;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+#close:hover,#close:focus,
+#galleryNext:hover,
+#galleryPrev:hover {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+#galleryNext, #galleryPrev{
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  transition: 0.3s;
+}
+#galleryPrev{
+  left:10px;
+  top:45%;
+}
+#galleryNext{
+  right:10px;
+  top:45%;
+}
+/* Responsive Columns */
+@media only screen and (max-width: 750px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+    .modal-content {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+/* Clear Floats */
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
