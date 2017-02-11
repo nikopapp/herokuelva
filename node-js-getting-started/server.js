@@ -52,7 +52,7 @@ const options = {
   ca:   fs.readFileSync('certificates/ca-crt.pem'),
 };
 // Declaring the ports to listen, ports[0]:http and ports[1]:https
-var ports = [process.env.PORT || 8080,process.env.PORT || 8083];
+var ports = [process.env.PORT || 8080, process.env.PORT || 8083];
 
 // Start the server (including tests)
 start(ports,options);
@@ -61,11 +61,11 @@ start(ports,options);
 // The http service redirects everything to https for security (login)
 // Accept only requests from localhost, for security.
 function start(ports, options) {
-  test();
-  commentFormSql.test();
-  buildInfo.test();
-  buildMessgP.test();
-  authenticate.test();
+  // test();
+  // commentFormSql.test();
+  // buildInfo.test();
+  // buildMessgP.test();
+  // authenticate.test();
   var httpService = http.createServer(redirectToHTTPS);
   httpService.listen(ports[0], 'localhost');
   var httpsService = https.createServer(options, handle);
