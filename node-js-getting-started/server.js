@@ -13,14 +13,14 @@
 var http = require('http');
 var https = require('https');
 var fs = require('fs');
-var sql = require('sqlite3').verbose();
- 
-// Create the database if there isn't one and load it
-if(!fs.existsSync("./database/database.sqlite3")){
-  var createDB = require('./database/setup/create.js');
-  createDB.startup();
-}
-var db = new sql.Database('./database/database.sqlite3');
+// var sql = require('sqlite3').verbose();
+
+// // Create the database if there isn't one and load it
+// if(!fs.existsSync("./database/database.sqlite3")){
+//   var createDB = require('./database/setup/create.js');
+//   createDB.startup();
+// }
+// var db = new sql.Database('./database/database.sqlite3');
 
 // Load up the modules that were developed around this server.js
 var t = require("./nodeScripts/test.js");
@@ -52,7 +52,7 @@ const options = {
   ca:   fs.readFileSync('certificates/ca-crt.pem'),
 };
 // Declaring the ports to listen, ports[0]:http and ports[1]:https
-var ports = [80, 443];
+var ports = [5000, 443];
 
 // Start the server (including tests)
 start(ports,options);
