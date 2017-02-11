@@ -83,16 +83,16 @@ start(ports,options);
 // The http service redirects everything to https for security (login)
 // Accept only requests from localhost, for security.
 function start(ports, options) {
-  test();
+  // test();
   commentFormSql.test();
   buildInfo.test();
   buildMessgP.test();
-  authenticate.test();
-  var httpService = http.createServer(redirectToHTTPS);
-  httpService.listen(ports[0], 'localhost');
-  var httpsService = https.createServer(options, handle);
-  httpsService.listen(ports[1], 'localhost');
-  printAddresses();
+  // authenticate.test();
+  // var httpService = http.createServer(redirectToHTTPS);
+  // httpService.listen(ports[0], 'localhost');
+  // var httpsService = https.createServer(options, handle);
+  // httpsService.listen(ports[1], 'localhost');
+  // printAddresses();
 }
 
 // Print out the server addresses.
@@ -399,32 +399,32 @@ function defineTypes() {
   }
 }
 
-// Test the server's logic, and make sure there's an index file.
-function test() {
-  t.check(removeQuery("/index.html?x=1"), "/index.html");
-  t.check(lower("/index.html"), "/index.html");
-  t.check(lower("/INDEX.HTML"), "/index.html");
-  t.check(addIndex("/index.html"), "/index.html");
-  t.check(addIndex("/admin/"), "/admin/index.html");
-  t.check(valid("/index.html"), true);
-  t.check(valid("../x"), false, "urls must start with /");
-  t.check(valid("/x/../y"), false, "urls must not contain /../");
-  t.check(valid("/x//y"), false, "urls must not contain //");
-  t.check(valid("/x/./y"), false, "urls must not contain /./");
-  t.check(valid("/.txt"), false, "urls must not contain /.");
-  t.check(valid("/x"), false, "filenames must have extensions");
-  t.check(safe("/index.html"), true);
-  t.check(safe("/\n/"), false);
-  t.check(safe("/x y/"), false);
-  t.check(open("/index.html"), true);
-  t.check(open("/server.js"), false);
-  t.check(findType("/x.txt"), "text/plain");
-  t.check(findType("/x"), undefined);
-  t.check(findType("/x.abc"), undefined);
-  t.check(findType("/x.htm"), undefined);
-  t.check(negotiate("xxx,text/html"), "text/html");
-  t.check(negotiate("xxx,application/xhtml+xml"), "application/xhtml+xml");
-  t.check(fs.existsSync('./index.html'), true, "site contains no index.html");
-  // additional tests to the original.
-  t.check(free("/admin/messages.html"),false);
-}
+// // Test the server's logic, and make sure there's an index file.
+// function test() {
+//   t.check(removeQuery("/index.html?x=1"), "/index.html");
+//   t.check(lower("/index.html"), "/index.html");
+//   t.check(lower("/INDEX.HTML"), "/index.html");
+//   t.check(addIndex("/index.html"), "/index.html");
+//   t.check(addIndex("/admin/"), "/admin/index.html");
+//   t.check(valid("/index.html"), true);
+//   t.check(valid("../x"), false, "urls must start with /");
+//   t.check(valid("/x/../y"), false, "urls must not contain /../");
+//   t.check(valid("/x//y"), false, "urls must not contain //");
+//   t.check(valid("/x/./y"), false, "urls must not contain /./");
+//   t.check(valid("/.txt"), false, "urls must not contain /.");
+//   t.check(valid("/x"), false, "filenames must have extensions");
+//   t.check(safe("/index.html"), true);
+//   t.check(safe("/\n/"), false);
+//   t.check(safe("/x y/"), false);
+//   t.check(open("/index.html"), true);
+//   t.check(open("/server.js"), false);
+//   t.check(findType("/x.txt"), "text/plain");
+//   t.check(findType("/x"), undefined);
+//   t.check(findType("/x.abc"), undefined);
+//   t.check(findType("/x.htm"), undefined);
+//   t.check(negotiate("xxx,text/html"), "text/html");
+//   t.check(negotiate("xxx,application/xhtml+xml"), "application/xhtml+xml");
+//   t.check(fs.existsSync('./index.html'), true, "site contains no index.html");
+//   // additional tests to the original.
+//   t.check(free("/admin/messages.html"),false);
+// }
