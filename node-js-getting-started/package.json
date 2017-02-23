@@ -4,13 +4,14 @@
   "description": "This is a web art gallery",
   "main": "server.js",
   "engines": {
-    "node": "4.7.2"
+    "node": "4.7.2",
+    "npm": "1.4.21"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodejs server.js"
   },
   "repository": {
     "type": "git",
