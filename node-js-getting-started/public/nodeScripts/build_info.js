@@ -1,5 +1,6 @@
 "use strict";
 var t = require("./test.js");
+var fs = require("fs");
 
 module.exports = {
   buildInfoPage:buildInfoPage,
@@ -7,9 +8,10 @@ module.exports = {
 }
 
 // this is the main funcyion in build_info.js and controls the other functions
-function buildInfoPage(query, fs){
-   var file = "./client/info.html";
-   var fileOut ="./client/infotemp.html"
+function buildInfoPage(query){
+   var file = "../info.html";
+   var fileOut ="./infotemp.html"
+   console.log(fs.workingDirectory());
    var index = fs.readFileSync(file, 'utf8');
    if(!index) throw err;
    index = index.replace(/k1/g,query);

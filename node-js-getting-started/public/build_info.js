@@ -26,9 +26,14 @@ function addArrows(query){
   var maxNum;
   if(query.startsWith("k")) maxNum = 27;
   else maxNum =13;
-  var nextNum = (filterInt(query)+1)%maxNum;
-  var prevNum = filterInt(query)-1;
-  if (prevNum === 0) prevNum = maxNum;
+  var nextNum = (filterInt(query)+1)%(maxNum+1);
+  var prevNum = ((filterInt(query)-1)%(maxNum));
+  if(query.startsWith("t")){
+     if(prevNum===0) prevNum=maxNum;
+     if(nextNum===0) nextNum=1;
+ }
+  if (prevNum < 0 && query.startsWith("k")) prevNum = maxNum;
+  else if(prevNum === 0 && query.startsWith("t")) prevNum = maxNum;
   var next = document.getElementById('next').href="?"+query[0]+nextNum;
   var prev = document.getElementById('prev').href="?"+query[0]+prevNum;
 }
@@ -38,6 +43,7 @@ function filterInt(query){
 }
 //------------------ descriptions
 var descriptions = {
+  "k0":"Acr&iacute;lico sobre papel Fabri&aacute;no \"Pittura\", 70x50cm, 2016",
   "k1":"Acr&iacute;lico sobre tela, 70x60cm, 2015",
   "k2":"Acr&iacute;lico sobre tela, 40x40cm, 2013",
   "k3":"Esmalte sint&eacute;tico, 25x33cm, 2006",
@@ -60,7 +66,6 @@ var descriptions = {
   "k20":"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004",
   "k21":"Esmalte sint&eacute;tico sobre tabla, 100x50cm, 2005",
   "k23":"Esmalte sint&eacute;tico sobre tabla, 33x25cm, 2004",
-  "k23":"Esmalte sint&eacute;tico sobre tabla, 33x25cm, 2004",
   "k24":"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004",
   "k25":"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004",
   "k26":"Acr&iacute;lico sobre tela, 45x55cm, 2008",
@@ -81,6 +86,7 @@ var descriptions = {
 
 };
 var alts = {
+  "k0":"The Search",
   "k1":"Ana",
   "k2":"Self portrait II",
   "k3":"Pili",

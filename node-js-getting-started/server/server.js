@@ -2,14 +2,25 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var _ = require("underscore");
 
+var infoBuild = require("../public/nodeScripts/build_info");
+var mid = function(req,res,callback){
+   if(req.url === "/info.html?k1")  {
+      console.log(req.url.toString()+"\n"+res);
+      infoBuild.buildInfoPage(req.url, "k1");
+   }
+   callback();
+};
+
 module.exports = function(port, middleware, callback) {
     var app = express();
-
+   //  middleware = mid;
     if (middleware) {
         app.use(middleware);
     }
+
     app.use(express.static("public"));
     app.use(bodyParser.json());
+
 
     var latestId = 0;
     var todos = [];
@@ -33,9 +44,11 @@ module.exports = function(port, middleware, callback) {
     app.get("/api/todo/state", function(req, res) {
         res.json(stateChangeId);
     });
-    app.get("./",function(req, res) {
-        res.json(stateChangeId);
-    });
+    app.all("*",function(req,res){
+      console.log(req+"\n"+res);
+      res.set("geiasou", "malaka");
+      res.sendStatus(200);
+   });
     // Delete
     app.delete("/api/todo/:id", function(req, res) {
         var id = req.params.id;
