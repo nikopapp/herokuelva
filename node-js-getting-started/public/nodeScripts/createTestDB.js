@@ -2,7 +2,7 @@
 "use strict";
 var sql = require("sqlite3");
 sql.verbose();
-var testDB = new sql.Database("./test.sqlite3");
+var testDB = new sql.Connection("./test.sqlite3");
 testDB.serialize(startup);
 
 function startup() {
