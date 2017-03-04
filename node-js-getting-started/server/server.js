@@ -1,110 +1,90 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var _ = require("underscore");
+var fs = require("fs");
+// var mailin = require("mailin");
 var statusCode = {"notFound": 404, "ok": 200, "created": 201};
-var db = require("sqlite3");
-db.verbose();
-console.log(db);
+
+// var db = require("sqlite3");
+// db.verbose();
+// console.log(db);
 // console.log(db.open("../database/image.db"));
-var infoBuild = require("../public/nodeScripts/build_info");
-var mid = function(req,res,callback){
-   if(req.url === "/info.html?k1")  {
-      console.log(req.url.toString()+"\n"+res);
-      infoBuild.buildInfoPage(req.url, "k1");
-   }
-   callback();
-};
+// var infoBuild = require("../public/nodeScripts/build_info");
+// var mid = function(req,res,callback){
+//    if(req.url === "/info.html?k1")  {
+//       console.log(req.url.toString()+"\n"+res);
+//       infoBuild.buildInfoPage(req.url, "k1");
+//    }
+//    callback();
+// };
 
 module.exports = function(port, middleware, callback) {
+   // mailin.start({
+   //    port:20,
+   //    disableWebHook:true
+   // });
    //------------------ descriptions
-   var descriptions = {
-     "k0":"Acr&iacute;lico sobre papel Fabri&aacute;no \"Pittura\", 70x50cm, 2016",
-     "k1":"Acr&iacute;lico sobre tela, 70x60cm, 2015",
-     "k2":"Acr&iacute;lico sobre tela, 40x40cm, 2013",
-     "k3":"Esmalte sint&eacute;tico, 25x33cm, 2006",
-     "k4":"Acr&iacute;lico sobre tela, 120x40cm, 2014",
-     "k5":"Acr&iacute;lico sobre tela, 65x60cm, 2014",
-     "k6":"Esmalte sint&eacute;tico, 60x40cm, 2006",
-     "k7":"Acr&iacute;lico sobre tela, 27x43cm, 2009",
-     "k8":"Acr&iacute;lico sobre tela, 43x27cm, 2009",
-     "k9":"Acr&iacute;lico y esmalte sint&eacute;tico, 21x29cm, 2007",
-     "k10":"Acr&iacute;lico sobre tela, 55x35cm, 2008",
-     "k11":"Acr&iacute;lico sobre tela, 43x58cm, 2008",
-     "k12":"Acr&iacute;lico sobre tela, 45x25cm, 2008",
-     "k13":"Acr&iacute;lico sobre tela, 100x100cm, 2001",
-     "k14":"Acr&iacute;lico sobre tela, 40x35cm, 2013 ",
-     "k15":"Acr&iacute;lico sobre tela, 50x100cm, 2005",
-     "k16":"Acr&iacute;lico y esmalte sint&eacute;tico  sobre tabla, 160x120cm, 2006",
-     "k17":"Esmalte sint&eacute;tico sobre tabla, 70x32cm, 2005",
-     "k18":"Esmalte sint&eacute;tico sobre tabla, 100x160cm, 2006",
-     "k19":"Acr&iacute;lico y esmalte sint&eacute;tico sobre tabla, 160x80cm, 2006",
-     "k20":"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004",
-     "k21":"Esmalte sint&eacute;tico sobre tabla, 100x50cm, 2005",
-     "k23":"Esmalte sint&eacute;tico sobre tabla, 33x25cm, 2004",
-     "k24":"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004",
-     "k25":"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004",
-     "k26":"Acr&iacute;lico sobre tela, 45x55cm, 2008",
-     "k27":"Papel pintado sobre tabla, 70x55xm, 2009",
-     "t1":"Collage sobre A4, 2011",
-     "t2":"Collage sobre A4, 2011",
-     "t3":"Collage sobre A4, 2011",
-     "t4":"Collage sobre A4, 2011",
-     "t5":"Collage sobre tabla, 46x61cm, 2010",
-     "t6":"Collage sobre tabla, 30x70cm, 2011",
-     "t7":"Collage sobre A4, 2011",
-     "t8":"Collage sobre papel, 20x12cm, 2008",
-     "t9":"Collage sobre A4, 2007",
-     "t10":"Collage sobre A5, 2008",
-     "t11":"L&aacute;piz acuarelable, 46x61cm, 2015",
-     "t12":"pilot y acuarela, 46x61cm, 2008",
-     "t13":"Collage, 46x61cm, 2009",
+   var paintings = {
+      items:[
+     {id:"k0", alt:"The Search", path:"k0.jpg", description:"Acr&iacute;lico sobre papel Fabri&aacute;no \"Pittura\", 70x50cm, 2016", thumb:"c0.jpg"},
+     {id:"k1", alt:"Ana", path:"k1.jpg", description:"Acr&iacute;lico sobre tela, 70x60cm, 2015", thumb:"c1.jpg"},
+     {id:"k2", alt:"Self portrait II", path:"k2.jpg", description:"Acr&iacute;lico sobre tela, 40x40cm, 2013", thumb:"c2.jpg"},
+     {id:"k3", alt:"Pili", path:"k3.jpg", description:"Esmalte sint&eacute;tico, 25x33cm, 2006", thumb:"c3.jpg"},
+     {id:"k4", alt:"Xela y Berni", path:"k4.jpg", description:"Acr&iacute;lico sobre tela, 120x40cm, 2014", thumb:"c4.jpg"},
+     {id:"k5", alt:"Miguel", path:"k5.jpg", description:"Acr&iacute;lico sobre tela, 65x60cm, 2014", thumb:"c5.jpg"},
+     {id:"k6", alt:"Self portrait I", path:"k6.jpg", description:"Esmalte sint&eacute;tico, 60x40cm, 2006", thumb:"c6.jpg"},
+     {id:"k7", alt:"Zu", path:"k7.jpg", description:"Acr&iacute;lico sobre tela, 27x43cm, 2009", thumb:"c7.jpg"},
+     {id:"k8", alt:"Miriam", path:"k8.jpg", description:"Acr&iacute;lico sobre tela, 43x27cm, 2009", thumb:"c8.jpg"},
+     {id:"k9", alt:"La cocina", path:"k9.jpg", description:"Acr&iacute;lico y esmalte sint&eacute;tico, 21x29cm, 2007", thumb:"c9.jpg"},
+     {id:"k10", alt:"Johnny", path:"k10.jpg", description:"Acr&iacute;lico sobre tela, 55x35cm, 2008", thumb:"c10.jpg"},
+     {id:"k11", alt:"La charla", path:"k11.jpg", description:"Acr&iacute;lico sobre tela, 43x58cm, 2008", thumb:"c11.jpg"},
+     {id:"k12", alt:"Rub&eacute;n y Mar&iacute;a", path:"k12.jpg", description:"Acr&iacute;lico sobre tela, 45x25cm, 2008", thumb:"c12.jpg"},
+     {id:"k13", alt:"Mira en ti", path:"k13.jpg", description:"Acr&iacute;lico sobre tela, 100x100cm, 2001", thumb:"c13.jpg"},
+     {id:"k14", alt:"La Siesta", path:"k14.jpg", description:"Acr&iacute;lico sobre tela, 40x35cm, 2013 ", thumb:"c14.jpg"},
+     {id:"k15", alt:"Sara", path:"k15.jpg", description:"Acr&iacute;lico sobre tela, 50x100cm, 2005", thumb:"c15.jpg"},
+     {id:"k16", alt:"El recreo", path:"k16.jpg", description:"Acr&iacute;lico y esmalte sint&eacute;tico  sobre tabla, 160x120cm, 2006", thumb:"c16.jpg"},
+     {id:"k17", alt:"Santiago", path:"k17.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 70x32cm, 2005", thumb:"c17.jpg"},
+     {id:"k18", alt:"Murgartegui", path:"k18.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 100x160cm, 2006", thumb:"c18.jpg"},
+     {id:"k19", alt:"Los cinco", path:"k19.jpg", description:"Acr&iacute;lico y esmalte sint&eacute;tico sobre tabla, 160x80cm, 2006", thumb:"c19.jpg"},
+     {id:"k20", alt:"La playa", path:"k23.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004", thumb:"c20.jpg"},
+     {id:"k21", alt:"La playa II", path:"k21.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 100x50cm, 2005", thumb:"c21.jpg"},
+     {id:"k22", alt:"Encuentros", path:"k22.jpg", description:"dontknow", thumb:"c22.jpg"},
+     {id:"k23", alt:"Santiago II", path:"k23.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 33x25cm, 2004", thumb:"c23.jpg"},
+     {id:"k24", alt:"A R&uacute;a", path:"k24.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004", thumb:"c24.jpg"},
+     {id:"k25", alt:"La estaci&oacute;n", path:"k25.jpg", description:"Esmalte sint&eacute;tico sobre tabla, 25x33cm, 2004", thumb:"c25.jpg"},
+     {id:"k26", alt:"Sarula", path:"k26.jpg", description:"Acr&iacute;lico sobre tela, 45x55cm, 2008", thumb:"c26.jpg"},
+     {id:"k27", alt:"Mari Carmen", path:"k27.jpg", description:"Papel pintado sobre tabla, 70x55xm, 2009", thumb:"c27.jpg"}
+  ]
+};
 
+  var mix_tech = {
+    items:[
+     {id:"t1",alt: "Tu pensamiento te hace libre", description:"Collage sobre A4, 2011",path:"t1.jpg",thumb:"p1.jpg"},
+     {id:"t2",alt: "El hombre", description:"Collage sobre A4, 2011",path:"t2.jpg",thumb:"p2.jpg"},
+     {id:"t3",alt: "La espera", description:"Collage sobre A4, 2011",path:"t3.jpg",thumb:"p3.jpg"},
+     {id:"t4",alt: "Androide", description:"Collage sobre A4, 2011",path:"t4.jpg",thumb:"p4.jpg"},
+     {id:"t6",alt:"Donna I" , description:"Collage sobre tabla, 30x70cm, 2011",path:"t5.jpg",thumb:"p5.jpg"},
+     {id:"t5",alt: "El tiempo II", description:"Collage sobre tabla, 46x61cm, 2010",path:"t6.jpg",thumb:"p6.jpg"},
+     {id:"t7",alt: "La despedida", description:"Collage sobre A4, 2011",path:"t7.jpg",thumb:"p7.jpg"},
+     {id:"t8",alt: "El tiempo I", description:"Collage sobre papel, 20x12cm, 2008",path:"t8.jpg",thumb:"p8.jpg"},
+     {id:"t9",alt: "Las tres Mar&iacute;as", description:"Collage sobre A4, 2007",path:"t9.jpg",thumb:"p9.jpg"},
+     {id:"t10",alt: "Sin t&iacute;tulo", description:"Collage sobre A5, 2008",path:"t10.jpg",thumb:"p10.jpg"},
+     {id:"t11",alt: "Mujer con pajaros", description:"L&aacute;piz acuarelable, 46x61cm, 2015",path:"t11.jpg",thumb:"p11.jpg"},
+     {id:"t12",alt: "Mujer-pez I", description:"pilot y acuarela, 46x61cm, 2008",path:"t12.jpg",thumb:"p12.jpg"},
+     {id:"t13",alt: "Quedate callada", description:"Collage, 46x61cm, 2009",path:"t13.jpg",thumb:"p13.jpg"},
+  ]
+};
+   var gallery = {
+      paintings: {
+         items:paintings.items,
+         folder:"painting"
+      },
+      mix_tech:{
+         items: mix_tech.items,
+         folder:"mix_tech"
+      },
+      islamic:{}
    };
-   var alts = {
-     "k0":"The Search",
-     "k1":"Ana",
-     "k2":"Self portrait II",
-     "k3":"Pili",
-     "k4":"Xela y Berni",
-     "k5":"Miguel",
-     "k6":"Self portrait I",
-     "k7":"Zu",
-     "k8":"Miriam",
-     "k9":"La cocina",
-     "k10":"Johnny",
-     "k11":"La charla",
-     "k12":"Rub&eacute;n y Mar&iacute;a",
-     "k13":"Mira en ti",
-     "k14":"La Siesta",
-     "k15":"Sara",
-     "k16":"El recreo",
-     "k17":"Santiago",
-     "k18":"Murgartegui",
-     "k19":"Los cinco",
-     "k20":"La playa",
-     "k21":"La playa II",
-     "k22":"Encuentros",
-     "k23":"Santiago II",
-     "k24":"A R&uacute;a",
-     "k25":"La estaci&oacute;n",
-     "k26":"Sarula",
-     "k27":"Mari Carmen",
-     "t1":"Tu pensamiento te hace libre",
-     "t2":"El hombre",
-     "t3":"La espera",
-     "t4":"Androide",
-     "t5":"Donna I",
-     "t6":"El tiempo II",
-     "t7":"La despedida",
-     "t8":"El tiempo I",
-     "t9":"Las tres Mar&iacute;as",
-     "t10":"Sin t&iacute;tulo",
-     "t11":"Mujer con pajaros",
-     "t12":"Mujer-pez I",
-     "t13":"Quedate callada"
-   };
-   var info = {desc:descriptions, alts:alts};
-
     var app = express();
    //  middleware = mid;
     if (middleware) {
@@ -112,8 +92,17 @@ module.exports = function(port, middleware, callback) {
     }
 
     app.use(express.static("public"));
+    app.use(express.static("admin"));
     app.use(bodyParser.json());
-
+    app.all("/admin",function(req,res,callback){
+      if(req.method==="POST"){
+         saveUploaded(req,res);
+      }
+      console.log("accessing admin");
+      res.sendFile('index.html',{root:"admin"});
+      // callback();
+      // res.sendFile("index.html");
+   });
 
     var latestId = 0;
     var todos = [];
@@ -121,47 +110,51 @@ module.exports = function(port, middleware, callback) {
     var stateChangeId = 0;
     var status = {"notFound": 404, "ok": 200, "created": 201};
 
-    // Create
-    app.post("/api/todo", function(req, res) {
-        var todo = req.body;
-        todo.isComplete = false;
-        todo.id = latestId.toString();
-        latestId++;
-        stateChangeId++;
-        todos.push(todo);
-        res.set("Location", "/api/todo/" + todo.id);
-        res.sendStatus(status.created);
-    });
-
     // Read
-    app.get("/api/todo/state", function(req, res) {
+    app.get("/api/paintings/state", function(req, res) {
         res.json(stateChangeId);
     });
-    app.get("/api/todo",function(req,res){
-      res.json(info);
-   });
-    // Delete
-    app.delete("/api/todo/:id", function(req, res) {
-        var id = req.params.id;
-        if (id === "complete") {
-            lastDeleted = getComplete();
-            todos = getInComplete();
-            stateChangeId++;
-            res.sendStatus(status.ok);
-        } else {
-            var todo = getTodo(id);
-            if (todo) {
-                lastDeleted = [todo];
-                todos = todos.filter(function(otherTodo) {
-                    return otherTodo !== todo;
-                });
-                stateChangeId++;
-                res.sendStatus(status.ok);
-            } else {
-                res.sendStatus(status.notFound);
-            }
-        }
+    app.get("/api/paintings",function(req,res){
+      res.json({items:gallery.paintings.items,folder:"images/gallery_pictures/painting/"});
     });
+
+    app.get("/api/mix_tex",function(req,res){
+      res.json({items:gallery.mix_tech.items,folder:"images/gallery_pictures/mix_tech/"});
+   });
+   app.get("/api/mix_tech/:id",function(req,res){
+      var id = parseInt(req.params.id.substring(1));
+     res.json({item:gallery.mix_tech.items[id],folder:"images/gallery_pictures/mix_tech/"});
+   });
+
+    app.get("/api/painting/:id",function(req,res){
+      var id = parseInt(req.params.id.substring(1));
+      console.log(id);
+      res.json({item:paintings.items[id], folder:"images/gallery_pictures/painting/"});
+    });
+
+   //  Upload
+    app.post("/admin/upload", function(req,res,next){
+      console.log(next.toString());
+      for(x in req){
+         console.log("req:" +req.x);
+      }
+      for(x in req.params){
+         console.log("params:" +x);
+      }
+      saveUploaded(req,res);
+   });
+function saveUploaded(req,res){
+   fs.readFile(req.params.painting.toString(), function (err, data) {
+      // ...
+      var newPath = "nikos.jpg";
+      fs.writeFile(newPath, data, function (err) {
+         res.redirect("back");
+      });
+   });
+
+}
+
+
 
     // Update
     app.put("/api/todo/:id", function(req, res) {

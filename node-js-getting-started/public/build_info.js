@@ -1,19 +1,14 @@
 "use strict";
-var descriptions={};
-var alts = {};
 function buildInfoPage(URL){
    var fetchProps = {method:"GET"};
-   var prom = fetch("/api/todo",fetchProps);
+   var prom = fetch("/api/"+URL.split("?")[1], fetchProps);
    prom.then(function(res){
       console.log(res);
       return res;
    }).then(checkStatusOK)
    .then(parseJSON)
    .then(function(res){
-      console.log(res.alts);
-      descriptions=res.desc;
-      alts = res.alts;
-      readQuery(URL,fillPage);
+      readQuery(res,fillPage);
    });
 }
 
@@ -31,25 +26,32 @@ function parseJSON(response) {
     return response.json();
 }
 
-function readQuery(URL,callback){
-  console.log(URL);
-  var query = URL.split("?")[1];
-  var gallery ="";
-  var pagetitle="";
-  if (query.startsWith("k")) gallery="painting";
-  else if(query.startsWith("t")) gallery="mix_tech";
+function readQuery(res,callback){
+   var img = document.createElement("img");
+   img.id = "info";
+   img.width="300";
+   img.height="200";
+   img.src = res.folder+res.item.path;
+  console.log(img.src);
+  var imageDiv = document.getElementById('img');
+  imageDiv.appendChild(img);
+  var title1 = document.getElementsByClassName('artwork')[0].innerHTML = res.item.alt/*+alts[query]*/;
+
+  // var query = URL.split("?")[1];
+  // var gallery ="";
+  // var pagetitle="";
+  // if (query.startsWith("k")) gallery="painting";
+  // else if(query.startsWith("t")) gallery="mix_tech";
   // try this < (&#8826;) it is a guay arrow.
-  if (gallery === "painting") pagetitle = "<a href=\"painting.html\">&#9754; Paintings</a>";
-  else pagetitle = "<a href=\"mix_tech.html\">&#9754; Mixed Teqniques</a>";
-  console.log(descriptions[query]);
-  var pInfo = "<br/><h3>&ldquo;"+alts[query]+"&rdquo;</h3>"+descriptions[query];
-  var content =
-    "<img id=\""+query+"\" src=\"images/gallery_pictures/"+gallery+"/"+query+".jpg\" alt=\""+alts[query]+"\"/>"+pInfo;
-  fillPage(content, query, pagetitle, pInfo);
+  // if (gallery === "painting") pagetitle = "<a href=\"painting.html\">&#9754; Paintings</a>";
+  // else pagetitle = "<a href=\"mix_tech.html\">&#9754; Mixed Teqniques</a>";
+  // console.log(descriptions[query]);
+  // var pInfo = "<br/><h3>&ldquo;"+alts[query]+"&rdquo;</h3>"+descriptions[query];
+  // var content =
+   //  "<img id=\""+query+"\" src=\"images/gallery_pictures/"+gallery+"/"+query+".jpg\" alt=\""+alts[query]+"\"/>"+pInfo;
+  // fillPage(content, query, pagetitle, pInfo);
 }
 function fillPage(content,query, pagetitle){
-  var imageDiv = document.getElementById('img').innerHTML = content;
-  var title1 = document.getElementsByClassName('artwork')[0].innerHTML = pagetitle/*+alts[query]*/;
   addArrows(query);
 }
 function addArrows(query){

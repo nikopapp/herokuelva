@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'/>
   <link rel="stylesheet" type="text/css" href="style.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-resource.min.js"></script>
   <link rel="shortcut icon" href="images/icono.png"/>
   <title> Elva Arce </title>
 </head>
@@ -45,114 +47,15 @@
          </ul>
       </div>
   </header>
-  <div class="content-artwork">
+  <div ng-app="paintings" ng-controller="gridVC" class="content-artwork">
     <h1 class="artwork">Paintings</h1>
-    <div class="grid">
-      <a href= "info.html?k0">
-        <img  src="images/gallery_pictures/painting/c0.jpg" alt="Artwork1"/></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k1">
-        <img  src="images/gallery_pictures/painting/c1.jpg" alt="Artwork1"/></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k2">
-        <img src="images/gallery_pictures/painting/c2.jpg" alt="Artwork2" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k3">
-      <img src="images/gallery_pictures/painting/c3.jpg" alt="Artwork3" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k4">
-      <img src="images/gallery_pictures/painting/c4.jpg" alt="Artwork4" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k5">
-      <img src="images/gallery_pictures/painting/c5.jpg" alt="Artwork5" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k6">
-      <img src="images/gallery_pictures/painting/c6.jpg" alt="Artwork6" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k7">
-      <img src="images/gallery_pictures/painting/c7.jpg" alt="Artwork7" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k8">
-      <img src="images/gallery_pictures/painting/c8.jpg" alt="Artwork8" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k9">
-      <img src="images/gallery_pictures/painting/c9.jpg" alt="Artwork9" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k10">
-      <img src="images/gallery_pictures/painting/c10.jpg" alt="Artwork10" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k11">
-      <img src="images/gallery_pictures/painting/c11.jpg" alt="Artwork11" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k12">
-      <img src="images/gallery_pictures/painting/c12.jpg" alt="Artwork12" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k13">
-        <img src="images/gallery_pictures/painting/c13.jpg" alt="Artwork13" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k14">
-        <img src="images/gallery_pictures/painting/c14.jpg" alt="Artwork14" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k15">
-        <img src="images/gallery_pictures/painting/c15.jpg" alt="Artwork15" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k16">
-        <img src="images/gallery_pictures/painting/c16.jpg" alt="Artwork16" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k17">
-        <img src="images/gallery_pictures/painting/c17.jpg" alt="Artwork17" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k18">
-        <img src="images/gallery_pictures/painting/c18.jpg" alt="Artwork18" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k19">
-        <img src="images/gallery_pictures/painting/c19.jpg" alt="Artwork19" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k20">
-        <img src="images/gallery_pictures/painting/c20.jpg" alt="Artwork20" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k21">
-        <img src="images/gallery_pictures/painting/c21.jpg" alt="Artwork21" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k22">
-        <img src="images/gallery_pictures/painting/c22.jpg" alt="Artwork22" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k23">
-        <img src="images/gallery_pictures/painting/c23.jpg" alt="Artwork23" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k24">
-        <img src="images/gallery_pictures/painting/c24.jpg" alt="Artwork24" /></a>
-    </div>
-    <div class="grid">
-      <a href= "info.html?k25">
-        <img src="images/gallery_pictures/painting/c25.jpg" alt="Artwork25" /></a>
-    </div>
-  </ul>
+    <div class="grid" ng-repeat="painting in paintings track by $index">
+      <a href="info.html?painting/{{painting.id}}">
+      <img src="{{folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
+   </div>
+</div>
   <a id="back2top" href="#top">back to top</a>
+  <script src="ang_apps/paintings.js"></script>
   <!-- <a><object id="NA-logo" type="image/svg+xml" data="images/logo.svg">NA</object></a> -->
 </body>
 </html>
