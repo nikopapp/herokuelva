@@ -122,14 +122,28 @@ module.exports = function(port, middleware, callback) {
       res.json({items:gallery.mix_tech.items,folder:"images/gallery_pictures/mix_tech/"});
    });
    app.get("/api/mix_tech/:id",function(req,res){
-      var id = parseInt(req.params.id.substring(1));
-     res.json({item:gallery.mix_tech.items[id],folder:"images/gallery_pictures/mix_tech/"});
+      var id = parseInt(req.params.id);
+      console.log(id);
+      var prevId = (id-1)>0?id-1:mix_tech.items.length-1;
+      var nextId = (id+1)%mix_tech.items.length;
+      console.log(prevId  +  " "+ nextId);
+      res.json({item:gallery.mix_tech.items[id],folder:"images/gallery_pictures/mix_tech/",
+         nextImg:nextId,
+         prevImg:prevId
+      });
    });
 
     app.get("/api/painting/:id",function(req,res){
-      var id = parseInt(req.params.id.substring(1));
+      var id = parseInt(req.params.id);
       console.log(id);
-      res.json({item:paintings.items[id], folder:"images/gallery_pictures/painting/"});
+      var prevId = (id-1)>=0?id-1:paintings.items.length-1;
+      var nextId = (id+1)%paintings.items.length;
+      console.log(prevId  +  " "+ nextId);
+      res.json({
+         item: gallery.paintings.items[id], folder:"images/gallery_pictures/painting/",
+         prevImg:prevId,
+         nextImg:nextId
+      });
     });
 
    //  Upload
@@ -188,8 +202,8 @@ function saveUploaded(req,res){
         }
     });
 
-    function getTodo(id) {
-        return _.find(todos, function(todo) {
+    function getTodo(id,list) {
+        return _.find(list, function(todo) {
             return todo.id === id;
         });
     }

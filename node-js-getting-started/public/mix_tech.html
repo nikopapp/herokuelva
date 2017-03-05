@@ -52,7 +52,7 @@
     <div ng-app="mix_tech" ng-controller="gridVC" class="content-artwork">
       <h1 class="artwork">Mixed Techniques</h1>
       <div class="grid" ng-repeat="painting in paintings track by $index">
-        <a href="info.html?mix_tech/{{painting.id}}">
+        <a href="info.html?mix_tech/{{$index}}">
         <img src="{{folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
      </div>
 <!-- <div class="grid">

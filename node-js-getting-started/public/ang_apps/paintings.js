@@ -10,12 +10,6 @@ app_ang.factory("Painting", function($resource) {
 });
 app_ang.controller("gridVC", ["$scope", "Painting", function(scope, Painting) {
     scope.placeholderClassName = "";
-   //  scope.paintings = [
-   //    {id:"k0", path: baseDir+"c0.jpg"},
-   //    {id:"k1", path: baseDir+"c1.jpg"},
-   //    {id:"k2", path: baseDir+"c2.jpg"}
-   //
-   // ];
    Painting.get().$promise.then(function(data){
       console.log(data);
       scope.paintings = data.items;

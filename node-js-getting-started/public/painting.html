@@ -50,7 +50,7 @@
   <div ng-app="paintings" ng-controller="gridVC" class="content-artwork">
     <h1 class="artwork">Paintings</h1>
     <div class="grid" ng-repeat="painting in paintings track by $index">
-      <a href="info.html?painting/{{painting.id}}">
+      <a href="info.html?painting/{{$index}}">
       <img src="{{folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
    </div>
 </div>
