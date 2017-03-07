@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="UTF-8"/>
+  <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" type="text/css" href="style.css"/> <link rel="stylesheet" type="text/css" href="style.css"/>
+ <link rel="stylesheet" type="text/css" href="adminStyle.css"/>
+  <link rel="shortcut icon" href="images/icono.png"/>
+  <script src="script.js" type="text/javascript"></script>
+  <title> Elva Arce </title>
+</head>
+  <header id="iheader">
+    <div class="titleEAT">ELVA ARCE</div>
+      <nav>
+        <ul>
+          <li><a id="m1" href="index.html">HOME</a></li>
+          <li><a id="m2" href="about.html">ABOUT</a></li>
+          <!-- drop down menu start -->
+          <li>
+          <div class="dropdown">
+            <a id="m3" onclick="showClick(artwork)">ARTWORK</a>
+            <div class="dropdown-content">
+              <a id="a1" href="painting.html">PAINTINGS</a>
+              <a id="a2" href="mix_tech.html">MIXED TECHNIQUES</a>
+              <a id="a3" href="islamic_art.html">ISLAMIC ART</a>
+            </div>
+          </div>
+          </li>
+        </ul>
+      </nav>
+  </header>
+  <body>
+     <section id="adminAddPhoto">
+        <h1>Add Photo</h1>
+        <form action="admin/upload" method="POST" enctype="multipart/form-data">
+           <select>
+             <option value="paintings">Paintings</option>
+             <option value="mix_tech">Mixed Techniques</option>
+             <option value="islamic">Islamic</option>
+          </select>
+          <input type="file" name="painting"><input>
+          <input type="submit">upload</input>
+        </form>
+     </section>
+     <section id="DeletePhoto">
+        <h1>Delete Photo</h1>
+     </section>
+     <section id="Messages">
+       <h1>Messages</h1>
+     </section>
+     <script src="adminScript.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -5,10 +5,8 @@ var fs = require("fs");
 // var mailin = require("mailin");
 var statusCode = {"notFound": 404, "ok": 200, "created": 201};
 
-// var db = require("sqlite3");
-// db.verbose();
-// console.log(db);
-// console.log(db.open("../database/image.db"));
+var sql = require("sqlite3").verbose();
+var db = new sql.Database(":memory:");
 // var infoBuild = require("../public/nodeScripts/build_info");
 // var mid = function(req,res,callback){
 //    if(req.url === "/info.html?k1")  {
