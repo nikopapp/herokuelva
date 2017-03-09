@@ -143,16 +143,11 @@ function makePortals(drop,i){
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           (1 + Math.floor((10000*Math.random())%27)) + ".jpg");
       drop.setAttribute("width","200px");
-      // drop.setAttribute("height","100px");
-      drop.style.zIndex="3";
-      // drop.style.opacity = "1";
+      drop.style.zIndex="30";
     };
     drop.onmouseleave = function(){
-      // drop.style.pointerEvents="none";
       drop.style.zIndex="1";
       drop.setAttribute("width","50px");
-      // drop.setAttribute("height","auto");
-      // drop.style.opacity="0.7";
       drop.setAttribute("src","images/animation/m"+i+".png");
     };
 }
