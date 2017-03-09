@@ -1,7 +1,7 @@
 <div id="top"></div>
 <div class="ranDrops"></div>
 <div class="content-artwork">
-  <h1 class="artwork">Mixed Techniques</h1>
+  <h1 class="artwork">{{title}}</h1>
   <div class="grid" ng-repeat="painting in paintings track by $index">
     <a href="info.html?mix_tech/{{$index}}">
     <img src="{{folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
