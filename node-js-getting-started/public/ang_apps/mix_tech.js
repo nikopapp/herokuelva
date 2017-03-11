@@ -7,7 +7,7 @@ app_ang.config(["$routeProvider", function($routeProvider) {
     }).when("/info/:id", {
         controller: "infoVC as info",
         templateUrl: "ang_apps/templates/infoView.html",
-        styleUrl: "infostyle.css"
+        styleUrls: ["infostyle.css"]
     }).otherwise({
         redirectTo: "/"
     });
@@ -32,6 +32,7 @@ app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
 app_ang.controller("infoVC", ["$routeParams", function(routeParams) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
+  this.imageId = "t"+idNum+1;
   this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
     this.placeholderClassName = "";
 }]);
