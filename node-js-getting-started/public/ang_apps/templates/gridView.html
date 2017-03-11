@@ -3,7 +3,7 @@
 <div class="content-artwork">
   <h1 class="artwork">{{state.title}}</h1>
   <div class="grid" ng-repeat="painting in paintings track by $index">
-    <a href="info.html?{{state.req}}/{{$index}}">
+    <a href="#!/info/{{$index}}">
     <img src="{{folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
  </div>
 </div>

@@ -6,7 +6,8 @@ app_ang.config(["$routeProvider", function($routeProvider) {
         templateUrl: "ang_apps/templates/gridView.html"
     }).when("/info/:id", {
         controller: "infoVC as info",
-        templateUrl: "ang_apps/templates/infoView.html"
+        templateUrl: "ang_apps/templates/infoView.html",
+        styleUrl: "infostyle.css"
     }).otherwise({
         redirectTo: "/"
     });
@@ -28,6 +29,9 @@ app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
       scope.folder = data.folder;
    });
 }]);
-app_ang.controller("infoVC", ["$scope", "Mix", function(scope, Mix) {
-    scope.placeholderClassName = "";
+app_ang.controller("infoVC", ["$routeParams", function(routeParams) {
+  console.log(routeParams.id);
+  var idNum = parseInt(routeParams.id);
+  this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
+    this.placeholderClassName = "";
 }]);
