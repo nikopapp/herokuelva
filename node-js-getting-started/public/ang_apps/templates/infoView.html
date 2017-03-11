@@ -4,12 +4,12 @@
     <img id={{info.imageId}} src="{{info.imageSrc}}"/></td>
   </div>
   <div class=info-text></div>
-    <a id="prev">
+    <a id="prev" ng-click="info.getPrev()">
       <span class="prev">
         &lt;
       </span>
     </a>
-  <a id="next">
+  <a id="next" ng-click="info.getNext()">
     <span class="next">
       &gt;
     </span>

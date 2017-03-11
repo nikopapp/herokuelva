@@ -2,6 +2,10 @@
   margin: 5em auto;
   margin-bottom: 0;
 }
+#img{
+  max-width: 70%;
+  max-height:90%;
+}
 #k26{
   width: 50%;
 }

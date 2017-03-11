@@ -32,7 +32,21 @@ app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
 app_ang.controller("infoVC", ["$routeParams", function(routeParams) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
-  this.imageId = "t"+idNum+1;
+  this.imageId = "t"+(idNum+1);
   this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
     this.placeholderClassName = "";
+  this.getNext = function(){
+    idNum = (idNum + 1)%13;
+    this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
+    this.imageId = "t"+((idNum+1));
+  }
+  this.getPrev = function(){
+    if(idNum > 0){
+      idNum--;
+    } else{
+      idNum = 12;
+    }
+    this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
+    this.imageId = "t"+(idNum+1);
+  }
 }]);
