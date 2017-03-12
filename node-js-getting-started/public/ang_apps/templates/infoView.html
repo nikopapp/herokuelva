@@ -2,7 +2,18 @@
 
 <div id='img'>
     <figure >
+      <a id="prev" ng-click="getPrev()">
+        <span class="prev">
+          &lt;
+        </span>
+      </a>
     <img ng-click="blowUp($event)" class="{{imageClass}}" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}"/></td>
+    <a id="next" ng-click="getNext()">
+      <span class="next">
+        &gt;
+      </span>
+    </a>
+
     <label>
         <h3>{{imageAlt}}</h3>
         <span style="display:block;" ng-repeat="descs in imageDesc">{{descs}}<span>
@@ -10,14 +21,4 @@
     </figure>
   </div>
   <div class=info-text></div>
-    <a id="prev" ng-click="getPrev()">
-      <span class="prev">
-        &lt;
-      </span>
-    </a>
-  <a id="next" ng-click="getNext()">
-    <span class="next">
-      &gt;
-    </span>
-  </a>
 </div>

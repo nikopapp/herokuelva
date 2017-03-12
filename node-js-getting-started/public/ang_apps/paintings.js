@@ -34,28 +34,31 @@ app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", function(sco
     scope.imageClass = "blowUp";
   }
 
-  Painting.get({id:idNum}).$promise.then(function(data){
-    scope.imageId = data.item.id;
-    scope.imageAlt=data.item.alt;
-    scope.imageDesc=data.item.description.split(", ");
-    console.log(data.item.path);
-    scope.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
-    scope.placeholderClassName = "";
-    idNum = (idNum + 1)%data.itemsLength;
-    scope.getNext = function(){
-      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-      scope.imageId = "k"+((idNum));
-    }
-    scope.getPrev = function(){
-      if(idNum > 0){
-        idNum--;
-      } else{
-        idNum = 27;
+  scope.refresh = refresh;
+  function refresh(idNum){
+    Painting.get({id:idNum}).$promise.then(function(data){
+      scope.imageId = data.item.id;
+      scope.imageAlt=data.item.alt;
+      if(data.item.description){
+        scope.imageDesc=data.item.description.split(", ");
       }
-      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-      scope.imageId = "k"+(idNum);
-    }
-  }).catch(function(err){
-    console.log(err);
-  });
+      console.log(data.itemsLength);
+      scope.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
+      scope.placeholderClassName = "";
+      scope.getNext = function(){
+        var newId = (idNum + 1)%data.itemsLength;
+        console.log(newId);
+        refresh(newId);
+      }
+      scope.getPrev = function(){
+        var x = (idNum - 1);
+        var newId = x >=0?x:data.itemsLength-1;
+        console.log(newId);
+        refresh(newId);
+      }
+    }).catch(function(err){
+      console.log(err);
+    });
+  }
+  refresh(idNum);
 }]);
