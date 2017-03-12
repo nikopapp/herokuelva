@@ -39,3 +39,17 @@
 #t8{
   width: 48%;
 }
+#next{
+  position: fixed;
+  right: 1em;
+  top:50%;
+}
+
+#prev{
+  position: fixed;
+  left: 1em;
+  top:50%;
+}
+.blownUp{
+  background-color: rgba(0,0,0,0.5);
+}

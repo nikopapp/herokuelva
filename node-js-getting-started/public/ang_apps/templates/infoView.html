@@ -1,26 +1,23 @@
 <div class="content-info">
 
 <div id='img'>
-    <img id={{info.imageId}} src="{{info.imageSrc}}"/></td>
+    <figure >
+    <img ng-click="blowUp($event)" class="{{imageClass}}" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}"/></td>
+    <label>
+        <h3>{{imageAlt}}</h3>
+        <span style="display:block;" ng-repeat="descs in imageDesc">{{descs}}<span>
+    </label>
+    </figure>
   </div>
   <div class=info-text></div>
-    <a id="prev" ng-click="info.getPrev()">
+    <a id="prev" ng-click="getPrev()">
       <span class="prev">
         &lt;
       </span>
     </a>
-  <a id="next" ng-click="info.getNext()">
+  <a id="next" ng-click="getNext()">
     <span class="next">
       &gt;
     </span>
   </a>
-  <div class="clearfix"></div>
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <span id="close">×</span>
-    <span id="galleryNext" onclick="changePic(+1)">></span>
-    <span id="galleryPrev" onclick="changePic(-1)"><</span>
-    <img class="modal-content" id="img01"/>
-    <div id="caption"></div>
-  </div>
 </div>

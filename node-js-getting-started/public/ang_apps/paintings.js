@@ -26,24 +26,36 @@ app_ang.controller("gridVC", ["$scope", "Painting", function(scope, Painting) {
       scope.folder = data.folder;
    });
 }]);
-app_ang.controller("infoVC", ["$routeParams", function(routeParams) {
+app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", function(scope, routeParams,Painting) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
-  this.imageId = "k"+(idNum);
-  this.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-    this.placeholderClassName = "";
-  this.getNext = function(){
-    idNum = (idNum + 1)%28;
-    this.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-    this.imageId = "k"+((idNum));
+  scope.blowUp = function($event){
+    console.log("blowUp",$event);
+    scope.imageClass = "blowUp";
   }
-  this.getPrev = function(){
-    if(idNum > 0){
-      idNum--;
-    } else{
-      idNum = 27;
+
+  Painting.get({id:idNum}).$promise.then(function(data){
+    scope.imageId = data.item.id;
+    scope.imageAlt=data.item.alt;
+    scope.imageDesc=data.item.description.split(", ");
+    console.log(data.item.path);
+    scope.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
+    scope.placeholderClassName = "";
+    idNum = (idNum + 1)%data.itemsLength;
+    scope.getNext = function(){
+      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
+      scope.imageId = "k"+((idNum));
     }
-    this.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-    this.imageId = "k"+(idNum);
-  }
+    scope.getPrev = function(){
+      if(idNum > 0){
+        idNum--;
+      } else{
+        idNum = 27;
+      }
+      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
+      scope.imageId = "k"+(idNum);
+    }
+  }).catch(function(err){
+    console.log(err);
+  });
 }]);

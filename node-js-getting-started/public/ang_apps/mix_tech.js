@@ -29,12 +29,33 @@ app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
       scope.folder = data.folder;
    });
 }]);
-app_ang.controller("infoVC", ["$routeParams", function(routeParams) {
+app_ang.controller("infoVC", ["$scope","$routeParams","Mix", function(scope,routeParams,Mix) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
-  this.imageId = "t"+(idNum+1);
-  this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
-    this.placeholderClassName = "";
+  Mix.get({id:idNum}).$promise.then(function(data){
+    scope.imageId = data.item.id;
+    scope.imageAlt=data.item.alt;
+    scope.imageDesc=data.item.description.split(", ");
+    console.log(data.item.path);
+    scope.imageSrc = "images/gallery_pictures/mix_tech/" + data.item.path;
+    scope.placeholderClassName = "";
+    idNum = (idNum + 1)%data.itemsLength;
+    scope.getNext = function(){
+      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
+      scope.imageId = "k"+((idNum));
+    }
+    scope.getPrev = function(){
+      if(idNum > 0){
+        idNum--;
+      } else{
+        idNum = 27;
+      }
+      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
+      scope.imageId = "k"+(idNum);
+    }
+  }).catch(function(err){
+    console.log(err);
+  });
   this.getNext = function(){
     idNum = (idNum + 1)%13;
     this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
