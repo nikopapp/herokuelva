@@ -2,7 +2,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var _ = require("underscore");
 var fileUpload = require("express-fileupload");
-var fs = require("fs");
+var authentication = require("express-authentication");
+// var fs = require("fs");
 // var mailin = require("mailin");
 var statusCode = {"notFound": 404, "ok": 200, "created": 201};
 
@@ -130,21 +131,48 @@ module.exports = function(port, middleware, callback) {
        mix_tech.items.push({id:row.id,alt: row.alt, description:row.description,path:row.path,thumb:row.thumb});
      });
    }
+
+  //  --------------------------------------------------------------------------
+  //  --------------------------------ExpressAppStarts--------------------------
+  //  --------------------------------------------------------------------------
+  //  --------------------------------------------------------------------------
     var app = express();
-   //  middleware = mid;
+    //  middleware = mid;
     if (middleware) {
         app.use(middleware);
     }
-
     app.use(express.static("public"));
-    app.use(express.static("admin"));
+    // app.use(express.static("admin"));
+// ---------------------------------------------------------------------
+  app.use(function myauth(req,res,next) {
+      // provide the data that was used to authenticate the request; if this is
+      // not set then no attempt to authenticate is registered.
+      req.challenge = req.get('Authorization');
+
+      req.authenticated = req.authentication === 'secret';
+
+      // provide the result of the authentication; generally some kind of user
+      // object on success and some kind of error as to why authentication failed
+      // otherwise.
+      if (req.authenticated) {
+        req.authentication = { user: 'bob' };
+      } else {
+        res.sendFile("index.html",{
+          root:"admin"
+        });
+        // req.authentication = { error: 'INVALID_API_KEY' };
+      }
+      // That's it! You're done!
+      next();
+    });
+// ----------------------------------------------------------------------
     app.use(fileUpload());
     app.use(bodyParser.json());
-    app.all("/admin",function(req,res,callback){
+    app.all("/admin",
+        authentication.required(),
+        function(req,res,callback){
       console.log("accessing admin");
-      res.sendFile('index.html',{root:"admin"});
-      // callback();
-      // res.sendFile("index.html");
+      res.sendFile('login.html');
    });
 
 
