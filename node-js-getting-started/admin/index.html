@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'/>
-  <link rel="stylesheet" type="text/css" href="style.css"/> <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="../style.css"/> <link rel="stylesheet" type="text/css" href="style.css"/>
  <link rel="stylesheet" type="text/css" href="adminStyle.css"/>
   <link rel="shortcut icon" href="images/icono.png"/>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
@@ -11,10 +11,10 @@
   <title> Elva Arce </title>
 </head>
   <header style="position:fixed" id="iheader">
-    <ng-include src="'ang_apps/templates/navView.html'"></ng-include>
+    <ng-include src="'../public/ang_apps/templates/navView.html'"></ng-include>
   </header>
   <body ng-controller="adminCtrl as admin">
-     <section id="adminAddPhoto" ng-if="admin.loggedIn">
+     <section id="adminAddPhoto">
         <h1>Add Photo</h1>
         <form action="/admin/upload" method="POST" enctype="multipart/form-data">
            <select name="gallery">
@@ -29,7 +29,7 @@
           <input type="submit"></input><br/>
         </form>
      </section>
-     <section id="DeletePhoto" ng-if="admin.loggedIn">
+     <section id="DeletePhoto">
         <h1>Delete Photo</h1>
         <div >
           <form ng-submit="admin.delete($event)">
