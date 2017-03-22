@@ -32,25 +32,13 @@ passport.use(new Strategy(
       cb(null, user);
     });
   });
-console.log(userdb.users.findByUsername("elva", function(err,user){
-  console.log(user.password);
-}));
-// var fs = require("fs");
+
 // var mailin = require("mailin");
-const statusCode = {"notFound": 404, "ok": 200, "created": 201};
 
 const sql = require("sqlite3").verbose();
 var db = new sql.Database("database/db.sqlite3");
 
-// var infoBuild = require("../public/nodeScripts/build_info");
-// var mid = function(req,res,callback){
-//    if(req.url === "/info.html?k1")  {
-//       console.log(req.url.toString()+"\n"+res);
-//       infoBuild.buildInfoPage(req.url, "k1");
-//    }
-//    callback();
-// };
-
+const statusCode = {"notFound": 404, "ok": 200, "created": 201};
 module.exports = function(port, middleware, callback) {
    //------------------ descriptions
    var paintings = {
@@ -74,37 +62,6 @@ module.exports = function(port, middleware, callback) {
 // db Intstantiation
    db.serialize(function(){
 
-  //   db.run("DROP TABLE IF EXISTS PAINTING");
-  //  db.run("DROP TABLE IF EXISTS MIX_TECH");
-  //    db.run("CREATE TABLE PAINTING ("+
-  //    "id TEXT,"+
-  //    " alt TEXT,"+
-  //    " path TEXT,"+
-  //    "description TEXT,"+
-  //    "thumb TEXT,"+
-  //    "timestamp LONG"+
-  //    ")");
-  //    db.run("CREATE TABLE MIX_TECH ("+
-  //    "id TEXT,"+
-  //    "alt TEXT,"+
-  //    "path TEXT,"+
-  //    "description TEXT,"+
-  //    "thumb TEXT,"+
-  //    "timestamp LONG"+
-  //    ")");
-   //
-  //    var stmt = db.prepare("INSERT INTO MIX_TECH VALUES (?,?,?,?,?,?)");
-  //    for (var i = mix_tech.items.length-1; i >=0 ; i--) {
-  //         var mix = mix_tech.items[i];
-  //        stmt.run(mix.id,mix.alt,mix.path,mix.description,mix.thumb,Date.now()-200*i);
-  //    }
-  //    stmt.finalize();
-  //    var stmt = db.prepare("INSERT INTO PAINTING VALUES (?,?,?,?,?,?)");
-  //    for (var i = paintings.items.length-1; i >=0 ; i--) {
-  //       var paint = paintings.items[i];
-  //        stmt.run(paint.id,paint.alt,paint.path,paint.description,paint.thumb,Date.now()-200*i);
-  //    }
-  //    stmt.finalize();
   loadDB();
    });
    function loadDB(){
@@ -137,26 +94,21 @@ module.exports = function(port, middleware, callback) {
     // routes ======================================================================
     // require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
     // require('./app/config')(passport); // pass passport for configuration
+// -------------------------MyLOG-----------------------------------------------
+    // app.use(function(req,res,next) {
+    //   console.log(req.method, req.url);
+    //   next();
+    // });
 
-    app.use(function(req,res,next) {
-      console.log(req.method, req.url);
-      next();
-    });
+// -----------------------------------------------------------------------------
     // app.use(express.static("admin"),function(req,res){
     //     console.log(req);
     // });
 // ---------------------------------------------------------------------
 // ----------------------------------------------------------------------
-    app.use(fileUpload());
-    app.use(express.static("public"));
-  //   app.all("/admin",
-  //       function(req,res,callback){
-  //     console.log("accessing admin");
-  //     res.sendFile('admin.html');
-  //  });
-  //  app.get('/login', function(req, res) {
-  //      res.status(200).sendFile("login.html");
-  //  });
+  app.use(fileUpload());
+  app.use(express.static("public"));
+
   app.post('/login',
     passport.authenticate('local', { failureRedirect: '/login.html' }),
     function(req, res) {
@@ -175,7 +127,7 @@ module.exports = function(port, middleware, callback) {
    app.get("/admin/:file",
    ensurelog.ensureLoggedIn(),
    function(req,res,next){
-     res.sendFile(req.params.file,{root:"admin"});   
+     res.sendFile(req.params.file,{root:"admin"});
    });
 
    app.post('/admin/upload', function(req, res) {

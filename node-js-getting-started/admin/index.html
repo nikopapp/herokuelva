@@ -10,10 +10,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-resource.min.js"></script>
   <title> Elva Arce </title>
 </head>
-  <header style="position:fixed" id="iheader">
-    <ng-include src="'../public/ang_apps/templates/navView.html'"></ng-include>
-  </header>
+
   <body ng-controller="adminCtrl as admin">
+    <header>
+      <a href="/">HOME</a>
+    </header>
      <section id="adminAddPhoto">
         <h1>Add Photo</h1>
         <form action="/admin/upload" method="POST" enctype="multipart/form-data">
@@ -29,6 +30,7 @@
           <input type="submit"></input><br/>
         </form>
      </section>
+
      <section id="DeletePhoto">
         <h1>Delete Photo</h1>
         <div >
@@ -46,10 +48,10 @@
           {{admin.message}}
         </div>
      </section>
+
      <section id="Messages" ng-if="admin.loggedIn">
        <h1>Messages</h1>
      </section>
      <script src="adminScript.js" type="text/javascript"></script>
-
   </body>
 </html>

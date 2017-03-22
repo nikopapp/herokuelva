@@ -12,12 +12,6 @@
   <title>Elva Arce</title>
 </head>
 <body  ng-app="loginApp" ng-controller="loginCtrl as login">
-  <form target="" ng-if="login.loggedIn === false" ng-submit="login.sendAuth($event)">
-    <input ng-model="login.uname" placeholder="username"></input><br />
-    <input placeholder="password" type="password"></input><br />
-    <input type="submit" value="login"></input>
-  </form>
-  {{login.uname}}
   <form action="/login" method="post">
         <div class="form-group">
             <input placeholder="user" type="text" class="form-control" name="username"></input>
@@ -26,8 +20,7 @@
             <input placeholder="password" type="password" class="form-control" name="password">
         </div>
 
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        <button type="submit" >Login</button>
     </form>
 </body>
-<script src="ang_apps/loginApp.js"></script>
 </html>

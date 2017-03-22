@@ -9,7 +9,6 @@ angular.module("adminApp").factory("Gallery", function($resource) {
 angular.module("adminApp").controller("adminCtrl", ["Gallery", function(Gallery){
   var self = this;
   this.message = "helloWordl";
-  self.loggedIn = false;
   self.galSelect;
   self.selectedImage;
   self.images = [];

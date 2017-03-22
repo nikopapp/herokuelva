@@ -1,12 +1,24 @@
 #img{
   margin: 5em auto;
   margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-#img{
-  max-width: 70%;
-  max-height:90%;
+#img img{
+  max-width: 45%;
+  min-width: 45%;
+  vertical-align: middle;
+  height: 100%;
 }
-#k26{
+#info-text{
+  position: fixed;
+  left:3em;
+  z-index: 3;
+  text-align: left;
+}
+
+/*#k26{
   width: 50%;
 }
 #k0,#k1,#k2,#k3,#k5,#k7,#k8,#k27,
@@ -34,37 +46,47 @@
 }
 #t2,#t3,#t4,#t5,#t7{
   width: 57%;
-  /*left: 175px;*/
+  /*left: 175px;
 }
 #t8{
   width: 48%;
+}*/
+#prev{
+  transform: translate(-150%,0);
 }
 #next{
- display: inline-block;
+  transform: translate(50%,0);
+}
+#next,#prev{
+  position: fixed;
+  top:40%;
+  z-index: 3;
+  color: white;
+  display: inline-block;
+
+}
+#next:hover, #prev:hover{
+  color: rgba(255,255,255,0.6);
 }
 
-#prev{
-  display: inline-block;
-}
 .blownUp{
   background-color: rgba(0,0,0,0.5);
 }
 
 .next,.prev{
   font-weight: 700;
-  font-size: 3em;
-  font-family: "Dosis";
   width: 1.5em;
   height: 1.5em;
-  margin: 1em auto;
+  font-size: 3em;
+  font-family: "Dosis";
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   display: inline-block;
+  position: relative;
+  /*top:30%;*/
 }
 .next{
-  width: 1.4em;
-  height: 1.4em;
   background-image: url(images/animation/m5.png);
 }
 .prev{
@@ -72,12 +94,6 @@
 }
 .next:hover, .prev:hover{
   cursor: pointer;
-}
-#next,#prev{
-  color: white;
-}
-#next:hover, #prev:hover{
-  color: rgba(255,255,255,0.6);
 }
 #img img:hover{
   box-shadow: 0px 0px 4px 1px black;
