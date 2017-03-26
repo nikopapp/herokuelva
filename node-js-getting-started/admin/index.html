@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB" ng-app="adminApp">
+<head>
+  <meta charset="UTF-8"/>
+  <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'/>
+  <link rel="stylesheet" type="text/css" href="../style.css"/> <link rel="stylesheet" type="text/css" href="style.css"/>
+ <link rel="stylesheet" type="text/css" href="adminStyle.css"/>
+  <link rel="shortcut icon" href="images/icono.png"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-resource.min.js"></script>
+  <title> Elva Arce </title>
+</head>
+
+  <body ng-controller="adminCtrl as admin">
+    <header>
+      <a href="/">HOME</a>
+    </header>
+     <section id="adminAddPhoto">
+        <h1>Add Photo</h1>
+        <form action="/admin/upload" method="POST" enctype="multipart/form-data">
+           <select name="gallery">
+             <option value="painting">Paintings</option>
+             <option value="mix_tech">Mixed Techniques</option>
+             <option value="islamic">Islamic</option>
+          </select><br/>
+          <label>file</label><input type="file" name="mainFile"></input><br/>
+          <label>thumbnail</label><input type="file" name="thumbFile"></input><br/>
+          <label>title</label><input name="title"></input><br/>
+          <label>Description</label><input name="description"></input><br/>
+          <input type="submit"></input><br/>
+        </form>
+     </section>
+
+     <section id="DeletePhoto">
+        <h1>Delete Photo</h1>
+        <div >
+          <form ng-submit="admin.delete($event)">
+            <select name="admin.galSelect" ng-model="admin.galSelect">
+              <option ng-repeat="gallery in admin.galleries"  value="{{gallery.folder}}">{{gallery.folder}}</option>
+            </select>
+            <select ng-model="admin.selectedImage">
+              <option ng-repeat="image in admin.images |filter:admin.galSelect" value="{{image.src.path}}" label="{{image.src.thumb}}">{{image.src.thumb}}
+              </option>
+            </select>
+            <br/>
+            <label>Delete</label><input type="submit"></input>
+          </form>
+          {{admin.message}}
+        </div>
+     </section>
+
+     <section id="Messages" ng-if="admin.loggedIn">
+       <h1>Messages</h1>
+     </section>
+     <script src="adminScript.js" type="text/javascript"></script>
+  </body>
+</html>

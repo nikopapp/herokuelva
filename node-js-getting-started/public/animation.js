@@ -143,16 +143,11 @@ function makePortals(drop,i){
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           (1 + Math.floor((10000*Math.random())%27)) + ".jpg");
       drop.setAttribute("width","200px");
-      // drop.setAttribute("height","100px");
-      drop.style.zIndex="3";
-      // drop.style.opacity = "1";
+      drop.style.zIndex="30";
     };
     drop.onmouseleave = function(){
-      // drop.style.pointerEvents="none";
       drop.style.zIndex="1";
       drop.setAttribute("width","50px");
-      // drop.setAttribute("height","auto");
-      // drop.style.opacity="0.7";
       drop.setAttribute("src","images/animation/m"+i+".png");
     };
 }
@@ -163,7 +158,7 @@ function makePortalDrops(drop,i){
       console.log("1st"+randomNum);
       imageSwap.src = "images/gallery_pictures/painting/c"+ randomNum + ".jpg";
       // console.log(imageSwap[0]);
-      drop.parentElement.href="info.html?painting/k"+randomNum;
+      drop.parentElement.href="info.html?painting/"+randomNum;
       drop.style.transition = "all 0.6s ease";
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           randomNum + ".jpg");

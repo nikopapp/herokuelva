@@ -1,0 +1,28 @@
+<div class="content-info">
+  <div class="flex-item">
+  <a id="prev" ng-click="getPrev()">
+    <span class="prev">
+      &lt;
+    </span>
+  </a>
+</div>
+  <div class="info-img">
+    <img ng-click="blowUp($event)" class="info-img-img" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}"/></td>
+  </div>
+<div class="flex-item">
+    <a id="next" ng-click="getNext()">
+      <span class="next">
+        &gt;
+      </span>
+    </a>
+  </div>
+    <script>
+    window.onscroll = function(event){
+      console.log("scrolledd", event);
+    };
+    </script>
+</div>
+<div id=info-text>
+  <h3>{{imageAlt}}</h3>
+  <span style="display:block;" ng-repeat="descs in imageDesc">{{descs}}<span>
+  </div>

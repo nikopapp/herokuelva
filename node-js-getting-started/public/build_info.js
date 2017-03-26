@@ -67,3 +67,4 @@ function filterInt(query){
   return pageNum;
 }
 buildInfoPage(document.URL);
+console.log("height",window.innerHeight);

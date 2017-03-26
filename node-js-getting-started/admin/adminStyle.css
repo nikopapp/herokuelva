@@ -1,0 +1,15 @@
+body{
+   position: absolute;
+   top:30%;
+   background-color: #eae1db;
+}
+form{
+  text-align: left;
+  margin-left: 3em;
+}
+form input{
+  margin:1em auto;
+}
+form label{
+  min-width: 120px;
+}
