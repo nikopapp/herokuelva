@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const session      = require('express-session');
-const morgan       = require('morgan');
 const userdb = require('./db');
 const ensurelog = require('connect-ensure-login');
 
@@ -81,7 +80,6 @@ module.exports = function(port, middleware, callback) {
     if (middleware) {
         app.use(middleware);
     }
-    app.use(morgan('dev')); // log every request to the console
     app.use(cookieParser()); // read cookies (needed for auth)
     app.use(bodyParser.json());
     app.use(require('body-parser').urlencoded({ extended: true }));
