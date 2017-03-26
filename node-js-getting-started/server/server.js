@@ -198,9 +198,11 @@ module.exports = function(port, middleware, callback) {
       var prevId = (id-1)>0?id-1:mix_tech.items.length-1;
       var nextId = (id+1)%mix_tech.items.length;
       console.log(prevId  +  " "+ nextId);
-      res.json({item:gallery.mix_tech.items[id],folder:"images/gallery_pictures/mix_tech/",
-         nextImg:nextId,
-         prevImg:prevId
+      res.json({
+        item:gallery.mix_tech.items[id],folder:"images/gallery_pictures/mix_tech/",
+        nextImg:nextId,
+        prevImg:prevId,
+        itemsLength: mix_tech.items.length
       });
    });
 

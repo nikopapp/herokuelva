@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB" ng-app="mix_tech" >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB" >
 <head>
   <meta charset="UTF-8"/>
   <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great|Dosis:400,700' rel='stylesheet' type='text/css'/>
@@ -15,8 +15,8 @@
 <header>
   <ng-include src="'ang_apps/templates/navView.html'"></ng-include>
 </header>
-  <body ng-init="state={title:'Mixed Techniques', req:'mix_tech'}">
-    <div ng-view></div>
+  <body ng-app="mix_tech" ng-init="state={title:'Mixed Techniques', req:'mix_tech'}">
+    <div class="content-info-col" ng-view></div>
     <script src="ang_apps/mix_tech.js"></script>
     <script src="script.js" type="text/javascript"></script>
   <!-- <a href="http://nikospappascv.com"><object id="NA-logo" type="image/svg+xml" data="images/logo.svg">NA</object></a> -->

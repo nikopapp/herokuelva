@@ -42,7 +42,6 @@ app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", function(sco
       if(data.item.description){
         scope.imageDesc=data.item.description.split(", ");
       }
-      console.log(data.itemsLength);
       scope.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
       scope.placeholderClassName = "";
       scope.getNext = function(){
