@@ -23,6 +23,10 @@ angular.module("adminApp").controller("adminCtrl", ["Gallery", function(Gallery)
     console.log(self.selectedImage);
     // console.log($event.target.imagename);
   };
+  self.authenticate = function($event){
+    console.log($event);
+  };
+  // ---------------------------------------------
   Gallery.get().$promise.then(function(data){
     console.log(data);
     self.galleries = data.item;

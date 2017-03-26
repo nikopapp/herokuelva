@@ -1,12 +1,44 @@
-#img{
-  margin: 5em auto;
-  margin-bottom: 0;
+html{
+  height: 100%;
+  width: 100%;
 }
-#img{
-  max-width: 70%;
-  max-height:90%;
+body{
+  text-align: center;
+  height: 50%;
+  width: 100%;
 }
-#k26{
+.content-info-col{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.content-info{
+  display: flex;
+  flex: 0 auto;
+  /*flex-basis:90%;
+  flex-grow: 1;
+  flex-direction: row;
+  flex-wrap: nowrap;*/
+  justify-content: center;
+}
+
+.info-img{
+  flex-grow: 0;
+  flex-shrink: 1;
+  margin-top: 8em;
+  max-height: 55%;
+
+}
+#info-text{
+  display: block;
+  position: fixed;
+  top:20%;
+  left:3em;
+  z-index: 3;
+  text-align: left;
+}
+
+/*#k26{
   width: 50%;
 }
 #k0,#k1,#k2,#k3,#k5,#k7,#k8,#k27,
@@ -34,37 +66,49 @@
 }
 #t2,#t3,#t4,#t5,#t7{
   width: 57%;
-  /*left: 175px;*/
+  /*left: 175px;
 }
 #t8{
   width: 48%;
+}*/
+#next,#prev{
+  opacity: .75;
+  /*position: fixed;
+  top:40%;
+  z-index: 3;
+  display: inline-block;*/
+  color: white;
+
 }
-#next{
- display: inline-block;
+#next:hover, #prev:hover{
+  color: rgba(255,255,255,0.6);
 }
 
-#prev{
-  display: inline-block;
-}
 .blownUp{
   background-color: rgba(0,0,0,0.5);
 }
-
+.flex-item{
+  /*flex-basis:25%;
+  flex-grow: 1;*/
+  flex: 0 auto;
+  margin-bottom: 0;
+}
 .next,.prev{
   font-weight: 700;
-  font-size: 3em;
-  font-family: "Dosis";
   width: 1.5em;
   height: 1.5em;
-  margin: 1em auto;
+  font-size: 3em;
+  font-family: "Dosis";
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   display: inline-block;
+  position: relative;
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-top: 6em;
 }
 .next{
-  width: 1.4em;
-  height: 1.4em;
   background-image: url(images/animation/m5.png);
 }
 .prev{
@@ -72,12 +116,6 @@
 }
 .next:hover, .prev:hover{
   cursor: pointer;
-}
-#next,#prev{
-  color: white;
-}
-#next:hover, #prev:hover{
-  color: rgba(255,255,255,0.6);
 }
 #img img:hover{
   box-shadow: 0px 0px 4px 1px black;
