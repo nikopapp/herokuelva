@@ -3,6 +3,7 @@
 }
 .content-info{
   display: flex;
+  align-items: stretch;
   justify-content: center;
   /*flex-basis:90%;
   flex-grow: 1;
@@ -14,7 +15,7 @@
   max-width: 100%;
 }
 .info-img{
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 2;
   flex-basis: 40%;
   margin-top: 8em;
@@ -49,7 +50,7 @@
   flex-grow: 1;*/
   /*cross: 1 1 100%;*/
   flex-shrink: 1;
-  flex-basis: 30%;
+  flex-basis: 25%;
   margin-top: 8em;
   margin-bottom: 0;
 }
