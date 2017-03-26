@@ -7,7 +7,6 @@ app_ang.config(["$routeProvider", function($routeProvider) {
     }).when("/info/:id", {
         controller: "infoVC as info",
         templateUrl: "ang_apps/templates/infoView.html",
-        styleUrls: ["infostyle.css"]
     }).otherwise({
         redirectTo: "/"
     });
@@ -32,42 +31,44 @@ app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
 app_ang.controller("infoVC", ["$scope","$routeParams","Mix", function(scope,routeParams,Mix) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
-  Mix.get({id:idNum}).$promise.then(function(data){
-    scope.imageId = data.item.id;
-    scope.imageAlt=data.item.alt;
-    scope.imageDesc=data.item.description.split(", ");
-    console.log(data.item.path);
-    scope.imageSrc = "images/gallery_pictures/mix_tech/" + data.item.path;
-    scope.placeholderClassName = "";
-    idNum = (idNum + 1)%data.itemsLength;
-    scope.getNext = function(){
-      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-      scope.imageId = "k"+((idNum));
-    }
-    scope.getPrev = function(){
-      if(idNum > 0){
-        idNum--;
-      } else{
-        idNum = 27;
+  scope.refresh = refresh;
+  function refresh(idNum){
+    Mix.get({id:idNum}).$promise.then(function(data){
+      scope.imageId = data.item.id;
+      scope.imageAlt=data.item.alt;
+      if(data.item.description){
+        scope.imageDesc=data.item.description.split(", ");
       }
-      scope.imageSrc = "images/gallery_pictures/painting/k" + (idNum) + ".jpg";
-      scope.imageId = "k"+(idNum);
-    }
-  }).catch(function(err){
-    console.log(err);
-  });
-  this.getNext = function(){
-    idNum = (idNum + 1)%13;
-    this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
-    this.imageId = "t"+((idNum+1));
+      scope.imageSrc = "images/gallery_pictures/mix_tech/" + data.item.path;
+      scope.placeholderClassName = "";
+      scope.getNext = function(){
+        var newId = (idNum + 1)%data.itemsLength;
+        console.log(newId);
+        refresh(newId);
+      }
+      scope.getPrev = function(){
+        var x = (idNum - 1);
+        var newId = x >=0?x:data.itemsLength-1;
+        console.log(newId);
+        refresh(newId);
+      }
+    }).catch(function(err){
+      console.log(err);
+    });
   }
-  this.getPrev = function(){
-    if(idNum > 0){
-      idNum--;
-    } else{
-      idNum = 12;
-    }
-    this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
-    this.imageId = "t"+(idNum+1);
-  }
+  refresh(idNum);
+  // this.getNext = function(){
+  //   idNum = (idNum + 1)%13;
+  //   this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
+  //   this.imageId = "t"+((idNum+1));
+  // }
+  // this.getPrev = function(){
+  //   if(idNum > 0){
+  //     idNum--;
+  //   } else{
+  //     idNum = 12;
+  //   }
+  //   this.imageSrc = "images/gallery_pictures/mix_tech/t" + (idNum+1) + ".jpg";
+  //   this.imageId = "t"+(idNum+1);
+  // }
 }]);
