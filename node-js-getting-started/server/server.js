@@ -91,20 +91,12 @@ module.exports = function(port, middleware, callback) {
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
 
-    // routes ======================================================================
-    // require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-    // require('./app/config')(passport); // pass passport for configuration
 // -------------------------MyLOG-----------------------------------------------
     // app.use(function(req,res,next) {
     //   console.log(req.method, req.url);
     //   next();
     // });
 
-// -----------------------------------------------------------------------------
-    // app.use(express.static("admin"),function(req,res){
-    //     console.log(req);
-    // });
-// ---------------------------------------------------------------------
 // ----------------------------------------------------------------------
   app.use(fileUpload());
   app.use(express.static("public"));
