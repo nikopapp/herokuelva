@@ -1,14 +1,14 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const _ = require("underscore");
-const fileUpload = require("express-fileupload");
+const express     = require("express");
+const bodyParser  = require("body-parser");
+const _           = require("underscore");
+const fileUpload  = require("express-fileupload");
 
-const cookieParser = require('cookie-parser');
-const passport = require('passport');
-const Strategy = require('passport-local').Strategy;
-const session      = require('express-session');
-const userdb = require('./db');
-const ensurelog = require('connect-ensure-login');
+const cookieParser  = require('cookie-parser');
+const passport      = require('passport');
+const Strategy      = require('passport-local').Strategy;
+const session       = require('express-session');
+const userdb        = require('./db');
+const ensurelog     = require('connect-ensure-login');
 
 passport.use(new Strategy(
   function(username, password, cb) {
