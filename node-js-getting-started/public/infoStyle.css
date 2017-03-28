@@ -83,3 +83,13 @@ img#info{
   width: auto;
   margin-right: 20%;
 }
+#firma{
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  transform: translateX(-120%) translateY(-20%);
+  flex-grow: 0;
+  height: 50px;
+  z-index: 11;
+
+}
