@@ -9,6 +9,11 @@ function showClick(menuItem){
     menuItem[0].style.display = "none";
   }
 }
+function transformFirma(){
+  var imgInfo = document.getElementById("info-img-img")[0];
+  var computedStyle = window.getComputedStyle(imgInfo);
+  console.log(computedStyle);
+}
 function waitForLoad(){
   var body = document.getElementsByTagName('body');
   var url = document.URL;
