@@ -33,6 +33,23 @@ passport.use(new Strategy(
   });
 
 // var mailin = require("mailin");
+<<<<<<< HEAD
+var statusCode = {"notFound": 404, "ok": 200, "created": 201};
+
+var slqite = require("sqlite3").verbose();
+var db = new sqlite.Database("../database/images.db");
+console.log(db);
+console.log(db.open("../database/image.db"));
+// var infoBuild = require("../public/nodeScripts/build_info");
+// var mid = function(req,res,callback){
+//    if(req.url === "/info.html?k1")  {
+//       console.log(req.url.toString()+"\n"+res);
+//       infoBuild.buildInfoPage(req.url, "k1");
+//    }
+//    callback();
+// };
+=======
+>>>>>>> 151427aaf2332eb6d19039c6135c16c9653048eb
 
 const sql = require("sqlite3").verbose();
 var db = new sql.Database("database/db.sqlite3");
