@@ -10,7 +10,7 @@ function showClick(menuItem){
   }
 }
 function transformFirma(){
-  var imgInfo = document.getElementById("info-img-img")[0];
+  var imgInfo = document.getElementsByClassName("info-img-img")[0];
   var computedStyle = window.getComputedStyle(imgInfo);
   console.log(computedStyle);
 }

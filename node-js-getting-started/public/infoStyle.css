@@ -34,7 +34,7 @@
 }
 
 #next,#prev{
-  opacity: .75;
+  opacity: .5;
   color: white;
 
 }
@@ -62,6 +62,7 @@
   display: inline-block;
   position: relative;
   margin: auto;
+  transform: scale(0.7);
 }
 .next{
   background-image: url(images/animation/m5.png);
