@@ -26,13 +26,17 @@
   margin: auto;
 }
 #info-text{
-  flex-grow: 0;
+
+  display: block;
+  flex-grow: 2;
+  flex-basis: 100%;
   position: relative;
   z-index: 3;
   height: 1em;
   line-height: 4em;
   text-align: center;
 }
+#info-text div{}
 #next,#prev{
   opacity: .5;
   color: white;
@@ -62,7 +66,7 @@
   display: inline-block;
   position: relative;
   margin: auto;
-  transform: scale(0.7);
+  transform: scale(0.7) translateY(50vh);
 }
 .next{
   background-image: url(images/animation/m5.png);

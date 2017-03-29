@@ -7,11 +7,13 @@
   </a>
 </div>
   <div class="info-img">
-    <img ng-click="blowUp($event)" class="info-img-img" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}">
     <div id=info-text>
+    <img ng-click="blowUp($event)" class="info-img-img" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}">
+    <div>
       <em><strong><span>{{imageAlt}}.</span></strong></em>
       <span ng-repeat="descs in imageDesc">{{descs}}.<span>
       </div>
+    </div>
   </img>
   </div>
 <div class="flex-item" ng-click="getNext()">

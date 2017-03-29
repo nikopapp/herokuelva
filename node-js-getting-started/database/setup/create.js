@@ -65,7 +65,7 @@ function erro(e) { if (e) throw e; }
 
 var paintings = {
    items:[
-  {id:"k0", alt:"The Search", path:"k0.jpg", description:"Acrílico sobre papel Fabriàno \"Pittura\", 70x50cm, 2016", thumb:"c0.jpg"},
+  {id:"k0", alt:"La búsqueda", path:"k0.jpg", description:"Acrílico sobre papel Fabriàno \"Pittura\", 70x50cm, 2016", thumb:"c0.jpg"},
   {id:"k1", alt:"Ana", path:"k1.jpg", description:"Acrílico sobre tela, 70x 60 cm, 2015", thumb:"c1.jpg"},
   {id:"k2", alt:"Self portrait II", path:"k2.jpg", description:"Acrílico sobre tela, 40x 40 cm, 2013", thumb:"c2.jpg"},
   {id:"k3", alt:"Pili", path:"k3.jpg", description:"Esmalte sintético, 25x 33 cm, 2006", thumb:"c3.jpg"},
@@ -79,9 +79,9 @@ var paintings = {
   {id:"k11", alt:"La charla", path:"k11.jpg", description:"Acrílico sobre tela, 43x 58 cm, 2008", thumb:"c11.jpg"},
   {id:"k12", alt:"Rubén y María", path:"k12.jpg", description:"Acrílico sobre tela, 45x 25 cm, 2008", thumb:"c12.jpg"},
   {id:"k13", alt:"Mira en ti", path:"k13.jpg", description:"Acrílico sobre tela, 100x 100 cm, 2001", thumb:"c13.jpg"},
-  {id:"k14", alt:"La Siesta", path:"k14.jpg", description:"Acrílico sobre tela, 40x 35 cm, 2013 ", thumb:"c14.jpg"},
+  {id:"k14", alt:"La siesta", path:"k14.jpg", description:"Acrílico sobre tela, 40x 35 cm, 2013 ", thumb:"c14.jpg"},
   {id:"k15", alt:"Sara", path:"k15.jpg", description:"Acrílico sobre tela, 50x 100 cm, 2005", thumb:"c15.jpg"},
-  {id:"k16", alt:"El recreo", path:"k16.jpg", description:"Acrílico y esmalte sintético  sobre tabla, 160x120cm, 2006", thumb:"c16.jpg"},
+  {id:"k16", alt:"El recreo", path:"k16.jpg", description:"Acrílico y esmalte sintético  sobre tabla, 160x 120 cm, 2006", thumb:"c16.jpg"},
   {id:"k17", alt:"Santiago", path:"k17.jpg", description:"Esmalte sintético sobre tabla, 70x 32 cm, 2005", thumb:"c17.jpg"},
   {id:"k18", alt:"Murgartegui", path:"k18.jpg", description:"Esmalte sintético sobre tabla, 100x 160 cm, 2006", thumb:"c18.jpg"},
   {id:"k19", alt:"Los cinco", path:"k19.jpg", description:"Acrílico y esmalte sintético sobre tabla, 160x 80 cm, 2006", thumb:"c19.jpg"},
