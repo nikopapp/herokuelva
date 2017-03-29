@@ -18,14 +18,16 @@
 }
 .info-img{
   line-height: 75vh;
-  min-height: 75vh;
+
+  /*min-height: 75vh;*/
   flex-grow: 1;
   flex-shrink: 2;
   flex-basis: 40%;
   margin: auto;
 }
 #info-text{
-  /*position: relative;*/
+  flex-grow: 0;
+  position: relative;
   z-index: 3;
   height: 1em;
   line-height: 4em;
