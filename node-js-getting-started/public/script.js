@@ -44,8 +44,8 @@ function putDrops(){
 
 }
 function headerHide(){
-  var url = document.URL;
-  if(!(url.indexOf("info.html") >0)) return;
+  // var url = document.URL;
+  // if(!(url.indexOf("info.html") >0)) return;
   var header = document.getElementsByTagName('header');
   var top = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
   if(top>5){

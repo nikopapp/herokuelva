@@ -74,7 +74,7 @@ var paintings = {
   {id:"k6", alt:"Self portrait I", path:"k6.jpg", description:"Esmalte sintético, 60x 40 cm, 2006", thumb:"c6.jpg"},
   {id:"k7", alt:"Zu", path:"k7.jpg", description:"Acrílico sobre tela, 27x 43 cm, 2009", thumb:"c7.jpg"},
   {id:"k8", alt:"Miriam", path:"k8.jpg", description:"Acrílico sobre tela, 43x 27 cm, 2009", thumb:"c8.jpg"},
-  {id:"k9", alt:"La cocina", path:"k9.jpg", description:"Acrílico y esmalte sintético, 21x29cm, 2007", thumb:"c9.jpg"},
+  {id:"k9", alt:"La cocina", path:"k9.jpg", description:"Acrílico y esmalte sintético, 21x 29 cm, 2007", thumb:"c9.jpg"},
   {id:"k10", alt:"Johnny", path:"k10.jpg", description:"Acrílico sobre tela, 55x 35 cm, 2008", thumb:"c10.jpg"},
   {id:"k11", alt:"La charla", path:"k11.jpg", description:"Acrílico sobre tela, 43x 58 cm, 2008", thumb:"c11.jpg"},
   {id:"k12", alt:"Rubén y María", path:"k12.jpg", description:"Acrílico sobre tela, 45x 25 cm, 2008", thumb:"c12.jpg"},
