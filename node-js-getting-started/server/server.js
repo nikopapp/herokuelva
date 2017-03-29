@@ -35,8 +35,9 @@ passport.use(new Strategy(
 // var mailin = require("mailin");
 
 const sql = require("sqlite3").verbose();
-var db = new sql.Database("database/db.sqlite3");
+const dbCreate = require("../database/setup/create");
 
+var db = new sql.Database("database/test.sqlite3");
 const statusCode = {"notFound": 404, "ok": 200, "created": 201};
 module.exports = function(port, middleware, callback) {
    //------------------ descriptions
@@ -59,10 +60,10 @@ module.exports = function(port, middleware, callback) {
       islamic:{}
    };
 // db Intstantiation
-   db.serialize(function(){
-
-  loadDB();
-   });
+  // dbCreate.startup(db);
+  //  db.serialize(function(){
+     loadDB();
+  //  });
    function loadDB(){
      db.each("SELECT * FROM PAINTING ORDER BY timestamp DESC", function(err, row) {
        paintings.items.push({id:row.id,alt: row.alt, description:row.description,path:row.path,thumb:row.thumb});

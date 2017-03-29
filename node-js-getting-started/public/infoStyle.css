@@ -25,14 +25,12 @@
   margin: auto;
 }
 #info-text{
-  display: block;
-  position: fixed;
-  top:20%;
-  left:3em;
+  /*position: relative;*/
   z-index: 3;
-  text-align: left;
+  height: 1em;
+  line-height: 4em;
+  text-align: center;
 }
-
 #next,#prev{
   opacity: .5;
   color: white;

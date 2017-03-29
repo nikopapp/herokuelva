@@ -7,8 +7,12 @@
   </a>
 </div>
   <div class="info-img">
-    <img ng-click="blowUp($event)" class="info-img-img" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}"></img>
-    <!-- <img id="firma" src="images/firma.png" /> -->
+    <img ng-click="blowUp($event)" class="info-img-img" id={{imageId}} src="{{imageSrc}}" alt="{{imageAlt}}">
+    <div id=info-text>
+      <em><strong><span>{{imageAlt}}.</span></strong></em>
+      <span ng-repeat="descs in imageDesc">{{descs}}.<span>
+      </div>
+  </img>
   </div>
 <div class="flex-item" ng-click="getNext()">
     <a id="next" >
@@ -17,13 +21,4 @@
       </span>
     </a>
   </div>
-    <script>
-    window.onscroll = function(event){
-      console.log("scrolledd", event);
-    };
-    </script>
 </div>
-<div id=info-text>
-  <h3>{{imageAlt}}</h3>
-  <span style="display:block;" ng-repeat="descs in imageDesc">{{descs}}<span>
-  </div>
