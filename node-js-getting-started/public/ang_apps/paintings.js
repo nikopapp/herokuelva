@@ -18,6 +18,7 @@ app_ang.factory("Painting", function($resource) {
     });
     return TodoObject;
 });
+
 app_ang.controller("gridVC", ["$scope", "Painting", function(scope, Painting) {
     scope.placeholderClassName = "";
    Painting.get().$promise.then(function(data){
@@ -26,21 +27,47 @@ app_ang.controller("gridVC", ["$scope", "Painting", function(scope, Painting) {
       scope.folder = data.folder;
    });
 }]);
-app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", function(scope, routeParams,Painting) {
+
+app_ang.controller("navCtrl", ["$scope", "laguageService", function(scope,languageService) {
+ var self = this;
+  self.languageObj = languageService.setBind();
+  console.log("hola!" + self.languageObj.value);
+  self.setLangESP = function(){
+    console.log("changed");
+    self.languageObj.value = "ESP";
+    setTimeout(function() {
+      scope.$apply();
+    }, 100);
+  }
+  self.setLangENG = function(){
+    console.log("changed");
+    self.languageObj.value = "ENG";
+    setTimeout(function() {
+      scope.$apply();
+    }, 100);
+  }
+
+}]);
+app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", "laguageService",
+              function(scope, routeParams,Painting, languageService) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
+  
   scope.blowUp = function($event){
     console.log("blowUp",$event);
     scope.imageClass = "blowUp";
   }
+  scope.language = languageService.setBind();
 
   scope.refresh = refresh;
   function refresh(idNum){
     Painting.get({id:idNum}).$promise.then(function(data){
       scope.imageId = data.item.id;
       scope.imageAlt=data.item.alt;
-      if(data.item.description){
-        scope.imageDesc=data.item.description.split(", ");
+      if(data.item.descriptionENG && scope.language.value === "ENG"){
+        scope.imageDesc=data.item.descriptionENG.split(", ");
+      } else if(data.item.descriptionESP && scope.language.value === "ESP"){
+        scope.imageDesc=data.item.descriptionESP.split(", ");
       }
       scope.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
       scope.placeholderClassName = "";
@@ -61,3 +88,13 @@ app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", function(sco
   }
   refresh(idNum);
 }]);
+
+app_ang.service("laguageService", function() {
+  var self = this;
+  self.languageObj = {
+    value: "ENG"
+  };
+  self.setBind = function(){
+    return self.languageObj;
+  };
+});

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB" ng-app="paintings" ng-init="state={title:'Paintings', req:'painting'}" ng-controller="navCtrl as nav">
 <head>
   <meta charset="UTF-8"/>
   <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great|Dosis:400,700' rel='stylesheet' type='text/css'/>
@@ -14,10 +14,10 @@
 </head>
   <div id=top></div>
   <div class="ranDrops"></div>
-  <header>
+  <header >
     <ng-include src="'ang_apps/templates/navView.html'"></ng-include>
   </header>
-  <body ng-app="paintings" ng-init="state={title:'Paintings', req:'painting'}">
+  <body>
   <div class="content-info-col" ng-view></div>
   <!-- <ng-include src="'ang_apps/templates/gridView.html'" ng-controller="gridVC" ng-cloak> -->
   <script src="ang_apps/paintings.js"></script>

@@ -66,10 +66,10 @@ module.exports = function(port, middleware, callback) {
   //  });
    function loadDB(){
      db.each("SELECT * FROM PAINTING ORDER BY timestamp DESC", function(err, row) {
-       paintings.items.push({id:row.id,alt: row.alt, description:row.description,path:row.path,thumb:row.thumb});
+       paintings.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
      db.each("SELECT * FROM MIX_TECH ORDER BY timestamp DESC", function(err, row) {
-       mix_tech.items.push({id:row.id,alt: row.alt, description:row.description,path:row.path,thumb:row.thumb});
+       mix_tech.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
    }
 
