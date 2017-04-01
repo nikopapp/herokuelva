@@ -13,6 +13,19 @@ a {
 a:hover {
 color:green;
 }
+.langDropli{
+  max-width:40px;
+  max-height:40px;
+  cursor:pointer;
+}
+.langDropli span{
+  position:relative;
+  color:white;
+  font-size:0.8em;
+  margin-left:-75%;
+  margin-top:10%;
+  pointer-events: none;
+}
 #top{
   position: relative;
   top: -1000px;
