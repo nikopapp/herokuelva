@@ -2,7 +2,7 @@ var app_ang = angular.module("paintings", ["ngResource", "ngRoute"]);
 
 app_ang.config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
-        controller: "gridVC as painting",
+        controller: "gridVC as paintingCtrl",
         templateUrl: "ang_apps/templates/gridView.html"
     }).when("/info/:id", {
         controller: "infoVC as info",
@@ -20,31 +20,43 @@ app_ang.factory("Painting", function($resource) {
 });
 
 app_ang.controller("gridVC", ["$scope", "Painting", function(scope, Painting) {
-    scope.placeholderClassName = "";
+    var self = this;
+    self.placeholderClassName = "";
    Painting.get().$promise.then(function(data){
       console.log(data);
-      scope.paintings = data.items;
-      scope.folder = data.folder;
+      self.paintings = data.items;
+      self.folder = data.folder;
    });
 }]);
 
 app_ang.controller("navCtrl", ["$scope", "laguageService", function(scope,languageService) {
  var self = this;
+ self.menuENG = {
+    artwork: "ARTWORK",
+    paintings: "PAINTINGS",
+    mix_tech: "MIXED TECHNIQUES",
+    islamic: "ISLAMIC ART"
+ }
+ self.menuESP = {
+    artwork: "OBRAS",
+    paintings: "PINTURA",
+    mix_tech: "TECNICAS MIXTAS",
+    islamic: "ARTE ISLAMICA"
+ }
+
+  self.menu = self.menuENG;
   self.languageObj = languageService.setBind();
   console.log("hola!" + self.languageObj.value);
   self.setLangESP = function(){
     console.log("changed");
     self.languageObj.value = "ESP";
-    setTimeout(function() {
-      scope.$apply();
-    }, 100);
+    self.menu = self.menuESP;
   }
   self.setLangENG = function(){
     console.log("changed");
     self.languageObj.value = "ENG";
-    setTimeout(function() {
-      scope.$apply();
-    }, 100);
+    self.menu = self.menuENG;
+
   }
 
 }]);
@@ -52,31 +64,36 @@ app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", "laguageServ
               function(scope, routeParams,Painting, languageService) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
-  
-  scope.blowUp = function($event){
-    console.log("blowUp",$event);
-    scope.imageClass = "blowUp";
-  }
-  scope.language = languageService.setBind();
+  var self = this;
+  self.eng="ENG";
+  self.esp="ESP";
 
-  scope.refresh = refresh;
+  self.blowUp = function($event){
+    console.log("blowUp",$event);
+    self.imageClass = "blowUp";
+  }
+  self.languageObj = languageService.setBind();
+
+  self.refresh = refresh;
   function refresh(idNum){
+
     Painting.get({id:idNum}).$promise.then(function(data){
-      scope.imageId = data.item.id;
-      scope.imageAlt=data.item.alt;
-      if(data.item.descriptionENG && scope.language.value === "ENG"){
-        scope.imageDesc=data.item.descriptionENG.split(", ");
-      } else if(data.item.descriptionESP && scope.language.value === "ESP"){
-        scope.imageDesc=data.item.descriptionESP.split(", ");
+      self.imageId = data.item.id;
+      self.imageAlt = data.item.alt;
+      if(data.item.descriptionENG){
+        self.imageDescENG =data.item.descriptionENG.split(", ");
       }
-      scope.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
-      scope.placeholderClassName = "";
-      scope.getNext = function(){
+      if(data.item.descriptionESP){
+        self.imageDescESP = data.item.descriptionESP.split(", ");
+      }
+      self.imageSrc = "images/gallery_pictures/painting/" + data.item.path;
+      self.placeholderClassName = "";
+      self.getNext = function(){
         var newId = (idNum + 1)%data.itemsLength;
         console.log(newId);
         refresh(newId);
       }
-      scope.getPrev = function(){
+      self.getPrev = function(){
         var x = (idNum - 1);
         var newId = x >=0?x:data.itemsLength-1;
         console.log(newId);

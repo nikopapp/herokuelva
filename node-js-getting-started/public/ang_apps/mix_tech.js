@@ -2,7 +2,7 @@ var app_ang = angular.module("mix_tech", ["ngResource", "ngRoute"]);
 
 app_ang.config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
-        controller: "gridVC as painting",
+        controller: "gridVC as paintingCtrl",
         templateUrl: "ang_apps/templates/gridView.html"
     }).when("/info/:id", {
         controller: "infoVC as info",
@@ -20,6 +20,39 @@ app_ang.factory("Mix", function($resource) {
     });
     return TodoObject;
 });
+
+app_ang.controller("navCtrl", ["$scope", "laguageService", function(scope,languageService) {
+ var self = this;
+ self.menuENG = {
+    artwork: "ARTWORK",
+    paintings: "PAINTINGS",
+    mix_tech: "MIXED TECHNIQUES",
+    islamic: "ISLAMIC ART"
+ }
+ self.menuESP = {
+    artwork: "OBRAS",
+    paintings: "PINTURA",
+    mix_tech: "TECNICAS MIXTAS",
+    islamic: "ARTE ISLAMICA"
+ }
+
+  self.menu = self.menuENG;
+  self.languageObj = languageService.setBind();
+  console.log("hola!" + self.languageObj.value);
+  self.setLangESP = function(){
+    console.log("changed");
+    self.languageObj.value = "ESP";
+    self.menu = self.menuESP;
+  }
+  self.setLangENG = function(){
+    console.log("changed");
+    self.languageObj.value = "ENG";
+    self.menu = self.menuENG;
+
+  }
+
+}]);
+
 app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
     scope.placeholderClassName = "";
    Mix.get().$promise.then(function(data){
