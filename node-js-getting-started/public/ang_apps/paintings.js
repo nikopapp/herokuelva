@@ -29,7 +29,7 @@ app_ang.controller("gridVC", ["$scope", "Painting", function(scope, Painting) {
    });
 }]);
 
-app_ang.controller("navCtrl", ["$scope", "laguageService", function(scope,languageService) {
+app_ang.controller("navCtrl", ["$scope", "languageService", function(scope,languageService) {
  var self = this;
  self.menuENG = {
     artwork: "ARTWORK",
@@ -56,11 +56,10 @@ app_ang.controller("navCtrl", ["$scope", "laguageService", function(scope,langua
     console.log("changed");
     self.languageObj.value = "ENG";
     self.menu = self.menuENG;
-
   }
-
 }]);
-app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", "laguageService",
+
+app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", "languageService",
               function(scope, routeParams,Painting, languageService) {
   console.log(routeParams.id);
   var idNum = parseInt(routeParams.id);
@@ -76,7 +75,6 @@ app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", "laguageServ
 
   self.refresh = refresh;
   function refresh(idNum){
-
     Painting.get({id:idNum}).$promise.then(function(data){
       self.imageId = data.item.id;
       self.imageAlt = data.item.alt;
@@ -106,7 +104,7 @@ app_ang.controller("infoVC", ["$scope", "$routeParams", "Painting", "laguageServ
   refresh(idNum);
 }]);
 
-app_ang.service("laguageService", function() {
+app_ang.service("languageService", function() {
   var self = this;
   self.languageObj = {
     value: "ENG"

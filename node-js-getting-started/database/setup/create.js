@@ -97,11 +97,11 @@ var paintings = {
    items:[
   {id:"k0",   alt:"La búsqueda",      path:"k0.jpg",    descriptionESP:"Acrílico sobre papel Fabriàno \"Pittura\", 70x50cm, 2016", descriptionENG:"Acrilic on Fabriàno \"Pittura\" paper, 70x50cm, 2016", thumb:"c0.jpg"},
   {id:"k1",   alt:"Ana",              path:"k1.jpg",    descriptionESP:"Acrílico sobre tela, 70x 60 cm, 2015",                     descriptionENG:"Acrilic on canvas, 70x 60 cm, 2015", thumb:"c1.jpg"},
-  {id:"k2",   alt:"Self portrait II", path:"k2.jpg",    descriptionESP:"Acrílico sobre tela, 40x 40 cm, 2013",                     descriptionENG:"Acrilic on canvas, 40x 40 cm, 2013", thumb:"c2.jpg"},
+  {id:"k2",   alt:"Autorretrato II", path:"k2.jpg",    descriptionESP:"Acrílico sobre tela, 40x 40 cm, 2013",                     descriptionENG:"Acrilic on canvas, 40x 40 cm, 2013", thumb:"c2.jpg"},
   {id:"k3",   alt:"Pili",             path:"k3.jpg",    descriptionESP:"Esmalte sintético, 25x 33 cm, 2006",                       descriptionENG:"Synthetic enamel, 25x 33 cm, 2006", thumb:"c3.jpg"},
   {id:"k4",   alt:"Xela y Berni",     path:"k4.jpg",    descriptionESP:"Acrílico sobre tela, 120x 40 cm, 2014",                    descriptionENG:"Acrilic on canvas, 120x 40 cm, 2014", thumb:"c4.jpg"},
   {id:"k5",   alt:"Miguel",           path:"k5.jpg",    descriptionESP:"Acrílico sobre tela, 65x 60 cm, 2014",                     descriptionENG:"Acrilic on canvas, 65x 60 cm, 2014", thumb:"c5.jpg"},
-  {id:"k6",   alt:"Self portrait I",  path:"k6.jpg",    descriptionESP:"Esmalte sintético, 60x 40 cm, 2006",                       descriptionENG:"Synthetic enamel, 60x 40 cm, 2006", thumb:"c6.jpg"},
+  {id:"k6",   alt:"Autorretrato I",  path:"k6.jpg",    descriptionESP:"Esmalte sintético, 60x 40 cm, 2006",                       descriptionENG:"Synthetic enamel, 60x 40 cm, 2006", thumb:"c6.jpg"},
   {id:"k7",   alt:"Zu",               path:"k7.jpg",    descriptionESP:"Acrílico sobre tela, 27x 43 cm, 2009",                     descriptionENG:"Acrilic on canvas, 27x 43 cm, 2009", thumb:"c7.jpg"},
   {id:"k8",   alt:"Miriam",           path:"k8.jpg",    descriptionESP:"Acrílico sobre tela, 43x 27 cm, 2009",                     descriptionENG:"Acrilic on canvas, 43x 27 cm, 2009", thumb:"c8.jpg"},
   {id:"k9",   alt:"La cocina",        path:"k9.jpg",    descriptionESP:"Acrílico y esmalte sintético, 21x 29 cm, 2007",            descriptionENG:"Acrilic and synthetic smalt, 21x 29 cm, 2007",thumb:"c9.jpg"},
@@ -128,19 +128,19 @@ var paintings = {
 
 var mix_tech = {
  items:[
-  {id:"t1",alt: "Tu pensamiento te hace libre", descriptionESP:"Collage sobre A4, 2011",path:"t1.jpg",thumb:"p1.jpg"},
-  {id:"t2",alt: "El hambre", descriptionESP:"Collage sobre A4, 2011",path:"t2.jpg",thumb:"p2.jpg"},
-  {id:"t3",alt: "La espera", descriptionESP:"Collage sobre A4, 2011",path:"t3.jpg",thumb:"p3.jpg"},
-  {id:"t4",alt: "Androide", descriptionESP:"Collage sobre A4, 2011",path:"t4.jpg",thumb:"p4.jpg"},
-  {id:"t6",alt:"Donna I" , descriptionESP:"Collage sobre tabla, 30x 70 cm, 2011",path:"t5.jpg",thumb:"p5.jpg"},
-  {id:"t5",alt: "El tiempo II", descriptionESP:"Collage sobre tabla, 46x 61 cm, 2010",path:"t6.jpg",thumb:"p6.jpg"},
-  {id:"t7",alt: "La despedida", descriptionESP:"Collage sobre A4, 2011",path:"t7.jpg",thumb:"p7.jpg"},
-  {id:"t8",alt: "El tiempo I", descriptionESP:"Collage sobre papel, 20x 12 cm, 2008",path:"t8.jpg",thumb:"p8.jpg"},
-  {id:"t9",alt: "Las tres Marías", descriptionESP:"Collage sobre A4, 2007",path:"t9.jpg",thumb:"p9.jpg"},
-  {id:"t10",alt: "Sin título", descriptionESP:"Collage sobre A5, 2008",path:"t10.jpg",thumb:"p10.jpg"},
-  {id:"t11",alt: "Mujer con pajaros", descriptionESP:"Làpiz acuarelable, 46x 61 cm, 2015",path:"t11.jpg",thumb:"p11.jpg"},
-  {id:"t12",alt: "Mujer-pez I", descriptionESP:"pilot y acuarela, 46x 61 cm, 2008",path:"t12.jpg",thumb:"p12.jpg"},
-  {id:"t13",alt: "Quédate callada", descriptionESP:"Collage, 46x 61 cm, 2009",path:"t13.jpg",thumb:"p13.jpg"},
+  {id:"t1",alt: "Tu pensamiento te hace libre", descriptionESP:"Collage sobre A4, 2011", descriptionENG:"Collage on A4, 2011",path:"t1.jpg",thumb:"p1.jpg"},
+  {id:"t2",alt: "El hambre", descriptionESP:"Collage sobre A4, 2011", descriptionENG:"Collage on A4, 2011",path:"t2.jpg",thumb:"p2.jpg"},
+  {id:"t3",alt: "La espera", descriptionESP:"Collage sobre A4, 2011", descriptionENG:"Collage on A4, 2011",path:"t3.jpg",thumb:"p3.jpg"},
+  {id:"t4",alt: "Androide", descriptionESP:"Collage sobre A4, 2011", descriptionENG:"Collage on A4, 2011",path:"t4.jpg",thumb:"p4.jpg"},
+  {id:"t6",alt:"Donna I" , descriptionESP:"Collage sobre tabla, 30x 70 cm, 2011",descriptionENG:"Collage on woodboard, 30x 70 cm, 2011",path:"t5.jpg",thumb:"p5.jpg"},
+  {id:"t5",alt: "El tiempo II", descriptionESP:"Collage sobre tabla, 46x 61 cm, 2010", descriptionENG:"Collage on woodboard, 46x 61 cm, 2010",path:"t6.jpg",thumb:"p6.jpg"},
+  {id:"t7",alt: "La despedida", descriptionESP:"Collage sobre A4, 2011",descriptionENG:"Collage on A4, 2011",path:"t7.jpg",thumb:"p7.jpg"},
+  {id:"t8",alt: "El tiempo I", descriptionESP:"Collage sobre papel, 20x 12 cm, 2008",descriptionENG:"Collage on paper, 20x 12 cm, 2008",path:"t8.jpg",thumb:"p8.jpg"},
+  {id:"t9",alt: "Las tres Marías", descriptionESP:"Collage sobre A4, 2007",descriptionENG:"Collage on A4, 2007",path:"t9.jpg",thumb:"p9.jpg"},
+  {id:"t10",alt: "Sin título", descriptionESP:"Collage sobre A5, 2008",descriptionENG:"Collage on A5, 2008",path:"t10.jpg",thumb:"p10.jpg"},
+  {id:"t11",alt: "Mujer con pajaros", descriptionESP:"Làpiz acuarelable, 46x 61 cm, 2015",descriptionENG:"Watercolor pencil, 46x 61 cm, 2015",path:"t11.jpg",thumb:"p11.jpg"},
+  {id:"t12",alt: "Mujer-pez I", descriptionESP:"pilot y acuarela, 46x 61 cm, 2008",descriptionENG:"Pen and watercolor, 46x 61 cm, 2008",path:"t12.jpg",thumb:"p12.jpg"},
+  {id:"t13",alt: "Quédate callada", descriptionESP:"Collage, 46x 61 cm, 2009",descriptionENG:"Collage, 46x 61 cm, 2009",path:"t13.jpg",thumb:"p13.jpg"},
 ]
 };
 var gallery = {
