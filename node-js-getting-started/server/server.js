@@ -86,7 +86,7 @@ module.exports = function(port, middleware, callback) {
     app.use(require('body-parser').urlencoded({ extended: true }));
 
     // required for passport
-    app.use(session({ secret: 'ilovescotchscotchyscotchscotch', resave: false, saveUninitialized: false }));
+    app.use(session({ secret: '298734dy2987dy9uiweuyfoiayof87eya8f7t2o7eywfite', resave: false, saveUninitialized: false }));
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
 
