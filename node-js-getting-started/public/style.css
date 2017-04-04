@@ -18,10 +18,9 @@ color:green;
   vertical-align: middle;
 }
 .langDropli{
-  max-width:32px;
-  max-height:32px;
+  max-width:29px;
+  max-height:29px;
   cursor:pointer;
-  text-align: center;
 }
 .langDropli span{
   color: rgb(180,30,34);
