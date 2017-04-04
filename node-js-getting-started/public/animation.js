@@ -163,7 +163,7 @@ function makePortalDrops(drop,i){
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           randomNum + ".jpg");
       drop.setAttribute("width","200px");
-      drop.style.transform = "translate(-75px,-75px)";
+      drop.style.transform = "translate3d(-75px,-75px,0px)";
       // drop.setAttribute("height","100px");
       drop.style.zIndex="3";
       drop.style.opacity = ".85";
@@ -172,7 +172,7 @@ function makePortalDrops(drop,i){
       // drop.style.pointerEvents="none";
       drop.style.zIndex="1";
       drop.setAttribute("width","50px");
-      drop.style.transform = "translate(0px,0px)";
+      drop.style.transform = "translate3D(0px,0px,0px)";
       // drop.setAttribute("height","auto");
       drop.style.opacity="0.7";
       drop.setAttribute("src","images/animation/m"+i+".png");

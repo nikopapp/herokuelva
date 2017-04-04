@@ -86,7 +86,7 @@ module.exports = function(port, middleware, callback) {
     app.use(require('body-parser').urlencoded({ extended: true }));
 
     // required for passport
-    app.use(session({ secret: 'ilovescotchscotchyscotchscotch', resave: false, saveUninitialized: false }));
+    app.use(session({ secret: '298734dy2987dy9uiweuyfoiayof87eya8f7t2o7eywfite', resave: false, saveUninitialized: false }));
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
 
@@ -138,8 +138,8 @@ module.exports = function(port, middleware, callback) {
           req.body.gallery+'/'+thumbFile.name, function(error) {
        handleError(err,500,res);
       res.send('File uploaded!');
-      var stmt = db.prepare("INSERT INTO "+req.body.gallery+" VALUES (?,?,?,?,?,?)");
-      stmt.run(null,null,mainFile.name,null,thumbFile.name,Date.now());
+      var stmt = db.prepare("INSERT INTO "+req.body.gallery+" VALUES (?,?,?,?,?,?,?)");
+      stmt.run(req.body.id,req.body.alt,mainFile.name,req.body.descriptionESP,req.body.descriptionENG,thumbFile.name,Date.now());
       stmt.finalize();
       mix_tech.items.length=0;
       paintings.items.length=0;
