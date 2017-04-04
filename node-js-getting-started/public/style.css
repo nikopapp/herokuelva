@@ -22,16 +22,6 @@ color:green;
   max-height:29px;
   cursor:pointer;
 }
-.langDropli span{
-  color: rgb(180,30,34);
-  position:relative;
-  font-size:0.75em;
-  font-weight: 900;
-  margin-left:-95%;
-  /*margin-top:10%;*/
-  vertical-align: middle;
-  pointer-events: none;
-}
 #top{
   position: relative;
   top: -1000px;
