@@ -13,17 +13,24 @@ a {
 a:hover {
 color:green;
 }
+.buttonSeparatorLine{
+  font-size: 1.62em;
+  vertical-align: middle;
+}
 .langDropli{
-  max-width:40px;
-  max-height:40px;
+  max-width:32px;
+  max-height:32px;
   cursor:pointer;
+  text-align: center;
 }
 .langDropli span{
+  color: rgb(180,30,34);
   position:relative;
-  color:white;
-  font-size:0.8em;
-  margin-left:-75%;
-  margin-top:10%;
+  font-size:0.75em;
+  font-weight: 900;
+  margin-left:-95%;
+  /*margin-top:10%;*/
+  vertical-align: middle;
   pointer-events: none;
 }
 #top{
