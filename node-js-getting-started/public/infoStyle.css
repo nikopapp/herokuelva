@@ -36,6 +36,9 @@
   line-height: 4em;
   text-align: center;
 }
+.descItem{
+  margin-right: 0.3em;
+}
 #info-text div{}
 #next,#prev{
   opacity: .5;

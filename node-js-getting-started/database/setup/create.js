@@ -95,7 +95,7 @@ var menu = {
 }
 var paintings = {
    items:[
-  {id:"k0",   alt:"La búsqueda",      path:"k0.jpg",    descriptionESP:"Acrílico sobre papel Fabriàno \"Pittura\", 70x50cm, 2016", descriptionENG:"Acrylic on Fabriàno \"Pittura\" paper, 70x50cm, 2016", thumb:"c0.jpg"},
+  {id:"k0",   alt:"La búsqueda",      path:"k0.jpg",    descriptionESP:"Acrílico sobre papel Fabriàno \"Pittura\", 70x 50 cm, 2016", descriptionENG:"Acrylic on Fabriàno \"Pittura\" paper, 70x 50 cm, 2016", thumb:"c0.jpg"},
   {id:"k1",   alt:"Ana",              path:"k1.jpg",    descriptionESP:"Acrílico sobre tela, 70x 60 cm, 2015",                     descriptionENG:"Acrylic on canvas, 70x 60 cm, 2015", thumb:"c1.jpg"},
   {id:"k2",   alt:"Autorretrato II", path:"k2.jpg",    descriptionESP:"Acrílico sobre tela, 40x 40 cm, 2013",                     descriptionENG:"Acrylic on canvas, 40x 40 cm, 2013", thumb:"c2.jpg"},
   {id:"k3",   alt:"Pili",             path:"k3.jpg",    descriptionESP:"Esmalte sintético, 25x 33 cm, 2006",                       descriptionENG:"Synthetic enamel, 25x 33 cm, 2006", thumb:"c3.jpg"},
