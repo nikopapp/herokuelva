@@ -161,10 +161,15 @@ module.exports = function(port, middleware, callback) {
     app.get("/api/paintings",function(req,res){
       res.json({items:gallery.paintings.items,folder:"images/gallery_pictures/painting/"});
     });
+
     app.delete("/api/gallery/:id",function(req,res){
       var id = req.params.id.split("/");
       console.log(id);
-      console.log(id)
+      if(id[0] === "paintings"){
+        db.run("DELETE FROM Painting WHERE path='"+id[1]+"'");
+      } else if(id[0] === "mix_tech") {
+        db.run("DELETE FROM MIX_TECH WHERE path='"+id[1]+"'");
+      }
       var selectedImage = _.find(gallery[id[0]].items,function(img){
         return img.path === id[1];
       });
@@ -174,6 +179,7 @@ module.exports = function(port, middleware, callback) {
       console.log(selectedImage.alt);
       res.sendStatus(200);
     });
+
     app.get("/api/gallery",function(req,res){
       res.json({item:[
         {items:gallery.paintings.items,folder:gallery.paintings.folder+"s"},
