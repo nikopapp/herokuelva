@@ -8,7 +8,7 @@
 </div>
   <div class="info-img">
     <div id=info-text>
-    <img ng-click="blowUp($event)" class="info-img-img" id={{info.imageId}} src="{{info.imageSrc}}" alt="{{info.imageAlt}}">
+    <img ng-click="blowUp($event)" class="info-img-img" id={{info.imageId}} ng-src="{{info.imageSrc}}" alt="{{info.imageAlt}}">
     <div>
       <em><strong><span>{{info.imageAlt}}.</span></strong></em>
       <span class="descItem" ng-show="info.languageObj.value === info.eng" ng-repeat="descsENG in info.imageDescENG">{{descsENG}}.</span>
