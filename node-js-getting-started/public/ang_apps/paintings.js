@@ -1,8 +1,10 @@
 var app_ang = angular.module("paintings", ["ngResource", "ngRoute"]);
 
 app_ang.config(["$routeProvider", function($routeProvider) {
-    $routeProvider
-    .when("/:lang",{
+    $routeProvider.when("/", {
+      controller: "homeVC as home",
+      templateUrl: "ang_apps/templates/homeView.html"
+    }).when("/:lang",{
         controller: "homeVC as home",
         templateUrl: "ang_apps/templates/homeView.html"
     })
@@ -12,16 +14,7 @@ app_ang.config(["$routeProvider", function($routeProvider) {
     }).when("/info/:gallery/:id", {
         controller: "PinfoVC as info",
         templateUrl: "ang_apps/templates/infoView.html"
-    })
-    // .when("/mix_tech", {
-    //   controller: "MgridVC as paintingCtrl",
-    //   templateUrl: "ang_apps/templates/gridView.html"
-    // })
-    .when("/", {
-      controller: "homeVC as home",
-      templateUrl: "ang_apps/templates/homeView.html"
-    })
-    .otherwise({
+    }).otherwise({
         redirectTo: "/"
     });
 }]);
