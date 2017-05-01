@@ -2,7 +2,7 @@
   display: block;
 }
 .content-info{
-  margin-top: 11%;
+  margin-top: 10%;
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -12,12 +12,12 @@
   align-self: center;
   margin: auto;
   vertical-align: middle;
-  max-height: 75vh;
+  max-height: 70vh;
   max-width: 100%;
   margin-bottom: 0;
 }
 .info-img{
-  line-height: 75vh;
+  line-height: 74vh;
 
   /*min-height: 75vh;*/
   flex-grow: 1;

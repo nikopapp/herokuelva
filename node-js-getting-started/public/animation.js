@@ -158,7 +158,7 @@ function makePortalDrops(drop,i){
       console.log("1st"+randomNum);
       imageSwap.src = "images/gallery_pictures/painting/c"+ randomNum + ".jpg";
       // console.log(imageSwap[0]);
-      drop.parentElement.href="#!/info/painting/"+randomNum;
+      drop.parentElement.href="#!/info/paintings/"+randomNum;
       drop.style.transition = "all 0.6s ease";
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           randomNum + ".jpg");
@@ -215,7 +215,7 @@ function putMask(){
 }
 
 function makeInit(){
-  if(!window.location.href.includes("index")){
+  if(window.location.href.includes("grid")){
     return;
   }
   console.log();
