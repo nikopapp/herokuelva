@@ -1,9 +1,9 @@
 <div id="top"></div>
 <div class="ranDrops"></div>
 <div class="content-artwork">
-  <h1 class="artwork">{{state.title}}</h1>
+  <h1 class="artwork">{{paintingCtrl.title.value}}</h1>
   <div class="grid" ng-repeat="painting in paintingCtrl.paintings track by $index">
-    <a href="#!/info/{{$index}}">
+      <a href="#!/info/{{paintingCtrl.gallery}}/{{$index}}">
     <img src="{{paintingCtrl.folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
  </div>
 </div>

@@ -9,6 +9,15 @@ function showClick(menuItem){
     menuItem[0].style.display = "none";
   }
 }
+function clickEvent(event){
+  console.log(event);
+  if(event.target === document.getElementById("#m3")){
+    // showClick(artwork);
+  }else{
+    artwork[0].style.display = "none";
+  }
+
+}
 function transformFirma(){
   var imgInfo = document.getElementsByClassName("info-img-img")[0];
   var computedStyle = window.getComputedStyle(imgInfo);
