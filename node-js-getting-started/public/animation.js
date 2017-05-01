@@ -1,12 +1,11 @@
 "use strict";
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
+var divAnim = document.getElementById('animation');
+
 var animate = function(callback) {
   var itemName = 'drop';
   var images = new Array();
   var anchors = new Array();
-  var divAnim = document.getElementById('animation');
+
   images.push(document.getElementById('titleEAT'));
   for (var i=1; i<=47;i++){
     anchors.push(document.createElement("a"));
@@ -34,6 +33,7 @@ var animate = function(callback) {
   mainImage0.style.left=mainImage.style.left = (posX-15) +"%";
 
   for (var i=1;i<15;i++){
+    console.log("dike mou");
     images[i].style.top = (posY+getRandomArbitrary(15,40)) +"%";
     images[i].style.left = (posX+getRandomArbitrary(0,20)) +"%";
     // console.log(images[i].style.left);
@@ -214,5 +214,23 @@ function putMask(){
 
 }
 
+function makeInit(){
+  if(!window.location.href.includes("index")){
+    return;
+  }
+  console.log();
+  console.log("makeInit");
+  divAnim = document.getElementById("animation");
+  if(divAnim){
+    console.log("if");
+    animate(makePortals);
+  } else {
+    console.log("else");
+    setTimeout(makeInit, 3000);
+  }
+}
+window.onload = makeInit;
 
-window.onload = animate(makePortals);
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}

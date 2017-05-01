@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-  lang="en-GB" xml:lang="en-GB">
+  lang="en-GB" xml:lang="en-GB" ng-app="paintings" ng-init="state={title:'Paintings', req:'painting'}" ng-controller="navCtrl as nav">
 <head>
   <meta charset="UTF-8"/>
+
   <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'/>
   <link rel="stylesheet" type="text/css"  href="style.css" />
   <link rel="stylesheet" type="text/css"  href="animation.css" />
   <link rel="shortcut icon" href="images/icono.png"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
   <script src="script.js" type="text/javascript"></script>
   <title> Elva Arce </title>
 </head>
@@ -14,13 +18,10 @@
   <header id="iheader" ng-app="navApp">
     <ng-include src="'ang_apps/templates/navView.html'" ng-controller="navCtrl as nav"></ng-include>
   </header>
-  <div id = "animation">
-    <div id = "titleEAT"><a href ="home.html"><br/></a></div>
-    <img id ="logo-wet" src="images/animation/logo-wet.png" alt="DROP" width="600px"/>
-    <img id ="logo" src="images/animation/logo.png" alt="DROP" width="600px"/>
-  </div>
-<script src="animation.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <div class="content-info-col" ng-view></div>
+
 <script src="ang_apps/navApp.js"></script>
+<script src="ang_apps/paintings.js"></script>
+<script src="animation.js"></script>
 </body>
 </html>

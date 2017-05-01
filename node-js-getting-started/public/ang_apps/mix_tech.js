@@ -19,7 +19,7 @@ app_ang.factory("Mix", function($resource) {
     return TodoObject;
 });
 
-app_ang.controller("gridVC", ["$scope", "Mix", function(scope, Mix) {
+app_ang.controller("MgridVC", ["$scope", "Mix", function(scope, Mix) {
     var self = this;
     self.placeholderClassName = "";
    Mix.get().$promise.then(function(data){
