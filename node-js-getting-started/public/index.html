@@ -19,8 +19,9 @@
   <header id="iheader" ng-app="navApp">
     <ng-include src="'ang_apps/templates/navView.html'" ng-controller="navCtrl as nav"></ng-include>
   </header>
-  <div class="content-info-col" ng-view></div>
-
+  <main onclick="clickEvent(event)">
+    <div class="content-info-col" ng-view ></div>
+</main>
 <script src="ang_apps/paintings.js"></script>
 <script src="animation.js"></script>
 </body>
