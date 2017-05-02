@@ -138,14 +138,17 @@ var animate = function(callback) {
   }
 }
 function makePortals(drop,i){
-    drop.onmouseenter = function(){
+    drop.onmouseenter = makeBlownDrop;
+    drop.ontouchstart = makeBlownDrop;
+    drop.onmouseleave = revertDrop;
+    function makeBlownDrop(){
       drop.style.transition = "all 0.6s ease";
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           (1 + Math.floor((10000*Math.random())%27)) + ".jpg");
       drop.setAttribute("width","200px");
       drop.style.zIndex="30";
     };
-    drop.onmouseleave = function(){
+    function revertDrop(){
       drop.style.zIndex="1";
       drop.setAttribute("width","50px");
       drop.setAttribute("src","images/animation/m"+i+".png");
