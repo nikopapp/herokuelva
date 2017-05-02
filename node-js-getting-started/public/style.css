@@ -271,12 +271,12 @@ h2{
     width: 80%;
   }
 }
-@media all and (min-width: 730px) {
+@media all and (min-width: 770px) {
   .content-artwork .grid{
     width: 30%;
   }
 }
-@media handheld and (min-width: 730px) {
+@media handheld and (min-width: 770px) {
   body{
     font-size: 2em;
   }
