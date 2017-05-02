@@ -215,10 +215,11 @@ function putMask(){
 }
 
 function makeInit(){
-  if(window.location.href.includes("grid")){
+  if(window.location.href.includes("grid") ||
+      window.location.href.includes("info")||
+      window.location.href.includes("about")){
     return;
   }
-  console.log();
   console.log("makeInit");
   divAnim = document.getElementById("animation");
   if(divAnim){

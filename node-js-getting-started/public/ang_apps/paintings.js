@@ -1,3 +1,6 @@
+// TODO
+// complete the next image prev images
+
 var app_ang = angular.module("paintings", ["ngResource", "ngRoute"]);
 
 app_ang.config(["$routeProvider", function($routeProvider) {
@@ -109,6 +112,7 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
     mix_tech: "TECNICAS MIXTAS",
     islamic: "ARTE ISLAMICA"
  }
+ // self.titleHead = window.location.href
   console.log(routeParams);
   if(self.languageObj.value === "ESP"){
     self.menu = self.menuESP;
@@ -171,6 +175,11 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "lang
         folder = "mix_tech";
       }
       self.imageSrc = "images/gallery_pictures/"+folder+"/" + data.item.path;
+      self.imageSrcNext = "images/gallery_pictures/"+folder+"/" + data.nextImg.path;
+      self.imageSrcPrev = "images/gallery_pictures/"+folder+"/" + data.prevImg.path;
+      self.imageAltPrev = data.prevImg.alt;
+      self.imageAltNext = data.nextImg.alt;
+
       self.placeholderClassName = "";
       self.getNext = function(){
         var newId = (idNum + 1)%data.itemsLength;
