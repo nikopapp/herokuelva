@@ -247,7 +247,7 @@ h2{
   float:left;
 }*/
 .content-artwork .grid{
-  width: 30%;
+  width: 45%;
   display: inline-block;
   padding: auto;
   margin: 5% auto;
@@ -265,6 +265,11 @@ h2{
 }
 .grid img:hover{
   box-shadow: 0px 0px 4px 1px black;
+}
+@media only screen and (min-width: 600px) {
+  .content-artwork .grid{
+    width: 30%;
+  }
 }
 .content-contact{
   margin: 200px auto;
