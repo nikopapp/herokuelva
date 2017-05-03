@@ -35,7 +35,7 @@ color:green;
    list-style: none;
 }
 #contact-icons ul li{
-   display: inline-block;
+   display: block;
 }
 #contact-icons ul li a img{
    width: 2em;
@@ -275,11 +275,16 @@ h2{
   .content-artwork .grid{
     width: 30%;
   }
+  #contact-icons ul li{
+     display: inline-block;
+  }
+
 }
 @media handheld and (min-width: 770px) {
   body{
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
+
 }
 
 .content-contact{
