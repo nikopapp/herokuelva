@@ -17,6 +17,9 @@ app_ang.config(["$routeProvider", function($routeProvider) {
     }).when("/info/:gallery/:id", {
         controller: "PinfoVC as info",
         templateUrl: "ang_apps/templates/infoView.html"
+    }).when("/about/elva", {
+      controller: "aboutCtrl as about",
+      templateUrl: "ang_apps/templates/aboutView.html"
     }).otherwise({
         redirectTo: "/"
     });
@@ -39,7 +42,10 @@ app_ang.controller("homeVC", ["$scope", function(scope) {
     self.title = "Elva Arce - Home";
 }]);
 
-
+app_ang.controller("aboutCtrl", [function(){
+    var self = this;
+    
+}]);
 app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "languageService",
         function(scope, Painting, Mix, routeParams, languageService) {
     var self = this;
