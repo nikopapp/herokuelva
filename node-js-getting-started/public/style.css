@@ -26,23 +26,23 @@ color:green;
   position: relative;
   top: -1000px;
 }
-#contact-icons{
+.contact-icons{
    position: fixed;
-   top:0;
+   bottom:0;
    right:15px;
 }
-#contact-icons ul{
+.contact-icons ul{
    list-style: none;
 }
-#contact-icons ul li{
-   display: block;
+.contact-icons ul li{
+   display: inline-block;
 }
-#contact-icons ul li a img{
-   width: 2.2em;
+.contact-icons ul li a img{
+   width: 10vw;
    /*transition: all ease 1s;*/
    vertical-align: top;
 }
-#contact-icons ul li a img:hover{
+.contact-icons ul li a img:hover{
    /*width: 2.5em;*/
    opacity: 0.5;
 }
@@ -266,18 +266,26 @@ h2{
 .grid img:hover{
   box-shadow: 0px 0px 4px 1px black;
 }
-@media all and (max-width: 501px) {
+@media only screen and (max-width: 501px) {
   .content-artwork .grid{
     width: 80%;
   }
 }
-@media all and (min-width: 770px) {
+@media only screen and (min-width: 770px) {
   .content-artwork .grid{
     width: 30%;
   }
-  #contact-icons ul li{
-     display: inline-block;
+  .contact-icons{
+     position: fixed;
+     bottom:0;
+     right:15px;
   }
+  .contact-icons ul li a img{
+     width: 2.2em;
+     /*transition: all ease 1s;*/
+     vertical-align: top;
+  }
+
 
 }
 @media handheld and (min-width: 770px) {
