@@ -13,6 +13,17 @@
   text-align: justify;
   display: inline-block;
 }
+@media only screen and (max-width: 501px) {
+  .about-text,#about{
+    width: 70%;
+    bottom:30px;
+    margin-top: 100px;
+    text-align: justify;
+    display: inline-block;
+  }
+
+}
+
 #about{
   max-width: 400px;
 }
