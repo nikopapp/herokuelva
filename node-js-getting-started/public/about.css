@@ -27,6 +27,10 @@
 #about{
   max-width: 400px;
 }
+/*  GO FULL WIDTH AT LESS THAN 720 PIXELS */
 
-/*code taken START*/
-/*  GRID OF TWO  */
+@media only screen and (min-width: 720px) {
+  .content-about{
+     top:7em;
+  }
+}

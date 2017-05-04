@@ -393,24 +393,7 @@ h2{
   margin: 3em auto;
 }
 
-/*  GO FULL WIDTH AT LESS THAN 720 PIXELS */
 
-@media only screen and (max-width: 720px) {
-	#about, .about-text {
-    width: 80%;
-    margin: 100px auto;
-    display: block;
-    position: absolute;
-    left:10%;
-  }
-  #about{
-     top:0px;
- }
- .about-text{
-    top:200px;
-}
-}
-/*code taken END*/
 #back2top{
   position: relative;
   bottom: 2em;
