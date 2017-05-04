@@ -128,7 +128,7 @@ footer{
 nav{
   font-family: 'Fredericka the Great', cursive;
   position:relative;
-  font-size: 1.5em;
+  font-size: 1em;
   text-align: center;
 }
 nav ul{
@@ -219,7 +219,7 @@ h2{
   padding-bottom: 1em;
 }
 .artwork{
-  margin: 150px auto;
+  margin: 120px auto;
   margin-bottom: 0px;
   width: 85%;
   text-align: center;
@@ -280,8 +280,15 @@ h2{
      bottom:0;
      right:15px;
   }
+  nav{
+    font-family: 'Fredericka the Great', cursive;
+    position:relative;
+    font-size: 1.4em;
+    text-align: center;
+  }
+
   .contact-icons ul li a img{
-     width: 2.2em;
+     width: 2em;
      /*transition: all ease 1s;*/
      vertical-align: top;
   }
