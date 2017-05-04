@@ -37,7 +37,9 @@ img#info{
   width: auto;
   margin-right: 20%;
 }
-
+.descItem{
+  line-height: 1.5em;
+}
 #next,#prev{
   opacity: .5;
   color: white;
@@ -78,10 +80,10 @@ img#info{
   transform: scale(0.7) translateY(50vh);
 }
 .next{
-  background-image: url(images/animation/m5.png);
+  background-image: url(images/buttons/m5.png);
 }
 .prev{
-  background-image: url(images/animation/m35.png);
+  background-image: url(images/buttons/m35.png);
 }
 .next:hover, .prev:hover{
   cursor: pointer;
@@ -123,7 +125,6 @@ img#info{
   align-items: stretch;
   justify-content: center;
 }
-
 @media only screen and (min-width: 770px) {
 .content-info{
   line-height: 9vh;
@@ -133,7 +134,7 @@ img#info{
   justify-content: center;
 }
 #info-text{
-  font-size: 19px;
+  font-size: 16px;
 }
 
 
