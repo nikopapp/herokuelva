@@ -1,3 +1,4 @@
+
 /*----about.html*/
 .content-about{
    position: relative;
@@ -5,15 +6,20 @@
    width: 100%;
    height: 100%;
 }
+p{
+  margin-top: 6em;
+}
 
 .about-text,#about{
-  width:35%;
-  bottom:30px;
+
+  width:80%;
   margin-top: 100px;
   text-align: justify;
-  display: inline-block;
 }
-@media only screen and (max-width: 501px) {
+#about{
+  width: 100%;
+}
+@media only screen and (max-width: 701px) {
   .about-text,#about{
     width: 70%;
     bottom:30px;
@@ -21,7 +27,6 @@
     text-align: justify;
     display: inline-block;
   }
-
 }
 
 #about{
@@ -32,5 +37,14 @@
 @media only screen and (min-width: 720px) {
   .content-about{
      top:7em;
+  }
+  #about{
+    width: 50%;
+    display: inline-block;
+  }
+  .about-text{
+    width: 20%;
+    display: inline-block;
+    margin-right: 2em;
   }
 }
