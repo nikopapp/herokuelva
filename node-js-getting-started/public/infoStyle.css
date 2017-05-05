@@ -3,11 +3,8 @@
   display: block;
 }
 .next,.prev{
-  font-weight: 700;
   width: 1.5em;
   height: 1.5em;
-  font-size: 3em;
-  font-family: "Dosis";
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -15,12 +12,6 @@
   position: relative;
   margin: auto;
   transform: scale(0.7) translateY(50vh);
-}
-.next{
-  background-image: url(images/animation/m5.png);
-}
-.prev{
-  background-image: url(images/animation/m35.png);
 }
 .next:hover, .prev:hover{
   cursor: pointer;
@@ -37,7 +28,7 @@ img#info{
   width: auto;
   margin-right: 20%;
 }
-.descItem{
+#descItem{
   line-height: 1.5em;
 }
 #next,#prev{
@@ -66,10 +57,8 @@ img#info{
   margin: auto;
 }
 .next,.prev{
-  font-weight: 700;
-  width: 1.5em;
-  height: 1.5em;
-  font-size: 3em;
+  width: 4.5em;
+  height: 4.5em;
   font-family: "Dosis";
   background-repeat: no-repeat;
   background-position: center;
