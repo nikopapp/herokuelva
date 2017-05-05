@@ -197,8 +197,8 @@ module.exports = function(port, middleware, callback) {
       console.log(prevId  +  " "+ nextId);
       res.json({
         item:gallery.mix_tech.items[id],folder:"images/gallery_pictures/mix_tech/",
-        nextImg:nextId,
-        prevImg:prevId,
+        nextImg:gallery.mix_tech.items[nextId],
+        prevImg:gallery.mix_tech.items[prevId],
         itemsLength: mix_tech.items.length
       });
    });
@@ -211,8 +211,8 @@ module.exports = function(port, middleware, callback) {
       console.log(prevId  +  " "+ nextId);
       res.json({
          item: gallery.paintings.items[id], folder:"images/gallery_pictures/painting/",
-         prevImg:prevId,
-         nextImg:nextId,
+         prevImg:gallery.paintings.items[prevId],
+         nextImg:gallery.paintings.items[nextId],
          itemsLength: paintings.items.length
       });
     });

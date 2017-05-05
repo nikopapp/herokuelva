@@ -1,0 +1,44 @@
+
+/*----about.html*/
+.content-about{
+   position: relative;
+   top:3em;
+   width: 100%;
+   height: calc(100%-3em);
+}
+
+.about-text,#about{
+
+  width:80%;
+  margin: auto;
+  text-align: justify;
+
+}
+@media only screen and (max-width: 801px) {
+  .about-text,#about{
+    width: 70%;
+    bottom:30px;
+    margin-top: 100px;
+    text-align: justify;
+    display: block;
+  }
+}
+.about-text{
+}
+/*  GO FULL WIDTH AT LESS THAN 720 PIXELS */
+
+@media only screen and (min-width: 801px) {
+  .content-about{
+     margin-top:12%;
+  }
+  #about{
+    width: 45%;
+    margin-left: 10%;
+    display: inline-block;
+  }
+  .about-text{
+    width: 30%;
+    display: inline-block;
+    margin-right: 2em;
+  }
+}

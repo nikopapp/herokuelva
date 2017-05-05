@@ -29,8 +29,8 @@ var animate = function(callback) {
   images[0].style.top = (posY+10) +"%";
   images[0].style.left = (posX+8) +"%";
 
-  mainImage0.style.top=mainImage.style.top = (posY-6) +"%";
-  mainImage0.style.left=mainImage.style.left = (posX-15) +"%";
+  // mainImage0.style.top=mainImage.style.top = (posY-6) +"%";
+  // mainImage0.style.left=mainImage.style.left = (posX-15) +"%";
 
   for (var i=1;i<15;i++){
     console.log("dike mou");
@@ -138,14 +138,17 @@ var animate = function(callback) {
   }
 }
 function makePortals(drop,i){
-    drop.onmouseenter = function(){
+    drop.onmouseenter = makeBlownDrop;
+    drop.ontouchstart = makeBlownDrop;
+    drop.onmouseleave = revertDrop;
+    function makeBlownDrop(){
       drop.style.transition = "all 0.6s ease";
       drop.setAttribute("src","images/gallery_pictures/painting/c" +
           (1 + Math.floor((10000*Math.random())%27)) + ".jpg");
       drop.setAttribute("width","200px");
       drop.style.zIndex="30";
     };
-    drop.onmouseleave = function(){
+    function revertDrop(){
       drop.style.zIndex="1";
       drop.setAttribute("width","50px");
       drop.setAttribute("src","images/animation/m"+i+".png");
@@ -215,10 +218,11 @@ function putMask(){
 }
 
 function makeInit(){
-  if(window.location.href.includes("grid")){
+  if(window.location.href.includes("grid") ||
+      window.location.href.includes("info")||
+      window.location.href.includes("about")){
     return;
   }
-  console.log();
   console.log("makeInit");
   divAnim = document.getElementById("animation");
   if(divAnim){
