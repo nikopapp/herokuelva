@@ -44,7 +44,7 @@ app_ang.controller("homeVC", ["$scope", function(scope) {
 
 app_ang.controller("aboutCtrl", [function(){
     var self = this;
-    
+
 }]);
 app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "languageService",
         function(scope, Painting, Mix, routeParams, languageService) {
@@ -118,7 +118,7 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
     mix_tech: "TECNICAS MIXTAS",
     islamic: "ARTE ISLAMICA"
  }
- // self.titleHead = window.location.href
+  self.titleHead = " - Personal Gallery";
   console.log(routeParams);
   if(self.languageObj.value === "ESP"){
     self.menu = self.menuESP;
