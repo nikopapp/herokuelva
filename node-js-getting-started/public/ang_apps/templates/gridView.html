@@ -4,7 +4,8 @@
   <h1 id="secHeader" class="artwork">{{paintingCtrl.title.value}}</h1>
   <div class="grid" ng-repeat="painting in paintingCtrl.paintings track by $index">
       <a href="#!/info/{{paintingCtrl.gallery}}/{{$index}}">
-    <img src="{{paintingCtrl.folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img></a>
+        <img src="{{paintingCtrl.folder}}{{painting.thumb}}" alt="{{painting.alt}}"></img>
+      </a>
  </div>
 </section>
-<div id="back2top"><a href="#top">back to top</a></div>
+<div id="back2top"><a ng-click="paintingCtrl.scrollToTop($event)">back to top</a></div>

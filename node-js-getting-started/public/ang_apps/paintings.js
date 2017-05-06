@@ -18,7 +18,7 @@ app_ang.config(["$routeProvider", function($routeProvider) {
         controller: "PinfoVC as info",
         templateUrl: "ang_apps/templates/infoView.html"
     }).when("/about/elva", {
-      controller: "aboutCtrl as about",
+      controller: "aboutCtrl as paintingCtrl",
       templateUrl: "ang_apps/templates/aboutView.html"
     }).otherwise({
         redirectTo: "/"
@@ -39,12 +39,14 @@ app_ang.factory("Mix", function($resource) {
 });
 app_ang.controller("homeVC", ["$scope", function(scope) {
     var self = this;
-    self.title = "Elva Arce - Home";
+    self.titleHead = "Elva Arce - Home";
+    document.getElementsByTagName("body")[0].className = "normal";
 }]);
 
 app_ang.controller("aboutCtrl", [function(){
     var self = this;
-
+    self.titleHead = "Elva Arce - About";
+    document.getElementsByTagName("body")[0].className = "normal";
 }]);
 app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "languageService",
         function(scope, Painting, Mix, routeParams, languageService) {
@@ -54,19 +56,31 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "lan
     self.gallery = routeParams.gallery;
     self.getPaint = getPaintings;
     self.getMix = getMixTech;
+    self.getIslam = getIslamicArt;
+    self.scrollToTop = scrollToTopFunc;
     if(routeParams.gallery === "paintings"){
+      document.getElementsByTagName("body")[0].className = "normal";
       self.getPaint();
       if(routeParams.lang === "ENG"){
         self.title = {value: "Paintings"};
       } else {
         self.title = {value: "Pintura"};
       }
-    } else {
+    } else if(routeParams.gallery === "mix_tech") {
+      document.getElementsByTagName("body")[0].className = "normal";
       self.getMix();
       if(routeParams.lang === "ENG"){
         self.title = {value: "Mixed Techniques"};
       } else {
         self.title ={ value: "Tecnicas Mixtas"};
+      }
+    } else {
+      self.getIslam();
+      document.getElementsByTagName("body")[0].className = "islamic";
+      if(routeParams.lang === "ENG"){
+        self.title = { value: "Islamic Art"}
+      } else {
+        self.title ={ value: "Arte Islamico"};
       }
     }
     self.setTitle = function(value){
@@ -86,26 +100,18 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "lan
         self.folder = data.folder;
       });
     };
+    function getIslamicArt(){
+      self.paintings = islamicDb.items;
+      self.folder = "images/gallery_pictures/islamic/";
+    }
+    function scrollToTopFunc(event){
+      console.log("myevent",event);
+      window.scroll(0,0);
+    }
 }]);
-app_ang.controller("MgridVC", ["$scope", "Mix", "languageService",
-          function(scope, Mix, languageService) {
-    var self = this;
-    self.title = {value:"Mixed Techniques"};
-    self.setTitle = function(value){
-      self.title.value = value;
-    };
-    self.placeholderClassName = "";
-    languageService.bindSetTitle(self.setTitle, "mix_tech");
-    Mix.get().$promise.then(function(data){
-      self.paintings = data.items;
-      self.folder = data.folder;
-    });
-}]);
-
 app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", function(scope,languageService,routeParams) {
  var self = this;
- console.log(window.location.href);
-    self.languageObj = languageService.setBind();
+ self.languageObj = languageService.setBind();
  self.menuENG = {
     artwork: "ARTWORK",
     paintings: "PAINTINGS",
@@ -143,7 +149,14 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
   } else {
     self.setLangENG();
   }
+  if(window.location.href.includes("islamic")){
+    self.gallery = "islamic";
+  } else {
+    self.gallery = "normal";
+  }
+
 }]);
+
 
 app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "languageService",
               function(scope, routeParams, Painting, Mix, languageService) {
@@ -214,11 +227,13 @@ app_ang.service("languageService", ["$routeParams", function(routeParams) {
   self.titleBank = {
     "ENG": {
       paintings: "Paintings",
-      mix_tech: "Mixed Techniques"
+      mix_tech: "Mixed Techniques",
+      islamic: "Islamic Art"
      },
     "ESP": {
       paintings: "Pintura",
-      mix_tech: "Tecnicas Mixtas"
+      mix_tech: "Tecnicas Mixtas",
+      islamic: "Arte Islamico"
     }
   }
   self.menu;
@@ -240,3 +255,19 @@ app_ang.service("languageService", ["$routeParams", function(routeParams) {
     return self.languageObj;
   };
 }]);
+const islamicDb = {
+  items:[
+    {id:"i1",alt: "", descriptionESP:"", descriptionENG:"",path:"c0.png",thumb:"c0.png"},
+    {id:"i2",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c1.png"},
+    {id:"i3",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c2.png"},
+    {id:"i4",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c3.png"},
+    {id:"i5",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c4.png"},
+    {id:"i6",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c5.png"},
+    {id:"i7",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c6.png"},
+    {id:"i8",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c7.png"},
+    {id:"i9",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c8.png"},
+    {id:"i10",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c9.png"},
+    {id:"i11",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c10.png"},
+    {id:"i12",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c11.png"},
+    {id:"i13",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c12.png"},
+  ]};

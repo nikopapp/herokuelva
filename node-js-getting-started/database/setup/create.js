@@ -143,6 +143,11 @@ var mix_tech = {
   {id:"t13",alt: "Quédate callada", descriptionESP:"Collage, 46x 61 cm, 2009",descriptionENG:"Collage, 46x 61 cm, 2009",path:"t13.jpg",thumb:"p13.jpg"},
 ]
 };
+var islamic = {
+  items:[
+    {id:"i1",alt: "", descriptionESP:"", descriptionENG:"",path:"c0.png",thumb:"c1.png"},    
+  ]
+}
 var gallery = {
    paintings: {
       items:paintings.items,
@@ -152,5 +157,8 @@ var gallery = {
       items: mix_tech.items,
       folder:"mix_tech"
    },
-   islamic:{}
+   islamic:{
+     items: islamic.items,
+     folder: "islamic"
+   }
 };
