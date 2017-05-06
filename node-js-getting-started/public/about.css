@@ -8,11 +8,9 @@
 }
 
 .about-text,#about{
-
   width:80%;
   margin: auto;
   text-align: justify;
-
 }
 @media only screen and (max-width: 801px) {
   .about-text,#about{
@@ -23,7 +21,9 @@
     display: block;
   }
 }
+/* until true text is available */
 .about-text{
+   opacity: 0;
 }
 /*  GO FULL WIDTH AT LESS THAN 720 PIXELS */
 
