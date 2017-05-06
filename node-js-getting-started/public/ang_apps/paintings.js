@@ -116,13 +116,15 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
     artwork: "ARTWORK",
     paintings: "PAINTINGS",
     mix_tech: "MIXED TECHNIQUES",
-    islamic: "ISLAMIC ART"
+    islamic: "ISLAMIC ART",
+    watercolor: "WATERCOLOUR"
  }
  self.menuESP = {
     artwork: "OBRAS",
     paintings: "PINTURA",
     mix_tech: "TECNICAS MIXTAS",
-    islamic: "ARTE ISLAMICA"
+    islamic: "ARTE ISLAMICA",
+    watercolor: "ACUARELA"
  }
   self.titleHead = " - Personal Gallery";
   console.log(routeParams);

@@ -247,6 +247,7 @@ h2{
   margin: auto;
   list-style: none;
   width:100%;
+  padding-bottom: 2em;
 }
 /*.content-artwork li{
   float:left;
@@ -402,7 +403,8 @@ h2{
 
 #back2top{
   position: relative;
-  bottom: 2em;
+  margin-top: 2em;
+  bottom: 4em;
   display: block;
   margin: auto;
 }
