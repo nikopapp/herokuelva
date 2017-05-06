@@ -178,10 +178,11 @@ var islamic = {
 }
 var watercolor = {
   items:[
-    {id:"w1",alt: "Akachi", descriptionESP:"", descriptionENG:"",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
-    {id:"w2",alt: "Amanitas", descriptionESP:"", descriptionENG:"",path:"amanitas.jpg",thumb:"ZThumbamanitas.jpg"},
-    {id:"w3",alt: "", descriptionESP:"", descriptionENG:"",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
-    {id:"w4",alt: "Luna", descriptionESP:"", descriptionENG:"",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
+    {id:"w1",alt: "Akaki", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton, A3, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A3, 2017",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
+    {id:"w2",alt: "Amanitas", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton, A3, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A3, 2017",path:"amanitas.jpg",thumb:"ZThumbamanitas.jpg"},
+    {id:"w3",alt: "Gea", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton, 21x 27 cm, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, 21x 27 cm, 2017",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
+    {id:"w4",alt: "Colourfeelds", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton, A2, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A2, 2017",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
+    {id:"w5",alt: "Seleni", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton, A2, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A2, 2017",path:"Luna.jpg",thumb:"zThumbLuna.jpg"},
   ]
 }
 

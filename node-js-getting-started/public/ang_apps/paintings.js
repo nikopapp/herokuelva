@@ -212,8 +212,8 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "Wate
 
   self.refresh = refresh;
   function refresh(idNum, resource){
-    var folder;
     resource.get({id:idNum}).$promise.then(function(data){
+      console.log(data);
       self.imageId = data.item.id;
       self.imageAlt = data.item.alt;
       if(data.item.descriptionENG){
@@ -222,16 +222,10 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "Wate
       if(data.item.descriptionESP){
         self.imageDescESP = data.item.descriptionESP.split(", ");
       }
-      if(routeParams.gallery === "paintings"){
-        folder = "painting";
-      }else if(routeParams.gallery === "mix_tech"){
-        folder = "mix_tech";
-      } else{
-        folder = "watercolor";
-      }
-      self.imageSrc = "images/gallery_pictures/"+folder+"/" + data.item.path;
-      self.imageSrcNext = "images/gallery_pictures/"+folder+"/" + data.nextImg.path;
-      self.imageSrcPrev = "images/gallery_pictures/"+folder+"/" + data.prevImg.path;
+
+      self.imageSrc = data.folder + data.item.path;
+      self.imageSrcNext = data.folder + data.nextImg.path;
+      self.imageSrcPrev = data.folder + data.prevImg.path;
       self.imageAltPrev = data.prevImg.alt;
       self.imageAltNext = data.nextImg.alt;
 
