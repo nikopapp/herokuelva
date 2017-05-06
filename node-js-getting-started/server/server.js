@@ -41,17 +41,12 @@ var db = new sql.Database("database/test.sqlite3");
 const statusCode = {"notFound": 404, "ok": 200, "created": 201};
 module.exports = function(port, middleware, callback) {
    //------------------ descriptions
-   var paintings = {
-      items:[]
-};
 
-  var mix_tech = {
-    items:[]
-};
+   var paintings = { items:[] };
+   var mix_tech = { items:[] };
+   var islamic = { items:[] };
+   var watercolor = { items:[] };
 
-  var islamic = {
-    items:[]
-};
    var gallery = {
       paintings: {
          items: paintings.items,
@@ -64,6 +59,10 @@ module.exports = function(port, middleware, callback) {
       islamic:{
         items: islamic.items,
         folder:"islamic"
+      },
+      watercolor:{
+        items: watercolor.items,
+        folder:"watercolor"
       }
    };
 // db Intstantiation
@@ -80,6 +79,9 @@ module.exports = function(port, middleware, callback) {
      });
      db.each("SELECT * FROM ISLAMIC ORDER BY timestamp DESC", function(err, row) {
        islamic.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
+     });
+     db.each("SELECT * FROM WATERCOLOR ORDER BY timestamp DESC", function(err, row) {
+       watercolor.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
 
    }
@@ -175,6 +177,9 @@ module.exports = function(port, middleware, callback) {
     app.get("/api/islamic",function(req,res){
       res.json({items:gallery.islamic.items,folder:"images/gallery_pictures/islamic/"});
     });
+    app.get("/api/watercolor",function(req,res){
+      res.json({items:gallery.watercolor.items,folder:"images/gallery_pictures/watercolor/"});
+    });
 
 
     app.delete("/api/gallery/:id",function(req,res){
@@ -217,7 +222,6 @@ module.exports = function(port, middleware, callback) {
         itemsLength: mix_tech.items.length
       });
    });
-
     app.get("/api/paintings/:id",function(req,res){
       var id = parseInt(req.params.id);
       console.log(id);
@@ -229,6 +233,19 @@ module.exports = function(port, middleware, callback) {
          prevImg:gallery.paintings.items[prevId],
          nextImg:gallery.paintings.items[nextId],
          itemsLength: paintings.items.length
+      });
+    });
+    app.get("/api/watercolor/:id",function(req,res){
+      var id = parseInt(req.params.id);
+      console.log(id);
+      var prevId = (id-1)>=0?id-1:paintings.items.length-1;
+      var nextId = (id+1)%paintings.items.length;
+      console.log(prevId  +  " "+ nextId);
+      res.json({
+         item: gallery.watercolor.items[id], folder:"images/gallery_pictures/watercolor/",
+         prevImg:gallery.watercolor.items[prevId],
+         nextImg:gallery.watercolor.items[nextId],
+         itemsLength: watercolor.items.length
       });
     });
 

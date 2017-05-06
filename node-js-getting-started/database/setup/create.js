@@ -57,6 +57,18 @@ function startup(db) {
          "timestamp LONG"+
          ")");
          console.log("TABLE ISLAMIC created");
+         console.log("Creating TABLE WATERCOLOR");
+         db.run("CREATE TABLE WATERCOLOR ("+
+         "id TEXT,"+
+         "alt TEXT,"+
+         "path TEXT,"+
+         "descriptionESP TEXT,"+
+         "descriptionENG TEXT,"+
+         "thumb TEXT,"+
+         "timestamp LONG"+
+         ")");
+         console.log("TABLE WATERCOLOR created");
+
 // =====================================================================
          console.log("populating...");
          var stmt = db.prepare("INSERT INTO MIX_TECH VALUES (?,?,?,?,?,?,?)");
@@ -80,6 +92,14 @@ function startup(db) {
             console.log(isla.id,isla.alt,isla.path,isla.descriptionESP,isla.descriptionENG,isla.thumb,Date.now()-200*i);
 
              stmt.run(isla.id,isla.alt,isla.path,isla.descriptionESP,isla.descriptionENG,isla.thumb,Date.now()-200*i);
+         }
+         stmt.finalize();
+         var stmt = db.prepare("INSERT INTO WATERCOLOR VALUES (?,?,?,?,?,?,?)");
+         for (var i = watercolor.items.length-1; i >=0 ; i--) {
+            var water = watercolor.items[i];
+            console.log(water.id,water.alt,water.path,water.descriptionESP,water.descriptionENG,water.thumb,Date.now()-200*i);
+
+             stmt.run(water.id,water.alt,water.path,water.descriptionESP,water.descriptionENG,water.thumb,Date.now()-200*i);
          }
          stmt.finalize();
 
