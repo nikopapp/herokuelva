@@ -48,6 +48,10 @@ module.exports = function(port, middleware, callback) {
   var mix_tech = {
     items:[]
 };
+
+  var islamic = {
+    items:[]
+};
    var gallery = {
       paintings: {
          items: paintings.items,
@@ -57,7 +61,10 @@ module.exports = function(port, middleware, callback) {
          items: mix_tech.items,
          folder:"mix_tech"
       },
-      islamic:{}
+      islamic:{
+        items: islamic.items,
+        folder:"islamic"
+      }
    };
 // db Intstantiation
   // dbCreate.startup(db);
@@ -71,6 +78,10 @@ module.exports = function(port, middleware, callback) {
      db.each("SELECT * FROM MIX_TECH ORDER BY timestamp DESC", function(err, row) {
        mix_tech.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
+     db.each("SELECT * FROM ISLAMIC ORDER BY timestamp DESC", function(err, row) {
+       islamic.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
+     });
+
    }
 
   //  --------------------------------------------------------------------------
@@ -161,6 +172,10 @@ module.exports = function(port, middleware, callback) {
     app.get("/api/paintings",function(req,res){
       res.json({items:gallery.paintings.items,folder:"images/gallery_pictures/painting/"});
     });
+    app.get("/api/islamic",function(req,res){
+      res.json({items:gallery.islamic.items,folder:"images/gallery_pictures/islamic/"});
+    });
+
 
     app.delete("/api/gallery/:id",function(req,res){
       var id = req.params.id.split("/");

@@ -37,6 +37,13 @@ app_ang.factory("Mix", function($resource) {
     });
     return TodoObject;
 });
+app_ang.factory("Islamic", function($resource) {
+    var TodoObject = $resource("/api/islamic/:id", {id: "@id"}, {
+        "update": {method: "PUT"}
+    });
+    return TodoObject;
+});
+
 app_ang.controller("homeVC", ["$scope", function(scope) {
     var self = this;
     self.titleHead = "Elva Arce - Home";
@@ -48,8 +55,8 @@ app_ang.controller("aboutCtrl", [function(){
     self.titleHead = "Elva Arce - About";
     document.getElementsByTagName("body")[0].className = "normal";
 }]);
-app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "languageService",
-        function(scope, Painting, Mix, routeParams, languageService) {
+app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "$routeParams", "languageService",
+        function(scope, Painting, Mix, Islamic, routeParams, languageService) {
     var self = this;
     self.languageObj = languageService.setBind;
     console.log(routeParams);
@@ -101,8 +108,10 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "lan
       });
     };
     function getIslamicArt(){
-      self.paintings = islamicDb.items;
-      self.folder = "images/gallery_pictures/islamic/";
+      Islamic.get().$promise.then(function(data){
+        self.paintings = data.items;
+        self.folder = data.folder;
+      });
     }
     function scrollToTopFunc(event){
       console.log("myevent",event);
