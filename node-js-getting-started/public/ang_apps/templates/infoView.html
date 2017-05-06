@@ -1,27 +1,24 @@
 <div class="content-info">
   <div class="flex-item" ng-click="info.getPrev()">
-  <a id="prev" >
-    <span class="prev">
-    </span>
-  </a>
-</div>
-  <div class="info-img">
-    <div id=info-text class="infotextdivWrapper">
-    <img ng-click="blowUp($event)" class="ng-hide" id="imagePrev" ng-src="{{info.imageSrcPrev}}" alt="{{info.imageAltPrev}}">
-    <img ng-click="blowUp($event)" class="info-img-img" id={{info.imageId}} ng-src="{{info.imageSrc}}" alt="{{info.imageAlt}}">
-    <img ng-click="blowUp($event)" class="ng-hide" id="imageNext" ng-src="{{info.imageSrcNext}}" alt="{{info.imageAltNext}}">
-    <div class="infoSpan">
-      <em><strong><span>{{info.imageAlt}}.</span></strong></em>
-      <span class="descItem" ng-show="info.languageObj.value === info.eng" ng-repeat="descsENG in info.imageDescENG">{{descsENG}}.</span>
-      <span class="descItem" ng-show="info.languageObj.value === info.esp" ng-repeat="descsESP in info.imageDescESP">{{descsESP}}.</span>
-      </div>
-    </div>
-  </img>
+    <a id="prev" >
+      <span class="prev">
+      </span>
+    </a>
   </div>
-<div class="flex-item" ng-click="info.getNext()">
+  <div class="info-img">
+    <img ng-click="blowUp($event)" class="ng-hide" id="imagePrev" ng-src="{{info.imageSrcPrev}}" alt="{{info.imageAltPrev}}" />
+    <img ng-click="blowUp($event)" class="info-img-img" id={{info.imageId}} ng-src="{{info.imageSrc}}" alt="{{info.imageAlt}}" />
+    <img ng-click="blowUp($event)" class="ng-hide" id="imageNext" ng-src="{{info.imageSrcNext}}" alt="{{info.imageAltNext}}" />
+  </div>
+  <div class="flex-item" ng-click="info.getNext()">
     <a id="next" >
       <span class="next">
       </span>
     </a>
   </div>
+</div>
+<div class="infoSpan">
+  <em><strong><span>{{info.imageAlt}}.</span></strong></em>
+  <span class="descItem" ng-show="info.languageObj.value === info.eng" ng-repeat="descsENG in info.imageDescENG">{{descsENG}}.</span>
+  <span class="descItem" ng-show="info.languageObj.value === info.esp" ng-repeat="descsESP in info.imageDescESP">{{descsESP}}.</span>
 </div>
