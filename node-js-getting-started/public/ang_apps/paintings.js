@@ -153,7 +153,7 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
     artwork: "OBRAS",
     paintings: "PINTURA",
     mix_tech: "TECNICAS MIXTAS",
-    islamic: "ARTE ISLAMICA",
+    islamic: "ARTE ISLAMICO",
     watercolor: "ACUARELA"
  }
   self.titleHead = " - Personal Gallery";
