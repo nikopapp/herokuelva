@@ -48,8 +48,7 @@ img#info{
   margin-bottom: 0;
 }
 .info-img{
-  line-height: 74vh;
-
+  line-height: 67vh;
   /*min-height: 75vh;*/
   flex-grow: 1;
   flex-shrink: 2;
@@ -66,7 +65,7 @@ img#info{
   display: inline-block;
   position: relative;
   margin: auto;
-  transform: scale(0.7) translateY(50vh);
+  transform: scale(0.7);
 }
 .next{
   background-image: url(images/buttons/m5.png);
@@ -95,23 +94,11 @@ img#info{
   height: 1em;
   text-align: center;
 }
-.infotextdivWrapper{
-  line-height: 33em;
-}
 .infoSpan{
-  margin-top: -78%;
+  margin-top: 2%;
 }
 .descItem{
   margin-right: 0.3em;
-}
-img#info{
-  max-width: 46%;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 70vh;
-  height: auto;
-  width: auto;
-  margin-right: 20%;
 }
 
 .content-info{
@@ -119,40 +106,32 @@ img#info{
   display: flex;
   align-items: stretch;
   justify-content: center;
+  margin-top: 15vh;
+
 }
 
 @media only screen and (min-width: 430px) {
   .infoSpan{
-    margin-top: -20%;
+    margin-top: 2%;
   }
 }
 @media only screen and (min-width: 770px) {
-  .infotextdivWrapper{
-    line-height: 27em;
-  }
 
 .content-info{
   line-height: 9vh;
-  margin-top: 7%;
   display: flex;
   align-items: stretch;
   justify-content: center;
+  margin-top: 10vh;
+}
+.info-img{
+  line-height: 78vh;
 }
 #info-text{
   font-size: 16px;
 }
 .infoSpan{
-  margin-top: -22%;
-}
-
-
-img#info{
-  max-width: 46%;
-  display: inline-block;
-  vertical-align: bottom;
-  height: auto;
-  width: auto;
-  margin-right: 20%;
+  margin-top: 2%;
 }
 /*#firma{
   display: inline-block;

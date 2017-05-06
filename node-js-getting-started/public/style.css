@@ -38,7 +38,7 @@ color:green;
    display: inline-block;
 }
 .contact-icons ul li a img{
-   width: 10vw;
+   width: 2em;
    /*transition: all ease 1s;*/
    vertical-align: top;
 }
@@ -294,8 +294,6 @@ h2{
   }
 
   .contact-icons ul li a img{
-     width: 2em;
-     /*transition: all ease 1s;*/
      vertical-align: top;
   }
 
