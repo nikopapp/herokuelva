@@ -12,25 +12,18 @@ function startup(db) {
     const paintings = gallery.paintings;
     const err = erro;
     db.serialize(function(){
-        db.run("DROP TABLE IF EXISTS MENU");
-        console.log("MENU deleted");
 
-        db.run("DROP TABLE IF EXISTS MENUESP");
-        console.log("MENUESP deleted");
+        db.run("DROP TABLE IF EXISTS WATERCOLOR");
+        console.log("WATERCOLOR deleted");
 
-        db.run("DROP TABLE IF EXISTS MENUENG");
-        console.log("MENUENG deleted");
-
+        db.run("DROP TABLE IF EXISTS ISLAMIC");
+        console.log("ISLAMIC deleted");
 
         db.run("DROP TABLE IF EXISTS PAINTING");
         console.log("PAINTING deleted");
         db.run("DROP TABLE IF EXISTS MIX_TECH");
         console.log("MIX_TECH deleted");
-        console.log("Creating TABLE MENUENG");
-        db.run("CREATE TABLE MENUENG ("+
-        "id TEXT, "+
-        "displayname TEXT"+
-        ")")
+
         console.log("Creating TABLE PAINTING");
          db.run("CREATE TABLE PAINTING ("+
          "id TEXT,"+
@@ -53,6 +46,30 @@ function startup(db) {
          "timestamp LONG"+
          ")");
          console.log("TABLE MIX_TECH created");
+         console.log("Creating TABLE ISLAMIC");
+         db.run("CREATE TABLE ISLAMIC ("+
+         "id TEXT,"+
+         "alt TEXT,"+
+         "path TEXT,"+
+         "descriptionESP TEXT,"+
+         "descriptionENG TEXT,"+
+         "thumb TEXT,"+
+         "timestamp LONG"+
+         ")");
+         console.log("TABLE ISLAMIC created");
+         console.log("Creating TABLE WATERCOLOR");
+         db.run("CREATE TABLE WATERCOLOR ("+
+         "id TEXT,"+
+         "alt TEXT,"+
+         "path TEXT,"+
+         "descriptionESP TEXT,"+
+         "descriptionENG TEXT,"+
+         "thumb TEXT,"+
+         "timestamp LONG"+
+         ")");
+         console.log("TABLE WATERCOLOR created");
+
+// =====================================================================
          console.log("populating...");
          var stmt = db.prepare("INSERT INTO MIX_TECH VALUES (?,?,?,?,?,?,?)");
          for (var i = mix_tech.items.length-1; i >=0 ; i--) {
@@ -69,32 +86,31 @@ function startup(db) {
              stmt.run(paint.id,paint.alt,paint.path,paint.descriptionESP,paint.descriptionENG,paint.thumb,Date.now()-200*i);
          }
          stmt.finalize();
+         var stmt = db.prepare("INSERT INTO ISLAMIC VALUES (?,?,?,?,?,?,?)");
+         for (var i = islamic.items.length-1; i >=0 ; i--) {
+            var isla = islamic.items[i];
+            console.log(isla.id,isla.alt,isla.path,isla.descriptionESP,isla.descriptionENG,isla.thumb,Date.now()-200*i);
+
+             stmt.run(isla.id,isla.alt,isla.path,isla.descriptionESP,isla.descriptionENG,isla.thumb,Date.now()-200*i);
+         }
+         stmt.finalize();
+         var stmt = db.prepare("INSERT INTO WATERCOLOR VALUES (?,?,?,?,?,?,?)");
+         for (var i = watercolor.items.length-1; i >=0 ; i--) {
+            var water = watercolor.items[i];
+            console.log(water.id,water.alt,water.path,water.descriptionESP,water.descriptionENG,water.thumb,Date.now()-200*i);
+
+             stmt.run(water.id,water.alt,water.path,water.descriptionESP,water.descriptionENG,water.thumb,Date.now()-200*i);
+         }
+         stmt.finalize();
 
       db.close();
     });
 }
 
 function erro(e) { if (e) throw e; }
-var menu = {
-  eng: [
-    {id: "home", displayname: "HOME"},
-    {id: "about", displayname: "BIO"},
-    {id: "artwork", displayname: "ARTWORK"},
-    {id: "paintints", displayname: "PAINTING"},
-    {id: "mix_tech", displayname: "MIXED TECHNIQUES"},
-    {id: "islamic", displayname: "ISLAMIC"},
-  ],
-  esp: [
-    {id: "home", displayname: "HOME"},
-    {id: "about", displayname: "BIO"},
-    {id: "artwork", displayname: "OBRA"},
-    {id: "paintints", displayname: "PINTURA"},
-    {id: "mix_tech", displayname: "TECNICAS MIXTAS"},
-    {id: "islamic", displayname: "ISLAMICA"},
-  ]
-}
 var paintings = {
    items:[
+  {id:"k1N",   alt:"La familia",      path:"Family.jpg",    descriptionESP:"Acrílico sobre tela, 61x 91 cm, 2017", descriptionENG:"Acrylic on canvas, 61x 91 cm, 2017", thumb:"zThumbFamily.jpg"},
   {id:"k0",   alt:"La búsqueda",      path:"k0.jpg",    descriptionESP:"Acrílico sobre papel Fabriàno \"Pittura\", 70x 50 cm, 2016", descriptionENG:"Acrylic on Fabriàno \"Pittura\" paper, 70x 50 cm, 2016", thumb:"c0.jpg"},
   {id:"k1",   alt:"Ana",              path:"k1.jpg",    descriptionESP:"Acrílico sobre tela, 70x 60 cm, 2015",                     descriptionENG:"Acrylic on canvas, 70x 60 cm, 2015", thumb:"c1.jpg"},
   {id:"k2",   alt:"Autorretrato II", path:"k2.jpg",    descriptionESP:"Acrílico sobre tela, 40x 40 cm, 2013",                     descriptionENG:"Acrylic on canvas, 40x 40 cm, 2013", thumb:"c2.jpg"},
@@ -145,9 +161,31 @@ var mix_tech = {
 };
 var islamic = {
   items:[
-    {id:"i1",alt: "", descriptionESP:"", descriptionENG:"",path:"c0.png",thumb:"c1.png"},    
+    {id:"i1",alt: "", descriptionESP:"", descriptionENG:"",path:"c0.png",thumb:"c0.png"},
+    {id:"i2",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c1.png"},
+    {id:"i3",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c2.png"},
+    {id:"i4",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c3.png"},
+    {id:"i5",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c4.png"},
+    {id:"i6",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c5.png"},
+    {id:"i7",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c6.png"},
+    {id:"i8",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c7.png"},
+    {id:"i9",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c8.png"},
+    {id:"i10",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c9.png"},
+    {id:"i11",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c10.png"},
+    {id:"i12",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c11.png"},
+    {id:"i13",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c12.png"},
   ]
 }
+var watercolor = {
+  items:[
+    {id:"w1",alt: "Akaki", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A3, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb A3, 2017",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
+    {id:"w2",alt: "Amanitas", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A3, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A3, 2017",path:"amanitas.jpg",thumb:"ZThumbamanitas.jpg"},
+    {id:"w3",alt: "Gea", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 21x 27 cm, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, 21x 27 cm, 2017",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
+    {id:"w4",alt: "Colourfeelds", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A2, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A2, 2017",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
+    {id:"w5",alt: "Seleni", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A2, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A2, 2017",path:"Luna.jpg",thumb:"zThumbLuna.jpg"},
+  ]
+}
+
 var gallery = {
    paintings: {
       items:paintings.items,
@@ -160,5 +198,9 @@ var gallery = {
    islamic:{
      items: islamic.items,
      folder: "islamic"
+   },
+   watercolor:{
+     items: watercolor.items,
+     folder:"watercolor"
    }
 };

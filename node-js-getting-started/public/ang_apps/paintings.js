@@ -37,6 +37,19 @@ app_ang.factory("Mix", function($resource) {
     });
     return TodoObject;
 });
+app_ang.factory("Islamic", function($resource) {
+    var TodoObject = $resource("/api/islamic/:id", {id: "@id"}, {
+        "update": {method: "PUT"}
+    });
+    return TodoObject;
+});
+app_ang.factory("Watercolor", function($resource) {
+    var TodoObject = $resource("/api/watercolor/:id", {id: "@id"}, {
+        "update": {method: "PUT"}
+    });
+    return TodoObject;
+});
+
 app_ang.controller("homeVC", ["$scope", function(scope) {
     var self = this;
     self.titleHead = "Elva Arce - Home";
@@ -48,14 +61,15 @@ app_ang.controller("aboutCtrl", [function(){
     self.titleHead = "Elva Arce - About";
     document.getElementsByTagName("body")[0].className = "normal";
 }]);
-app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "languageService",
-        function(scope, Painting, Mix, routeParams, languageService) {
+app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercolor", "$routeParams", "languageService",
+        function(scope, Painting, Mix, Islamic, Watercolor, routeParams, languageService) {
     var self = this;
     self.languageObj = languageService.setBind;
     console.log(routeParams);
     self.gallery = routeParams.gallery;
     self.getPaint = getPaintings;
     self.getMix = getMixTech;
+    self.getWatercolor = getWatercolor;
     self.getIslam = getIslamicArt;
     self.scrollToTop = scrollToTopFunc;
     if(routeParams.gallery === "paintings"){
@@ -73,6 +87,14 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "lan
         self.title = {value: "Mixed Techniques"};
       } else {
         self.title ={ value: "Tecnicas Mixtas"};
+      }
+    } else if(routeParams.gallery === "watercolor") {
+      document.getElementsByTagName("body")[0].className = "normal";
+      self.getWatercolor();
+      if(routeParams.lang === "ENG"){
+        self.title = {value: "Watercolor"};
+      } else {
+        self.title ={ value: "Acuarela"};
       }
     } else {
       self.getIslam();
@@ -101,8 +123,16 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "$routeParams", "lan
       });
     };
     function getIslamicArt(){
-      self.paintings = islamicDb.items;
-      self.folder = "images/gallery_pictures/islamic/";
+      Islamic.get().$promise.then(function(data){
+        self.paintings = data.items;
+        self.folder = data.folder;
+      });
+    }
+    function getWatercolor(){
+      Watercolor.get().$promise.then(function(data){
+        self.paintings = data.items;
+        self.folder = data.folder;
+      });
     }
     function scrollToTopFunc(event){
       console.log("myevent",event);
@@ -160,8 +190,8 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
 }]);
 
 
-app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "languageService",
-              function(scope, routeParams, Painting, Mix, languageService) {
+app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "Watercolor", "languageService",
+              function(scope, routeParams, Painting, Mix, Watercolor, languageService) {
   console.log(routeParams);
   var idNum = parseInt(routeParams.id);
   var self = this;
@@ -169,8 +199,10 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "lang
   self.esp="ESP";
   if(routeParams.gallery === "paintings"){
     self.currentGallery = Painting;
-  } else {
+  } else if (routeParams.gallery === "mix_tech"){
     self.currentGallery = Mix;
+  } else {
+    self.currentGallery = Watercolor;
   }
   self.blowUp = function($event){
     console.log("blowUp",$event);
@@ -180,8 +212,8 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "lang
 
   self.refresh = refresh;
   function refresh(idNum, resource){
-    var folder;
     resource.get({id:idNum}).$promise.then(function(data){
+      console.log(data);
       self.imageId = data.item.id;
       self.imageAlt = data.item.alt;
       if(data.item.descriptionENG){
@@ -190,14 +222,10 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "lang
       if(data.item.descriptionESP){
         self.imageDescESP = data.item.descriptionESP.split(", ");
       }
-      if(routeParams.gallery === "paintings"){
-        folder = "painting";
-      }else{
-        folder = "mix_tech";
-      }
-      self.imageSrc = "images/gallery_pictures/"+folder+"/" + data.item.path;
-      self.imageSrcNext = "images/gallery_pictures/"+folder+"/" + data.nextImg.path;
-      self.imageSrcPrev = "images/gallery_pictures/"+folder+"/" + data.prevImg.path;
+
+      self.imageSrc = data.folder + data.item.path;
+      self.imageSrcNext = data.folder + data.nextImg.path;
+      self.imageSrcPrev = data.folder + data.prevImg.path;
       self.imageAltPrev = data.prevImg.alt;
       self.imageAltNext = data.nextImg.alt;
 
@@ -257,19 +285,3 @@ app_ang.service("languageService", ["$routeParams", function(routeParams) {
     return self.languageObj;
   };
 }]);
-const islamicDb = {
-  items:[
-    {id:"i1",alt: "", descriptionESP:"", descriptionENG:"",path:"c0.png",thumb:"c0.png"},
-    {id:"i2",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c1.png"},
-    {id:"i3",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c2.png"},
-    {id:"i4",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c3.png"},
-    {id:"i5",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c4.png"},
-    {id:"i6",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c5.png"},
-    {id:"i7",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c6.png"},
-    {id:"i8",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c7.png"},
-    {id:"i9",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c8.png"},
-    {id:"i10",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c9.png"},
-    {id:"i11",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c10.png"},
-    {id:"i12",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c11.png"},
-    {id:"i13",alt: "", descriptionESP:"", descriptionENG:"",path:"c1.png",thumb:"c12.png"},
-  ]};

@@ -126,7 +126,7 @@ footer{
 
 }
 nav{
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Fredericka the Great', serif;
   position:relative;
   font-size: 1em;
   text-align: center;
@@ -228,7 +228,7 @@ h2{
   margin-bottom: 0px;
   width: 85%;
   text-align: center;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Fredericka the Great', serif;
   font-weight: 100;
   color: #DB1A5E;
 }
@@ -300,7 +300,7 @@ h2{
      right:15px;
   }
   nav{
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Fredericka the Great', serif;
     position:relative;
     font-size: 1.4em;
     text-align: center;
@@ -361,13 +361,13 @@ h2{
   position:relative;
   margin: 1% 0 0 0;
   color: #0A788C;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Fredericka the Great', serif;
   font-size: 32pt;
 }
 /*end Title block*/
 /*------------- start of drop down menu ----------------------------*/
 .dropdown {
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Fredericka the Great', serif;
     position: relative;
     display: block;
     text-align: center;
