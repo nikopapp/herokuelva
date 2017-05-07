@@ -65,11 +65,11 @@ module.exports = function(port, middleware, callback) {
         folder:"images/gallery_pictures/watercolor/"
       }
    };
-// db Intstantiation
-  // dbCreate.startup(db);
-  //  db.serialize(function(){
+   // db Intstantiation
+   // dbCreate.startup(db);
+   //  db.serialize(function(){
      loadDB();
-  //  });
+    //  });
    function loadDB(){
      db.each("SELECT * FROM PAINTING ORDER BY timestamp DESC", function(err, row) {
        paintings.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
@@ -112,7 +112,9 @@ module.exports = function(port, middleware, callback) {
 // ----------------------------------------------------------------------
   app.use(fileUpload());
   app.use(express.static("public"));
-
+  app.get('/login', function(req, res){
+      res.redirect('/login.html')
+  });
   app.post('/login',
     passport.authenticate('local', { failureRedirect: '/login.html' }),
     function(req, res) {
