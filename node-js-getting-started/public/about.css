@@ -1,5 +1,33 @@
 
 /*----about.html*/
+#comingSoon{
+  position: absolute;
+  font-size: 2em;
+  left:10vw;
+}
+#comingSoon::after{
+ animation-name: comingSoonAnim;
+ animation-duration: 1.5s;
+ animation-iteration-count:infinite;
+ animation-timing-function: linear;
+}
+@keyframes comingSoonAnim {
+  0%   {
+      content: "";
+    }
+    33% {
+    content: ".";
+  }
+  67% {
+    content: "..";
+  }
+ 100% {
+   content: "...";
+  }
+ }
+  0%:{
+  }
+}
 .content-about{
    position: relative;
    top:3em;
