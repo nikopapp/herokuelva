@@ -86,7 +86,7 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercol
       if(routeParams.lang === "ENG"){
         self.title = {value: "Mixed Techniques"};
       } else {
-        self.title ={ value: "Tecnicas Mixtas"};
+        self.title ={ value: "Técnicas Mixtas"};
       }
     } else if(routeParams.gallery === "watercolor") {
       document.getElementsByTagName("body")[0].className = "normal";
@@ -102,7 +102,7 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercol
       if(routeParams.lang === "ENG"){
         self.title = { value: "Islamic Art"}
       } else {
-        self.title ={ value: "Arte Islamico"};
+        self.title ={ value: "Arte Islámico"};
       }
     }
     self.setTitle = function(value){
@@ -217,10 +217,10 @@ app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "Wate
       self.imageId = data.item.id;
       self.imageAlt = data.item.alt;
       if(data.item.descriptionENG){
-        self.imageDescENG =data.item.descriptionENG.split(", ");
+        self.imageDescENG =data.item.descriptionENG.split(". ");
       }
       if(data.item.descriptionESP){
-        self.imageDescESP = data.item.descriptionESP.split(", ");
+        self.imageDescESP = data.item.descriptionESP.split(". ");
       }
 
       self.imageSrc = data.folder + data.item.path;
@@ -258,12 +258,14 @@ app_ang.service("languageService", ["$routeParams", function(routeParams) {
     "ENG": {
       paintings: "Paintings",
       mix_tech: "Mixed Techniques",
-      islamic: "Islamic Art"
+      islamic: "Islamic Art",
+      watercolor: "Watercolour"
      },
     "ESP": {
       paintings: "Pintura",
       mix_tech: "Tecnicas Mixtas",
-      islamic: "Arte Islamico"
+      islamic: "Arte Islamico",
+      watercolor: "Acuarela"
     }
   }
   self.menu;

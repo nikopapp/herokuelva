@@ -114,13 +114,13 @@ var paintings = {
   {id:"k0",   alt:"La búsqueda",      path:"k0.jpg",    descriptionESP:"Acrílico sobre papel Fabriàno \"Pittura\", 70x 50 cm, 2016", descriptionENG:"Acrylic on Fabriàno \"Pittura\" paper, 70x 50 cm, 2016", thumb:"c0.jpg"},
   {id:"k1",   alt:"Ana",              path:"k1.jpg",    descriptionESP:"Acrílico sobre tela, 70x 60 cm, 2015",                     descriptionENG:"Acrylic on canvas, 70x 60 cm, 2015", thumb:"c1.jpg"},
   {id:"k2",   alt:"Autorretrato II", path:"k2.jpg",    descriptionESP:"Acrílico sobre tela, 40x 40 cm, 2013",                     descriptionENG:"Acrylic on canvas, 40x 40 cm, 2013", thumb:"c2.jpg"},
-  {id:"k3",   alt:"Pili",             path:"k3.jpg",    descriptionESP:"Esmalte sintético, 25x 33 cm, 2006",                       descriptionENG:"Synthetic enamel, 25x 33 cm, 2006", thumb:"c3.jpg"},
+  {id:"k3",   alt:"Pili",             path:"k3.jpg",    descriptionESP:"Esmalte sintético sobre tabla, 25x 33 cm, 2006",           descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2006", thumb:"c3.jpg"},
   {id:"k4",   alt:"Xela y Berni",     path:"k4.jpg",    descriptionESP:"Acrílico sobre tela, 120x 40 cm, 2014",                    descriptionENG:"Acrylic on canvas, 120x 40 cm, 2014", thumb:"c4.jpg"},
   {id:"k5",   alt:"Miguel",           path:"k5.jpg",    descriptionESP:"Acrílico sobre tela, 65x 60 cm, 2014",                     descriptionENG:"Acrylic on canvas, 65x 60 cm, 2014", thumb:"c5.jpg"},
-  {id:"k6",   alt:"Autorretrato I",  path:"k6.jpg",    descriptionESP:"Esmalte sintético, 60x 40 cm, 2006",                       descriptionENG:"Synthetic enamel, 60x 40 cm, 2006", thumb:"c6.jpg"},
+  {id:"k6",   alt:"Autorretrato I",  path:"k6.jpg",    descriptionESP:"Esmalte sintético sobre tabla, 60x 40 cm, 2006",            descriptionENG:"Synthetic enamel on woodboard, 60x 40 cm, 2006", thumb:"c6.jpg"},
   {id:"k7",   alt:"Zu",               path:"k7.jpg",    descriptionESP:"Acrílico sobre tela, 27x 43 cm, 2009",                     descriptionENG:"Acrylic on canvas, 27x 43 cm, 2009", thumb:"c7.jpg"},
   {id:"k8",   alt:"Miriam",           path:"k8.jpg",    descriptionESP:"Acrílico sobre tela, 43x 27 cm, 2009",                     descriptionENG:"Acrylic on canvas, 43x 27 cm, 2009", thumb:"c8.jpg"},
-  {id:"k9",   alt:"La cocina",        path:"k9.jpg",    descriptionESP:"Acrílico y esmalte sintético, 21x 29 cm, 2007",            descriptionENG:"Acrylic and synthetic smalt, 21x 29 cm, 2007",thumb:"c9.jpg"},
+  {id:"k9",   alt:"La cocina",        path:"k9.jpg",    descriptionESP:"Acrílico y esmalte sintético sobre lienzo, 21x 29 cm, 2007",            descriptionENG:"Acrylic and synthetic enamel on canvas, 21x 29 cm, 2007",thumb:"c9.jpg"},
   {id:"k10",  alt:"Johnny",           path:"k10.jpg",   descriptionESP:"Acrílico sobre tela, 55x 35 cm, 2008",                     descriptionENG:"Acrylic on canvas, 55x 35 cm, 2008", thumb:"c10.jpg"},
   {id:"k11",  alt:"La charla",        path:"k11.jpg",   descriptionESP:"Acrílico sobre tela, 43x 58 cm, 2008",                     descriptionENG:"Acrylic on canvas, 43x 58 cm, 2008", thumb:"c11.jpg"},
   {id:"k12",  alt:"Rubén y María",    path:"k12.jpg",   descriptionESP:"Acrílico sobre tela, 45x 25 cm, 2008",                     descriptionENG:"Acrylic on canvas, 45x 25 cm, 2008", thumb:"c12.jpg"},
@@ -131,9 +131,9 @@ var paintings = {
   {id:"k17",  alt:"Santiago",         path:"k17.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 70x 32 cm, 2005",          descriptionENG:"Synthetic enamel on woodboard, 70x 32 cm, 2005", thumb:"c17.jpg"},
   {id:"k18",  alt:"Murgartegui",      path:"k18.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 100x 160 cm, 2006",        descriptionENG:"Synthetic enamel on woodboard, 100x 160 cm, 2006", thumb:"c18.jpg"},
   {id:"k19",  alt:"Los cinco",        path:"k19.jpg",   descriptionESP:"Acrílico y esmalte sintético sobre tabla, 160x 80 cm, 2006",descriptionENG:"Acrylic and synthetic enamel on woodboard, 160x 80 cm, 2006", thumb:"c19.jpg"},
-  {id:"k20",  alt:"La playa",         path:"k23.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 25x 33 cm, 2004",          descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2004", thumb:"c20.jpg"},
+  {id:"k20",  alt:"La playa",         path:"k20.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 25x 33 cm, 2004",          descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2004", thumb:"c20.jpg"},
   {id:"k21",  alt:"La playa II",      path:"k21.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 100x 50 cm, 2005",         descriptionENG:"Synthetic enamel on woodboard, 100x 50 cm, 2005", thumb:"c21.jpg"},
-  {id:"k22",  alt:"Encuentros",       path:"k22.jpg",   descriptionESP:"Esmalte sintético sobre tabla",                           descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2004", thumb:"c22.jpg"},
+  {id:"k22",  alt:"Encuentros",       path:"k22.jpg",   descriptionESP:"Esmalte sintético sobre tabla , 25x 33 cm, 2004",         descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2004", thumb:"c22.jpg"},
   {id:"k23",  alt:"Santiago II",      path:"k23.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 33x 25 cm, 2004",          descriptionENG:"Synthetic enamel on woodboard, 33x 25 cm, 2004", thumb:"c23.jpg"},
   {id:"k24",  alt:"A Rúa",            path:"k24.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 25x 33 cm, 2004",          descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2004", thumb:"c24.jpg"},
   {id:"k25",  alt:"La estación",      path:"k25.jpg",   descriptionESP:"Esmalte sintético sobre tabla, 25x 33 cm, 2004",          descriptionENG:"Synthetic enamel on woodboard, 25x 33 cm, 2004", thumb:"c25.jpg"},
@@ -178,11 +178,11 @@ var islamic = {
 }
 var watercolor = {
   items:[
-    {id:"w1",alt: "Akaki", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A3, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb A3, 2017",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
-    {id:"w2",alt: "Amanitas", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A3, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A3, 2017",path:"amanitas.jpg",thumb:"ZThumbamanitas.jpg"},
-    {id:"w3",alt: "Gea", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 21x 27 cm, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, 21x 27 cm, 2017",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
-    {id:"w4",alt: "Colourfeelds", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A2, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A2, 2017",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
-    {id:"w5",alt: "Seleni", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton A2, 2017", descriptionENG:"Watercolour on Winsor & Newton watercolour paper, 300gsm/140lb, A2, 2017",path:"Luna.jpg",thumb:"zThumbLuna.jpg"},
+    {id:"w1",alt: "Akaki", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", descriptionENG:"Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
+    {id:"w2",alt: "Amanitas", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", descriptionENG:"Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"amanitas.jpg",thumb:"ZThumbamanitas.jpg"},
+    {id:"w3",alt: "Gea", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, 21x 27 cm, 2017", descriptionENG:"Watercolour on 21x 27 cm Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
+    {id:"w4",alt: "Colourfeelds", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
+    {id:"w5",alt: "Seleni", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Luna.jpg",thumb:"zThumbLuna.jpg"},
   ]
 }
 
