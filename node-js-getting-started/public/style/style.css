@@ -157,10 +157,10 @@ body{
   color: #336f7a;
 }
 body.normal{
-  background-image: url('images/back.jpg');
+  background-image: url('../images/back.jpg');
 }
 body.islamic{
-  background-image: url('images/backInv.jpg');
+  background-image: url('../images/backInv.jpg');
 }
 
 div{
