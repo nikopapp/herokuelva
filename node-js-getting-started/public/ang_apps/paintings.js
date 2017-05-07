@@ -92,7 +92,7 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercol
       document.getElementsByTagName("body")[0].className = "normal";
       self.getWatercolor();
       if(routeParams.lang === "ENG"){
-        self.title = {value: "Watercolor"};
+        self.title = {value: "Watercolour"};
       } else {
         self.title ={ value: "Acuarela"};
       }
