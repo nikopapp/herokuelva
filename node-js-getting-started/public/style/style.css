@@ -90,8 +90,8 @@ color:green;
 #a1:hover,#a2:hover,#a3:hover{
   color:#040B1E;
 }
-#a1,#a2,#a3{
-  display: inline-block;
+#a1,#a2,#a3,#a4,#a5{
+  display: block;
   padding: 7px 0 7px 0;
 }
 header{
