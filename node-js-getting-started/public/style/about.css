@@ -11,21 +11,33 @@
  animation-iteration-count:infinite;
  animation-timing-function: linear;
 }
-@keyframes comingSoonAnim {
+@-webkit-keyframes mymove {
   0%   {
       content: "";
     }
-    33% {
+  33% {
     content: ".";
   }
   67% {
     content: "..";
   }
- 100% {
+  100% {
    content: "...";
   }
- }
-  0%:{
+
+}
+@keyframes comingSoonAnim {
+  0%   {
+      content: "";
+    }
+  33% {
+    content: ".";
+  }
+  67% {
+    content: "..";
+  }
+  100% {
+   content: "...";
   }
 }
 .content-about{
