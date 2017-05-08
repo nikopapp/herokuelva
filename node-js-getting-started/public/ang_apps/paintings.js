@@ -20,6 +20,9 @@ app_ang.config(["$routeProvider", function($routeProvider) {
     }).when("/about/elva", {
       controller: "aboutCtrl as paintingCtrl",
       templateUrl: "ang_apps/templates/aboutView.html"
+    }).when("/full/video", {
+      controller: "videoCtrl as video",
+      templateUrl: "ang_apps/templates/videoView.html"
     }).otherwise({
         redirectTo: "/"
     });
@@ -35,6 +38,11 @@ app_ang.controller("aboutCtrl", [function(){
     var self = this;
     self.titleHead = "Elva Arce - About";
     document.getElementsByTagName("body")[0].className = "normal";
+}]);
+app_ang.controller("videoCtrl", [function(){
+  var self = this;
+  self.titleHead = "Elva Arce - Video";
+  document.getElementsByTagName("body")[0].className = "normal";
 }]);
 app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercolor", "$routeParams", "languageService",
         function(scope, Painting, Mix, Islamic, Watercolor, routeParams, languageService) {
