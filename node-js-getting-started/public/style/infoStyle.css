@@ -68,10 +68,10 @@ img#info{
   transform: scale(0.7);
 }
 .next{
-  background-image: url(images/buttons/m5.png);
+  background-image: url(/images/buttons/m5.png);
 }
 .prev{
-  background-image: url(images/buttons/m35.png);
+  background-image: url(/images/buttons/m35.png);
 }
 .next:hover, .prev:hover{
   cursor: pointer;

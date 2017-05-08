@@ -2,19 +2,24 @@
     <nav>
       <ul>
         <li><a id="m1" href="index.html#!/{{nav.languageObj.value}}">HOME</a></li>
-        <li><a id="m2" href="/#!/about/elva">BIO</a></li>
+        <li><a id="m2" itemscope itemtype="http://schema.org/Article" href="/#!/about/elva"><span itemprop="name">BIO</span></a></li>
         <!-- drop down menu start -->
         <li>
         <div class="dropdown">
           <a id="m3" onclick="showClick(artwork)">{{nav.menu.artwork}}</a>
           <div class="dropdown-content">
-            <a name="PAINTINGS" id="a1" onclick="showClick(artwork)" href="/#!/grid/paintings/{{nav.languageObj.value}}">{{nav.menu.paintings}}</a>
-            <a name="MIXED TECHNIQUES" id="a2" onclick="showClick(artwork)" href="/#!/grid/mix_tech/{{nav.languageObj.value}}">{{nav.menu.mix_tech}}</a>
-            <a name="WATERCOLOUR" id="a3" onclick="showClick(artwork)" href="/#!/grid/watercolor/{{nav.languageObj.value}}">{{nav.menu.watercolor}}</a>
-            <a name="ISLAMIC ART" id="a4" onclick="showClick(artwork)" href="/#!/grid/islamic/{{nav.languageObj.value}}">{{nav.menu.islamic}}</a>
+            <a name="PAINTINGS" itemscope itemtype="http://schema.org/Article" id="a1" onclick="showClick(artwork)" href="/#!/grid/paintings/{{nav.languageObj.value}}">
+              <span itemprop="name">{{nav.menu.paintings}}</span></a>
+            <a name="MIXED TECHNIQUES" itemscope itemtype="http://schema.org/Article" id="a2" onclick="showClick(artwork)" href="/#!/grid/mix_tech/{{nav.languageObj.value}}">
+              <span itemprop="name">{{nav.menu.mix_tech}}</span></a>
+            <a name="WATERCOLOUR" itemscope itemtype="http://schema.org/Article" id="a3" onclick="showClick(artwork)" href="/#!/grid/watercolor/{{nav.languageObj.value}}">
+              <span itemprop="name">{{nav.menu.watercolor}}</span></a>
+            <a name="ISLAMIC ART" itemscope itemtype="http://schema.org/Article" id="a4" onclick="showClick(artwork)" href="/#!/grid/islamic/{{nav.languageObj.value}}">
+              <span itemprop="name">{{nav.menu.islamic}}</span></a>
           </div>
         </div>
         </li>
+        <!-- <li><a id="m2" itemscope itemtype="http://schema.org/Article" href="/#!/full/video"><span itemprop="name">VIDEO</span></a></li> -->
       </ul>
       <!-- drop down menu finish  -->
     </nav>
