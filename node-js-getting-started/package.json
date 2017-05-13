@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "create": "node database/setup/createCaller.js",
-    "ugly": " uglifyjs public\animation.js public\ang_apps\paintings.js public\ang_apps\services.js -o public\main.min.js"
+    "ugly": " uglifyjs public\\animation.js public\\ang_apps\\paintings.js public\\ang_apps\\services.js -o public\\main.min.js"
   },
   "repository": {
     "type": "git",
