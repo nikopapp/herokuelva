@@ -1,29 +1,29 @@
 // Creates the $resource connection to the server
-app_ang.factory("Painting", function($resource) {
+angular.module("paintings").factory("Painting", function($resource) {
     var TodoObject = $resource("/api/paintings/:id", {id: "@id"}, {
         "update": {method: "PUT"}
     });
     return TodoObject;
 });
-app_ang.factory("Mix", function($resource) {
+angular.module("paintings").factory("Mix", function($resource) {
     var TodoObject = $resource("/api/mix_tex/:id", {id: "@id"}, {
         "update": {method: "PUT"}
     });
     return TodoObject;
 });
-app_ang.factory("Islamic", function($resource) {
+angular.module("paintings").factory("Islamic", function($resource) {
     var TodoObject = $resource("/api/islamic/:id", {id: "@id"}, {
         "update": {method: "PUT"}
     });
     return TodoObject;
 });
-app_ang.factory("Watercolor", function($resource) {
+angular.module("paintings").factory("Watercolor", function($resource) {
     var TodoObject = $resource("/api/watercolor/:id", {id: "@id"}, {
         "update": {method: "PUT"}
     });
     return TodoObject;
 });
-app_ang.service("languageService", ["$routeParams", function(routeParams) {
+angular.module("paintings").service("languageService", ["$routeParams", function(routeParams) {
   var self = this;
   console.log(routeParams);
   self.languageObj = {
