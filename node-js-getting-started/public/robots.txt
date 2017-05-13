@@ -1,0 +1,5 @@
+User-agent: googlebot
+
+Disallow: http://www.elvarce.com/login*
+
+Allow: http://www.elvarce.com/#!/about/elva
