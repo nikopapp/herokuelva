@@ -1,5 +1,5 @@
 User-agent: googlebot
 
-Disallow: http://www.elvarce.com/login*
+disallow: http://www.elvarce.com/login.html
 
-Allow: http://www.elvarce.com/#!/about/elva
+allow: http://www.elvarce.com/#!/about/elva
