@@ -36,9 +36,9 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "sqlite3": "^3.1.8",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "compression": "^1.6.2"
   },
   "devDependencies": {
-    "compression": "^1.6.2"
   }
 }
