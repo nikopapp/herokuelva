@@ -1,9 +1,9 @@
 // TODO
 // complete the next image prev images
 
-var app_ang = angular.module("paintings", ["ngResource", "ngRoute"]);
+angular.module("paintings", ["ngResource", "ngRoute"]);
 
-app_ang.config(["$routeProvider", function($routeProvider) {
+angular.module("paintings").config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
       controller: "homeVC as home",
       templateUrl: "ang_apps/templates/homeView.html"
@@ -28,23 +28,23 @@ app_ang.config(["$routeProvider", function($routeProvider) {
     });
 }]);
 
-app_ang.controller("homeVC", ["$scope", function(scope) {
+angular.module("paintings").controller("homeVC", ["$scope", function(scope) {
     var self = this;
     self.titleHead = "Elva Arce - Home";
     document.getElementsByTagName("body")[0].className = "normal";
 }]);
 
-app_ang.controller("aboutCtrl", [function(){
+angular.module("paintings").controller("aboutCtrl", [function(){
     var self = this;
     self.titleHead = "Elva Arce - About";
     document.getElementsByTagName("body")[0].className = "normal";
 }]);
-app_ang.controller("videoCtrl", [function(){
+angular.module("paintings").controller("videoCtrl", [function(){
   var self = this;
   self.titleHead = "Elva Arce - Video";
   document.getElementsByTagName("body")[0].className = "normal";
 }]);
-app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercolor", "$routeParams", "languageService",
+angular.module("paintings").controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercolor", "$routeParams", "languageService",
         function(scope, Painting, Mix, Islamic, Watercolor, routeParams, languageService) {
     var self = this;
     self.languageObj = languageService.setBind;
@@ -122,7 +122,7 @@ app_ang.controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercol
       window.scroll(0,0);
     }
 }]);
-app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", function(scope,languageService,routeParams) {
+angular.module("paintings").controller("navCtrl", ["$scope", "languageService","$routeParams", function(scope,languageService,routeParams) {
  var self = this;
  self.languageObj = languageService.setBind();
  self.menuENG = {
@@ -173,7 +173,7 @@ app_ang.controller("navCtrl", ["$scope", "languageService","$routeParams", funct
 }]);
 
 
-app_ang.controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "Watercolor", "languageService",
+angular.module("paintings").controller("PinfoVC", ["$scope", "$routeParams", "Painting","Mix", "Watercolor", "languageService",
               function(scope, routeParams, Painting, Mix, Watercolor, languageService) {
   console.log(routeParams);
   var idNum = parseInt(routeParams.id);

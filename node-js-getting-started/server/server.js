@@ -9,6 +9,7 @@ const Strategy      = require('passport-local').Strategy;
 const session       = require('express-session');
 const userdb        = require('./db');
 const ensurelog     = require('connect-ensure-login');
+const compression   = require('compression');
 
 passport.use(new Strategy(
   function(username, password, cb) {
@@ -94,6 +95,17 @@ module.exports = function(port, middleware, callback) {
     if (middleware) {
         app.use(middleware);
     }
+
+    function shouldCompress (req, res) {
+      if (req.headers['x-no-compression']) {
+        // don't compress responses with this request header
+        return false
+      }
+
+      // fallback to standard filter function
+      return compression.filter(req, res)
+    }
+    app.use(compression({filter: shouldCompress}))
     app.use(cookieParser()); // read cookies (needed for auth)
     app.use(bodyParser.json());
     app.use(require('body-parser').urlencoded({ extended: true }));
