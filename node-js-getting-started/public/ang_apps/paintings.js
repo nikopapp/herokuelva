@@ -5,26 +5,36 @@ angular.module("paintings", ["ngResource", "ngRoute"]);
 
 angular.module("paintings").config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
+      title: "Home",
       controller: "homeVC as home",
       templateUrl: "ang_apps/templates/homeView.html"
     }).when("/:lang",{
+        title: "Home",
         controller: "homeVC as home",
         templateUrl: "ang_apps/templates/homeView.html"
     })
     .when("/grid/:gallery/:lang", {
+        title: "Gallery",
         controller: "PgridVC as paintingCtrl",
         templateUrl: "ang_apps/templates/gridView.html"
     }).when("/info/:gallery/:id", {
         controller: "PinfoVC as info",
         templateUrl: "ang_apps/templates/infoView.html"
     }).when("/about/elva", {
+      title: "Bio",
       controller: "aboutCtrl as paintingCtrl",
       templateUrl: "ang_apps/templates/aboutView.html"
     }).when("/full/video", {
+      title: "Video feed",
       controller: "videoCtrl as video",
       templateUrl: "ang_apps/templates/videoView.html"
     }).otherwise({
         redirectTo: "/"
+    });
+}]);
+angular.module("paintings").run(['$rootScope', function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
     });
 }]);
 
