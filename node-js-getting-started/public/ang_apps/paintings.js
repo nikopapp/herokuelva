@@ -89,14 +89,6 @@ angular.module("paintings").controller("PgridVC", ["$scope", "Painting", "Mix", 
       } else {
         self.title ={ value: "Acuarela"};
       }
-    } else {
-      self.getIslam();
-      document.getElementsByTagName("body")[0].className = "islamic";
-      if(routeParams.lang === "ENG"){
-        self.title = { value: "Islamic Art"}
-      } else {
-        self.title ={ value: "Arte Islámico"};
-      }
     }
     self.setTitle = function(value){
       self.title.value = value;

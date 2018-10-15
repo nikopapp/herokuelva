@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "create": "node database/setup/createCaller.js",
-    "ugly": " uglifyjs public\\animation.js public\\ang_apps\\paintings.js public\\ang_apps\\services.js -o public\\main.min.js --compress"
+    "ugly": " uglifyjs public/animation.js public/ang_apps/paintings.js public/ang_apps/services.js -o public/main.min.js --compress"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
@@ -35,10 +36,9 @@
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "sqlite3": "^3.1.8",
-    "underscore": "^1.8.3",
-    "compression": "^1.6.2"
+    "sqlite3": "^4.0.2",
+    "uglify-js": "^3.4.9",
+    "underscore": "^1.8.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
