@@ -159,9 +159,6 @@ body{
 body.normal{
   background-image: url('../images/back.jpg');
 }
-body.islamic{
-  background-image: url('../images/backInv.jpg');
-}
 
 div{
   margin:0 0 0 0;

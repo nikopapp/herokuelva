@@ -54,8 +54,8 @@ angular.module("paintings").controller("videoCtrl", [function(){
   self.titleHead = "Elva Arce - Video";
   document.getElementsByTagName("body")[0].className = "normal";
 }]);
-angular.module("paintings").controller("PgridVC", ["$scope", "Painting", "Mix", "Islamic", "Watercolor", "$routeParams", "languageService",
-        function(scope, Painting, Mix, Islamic, Watercolor, routeParams, languageService) {
+angular.module("paintings").controller("PgridVC", ["$scope", "Painting", "Mix", "Watercolor", "$routeParams", "languageService",
+        function(scope, Painting, Mix, Watercolor, routeParams, languageService) {
     var self = this;
     self.languageObj = languageService.setBind;
     console.log(routeParams);
@@ -63,7 +63,6 @@ angular.module("paintings").controller("PgridVC", ["$scope", "Painting", "Mix", 
     self.getPaint = getPaintings;
     self.getMix = getMixTech;
     self.getWatercolor = getWatercolor;
-    self.getIslam = getIslamicArt;
     self.scrollToTop = scrollToTopFunc;
     if(routeParams.gallery === "paintings"){
       document.getElementsByTagName("body")[0].className = "normal";
@@ -107,12 +106,6 @@ angular.module("paintings").controller("PgridVC", ["$scope", "Painting", "Mix", 
         self.folder = data.folder;
       });
     };
-    function getIslamicArt(){
-      Islamic.get().$promise.then(function(data){
-        self.paintings = data.items;
-        self.folder = data.folder;
-      });
-    }
     function getWatercolor(){
       Watercolor.get().$promise.then(function(data){
         self.paintings = data.items;
@@ -131,14 +124,12 @@ angular.module("paintings").controller("navCtrl", ["$scope", "languageService","
     artwork: "ARTWORK",
     paintings: "PAINTINGS",
     mix_tech: "MIXED TECHNIQUES",
-    islamic: "ISLAMIC ART",
     watercolor: "WATERCOLOUR"
  }
  self.menuESP = {
     artwork: "OBRAS",
     paintings: "PINTURA",
     mix_tech: "TECNICAS MIXTAS",
-    islamic: "ARTE ISLAMICO",
     watercolor: "ACUARELA"
  }
   self.titleHead = " - Personal Gallery";
@@ -166,11 +157,7 @@ angular.module("paintings").controller("navCtrl", ["$scope", "languageService","
   } else {
     self.setLangENG();
   }
-  if(window.location.href.includes("islamic")){
-    self.gallery = "islamic";
-  } else {
-    self.gallery = "normal";
-  }
+  self.gallery = "normal";
 
 }]);
 
