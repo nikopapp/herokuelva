@@ -11,12 +11,6 @@ angular.module("paintings").factory("Mix", function($resource) {
     });
     return TodoObject;
 });
-angular.module("paintings").factory("Islamic", function($resource) {
-    var TodoObject = $resource("/api/islamic/:id", {id: "@id"}, {
-        "update": {method: "PUT"}
-    });
-    return TodoObject;
-});
 angular.module("paintings").factory("Watercolor", function($resource) {
     var TodoObject = $resource("/api/watercolor/:id", {id: "@id"}, {
         "update": {method: "PUT"}
@@ -33,13 +27,11 @@ angular.module("paintings").service("languageService", ["$routeParams", function
     "ENG": {
       paintings: "Paintings",
       mix_tech: "Mixed Techniques",
-      islamic: "Islamic Art",
       watercolor: "Watercolour"
      },
     "ESP": {
       paintings: "Pintura",
       mix_tech: "Tecnicas Mixtas",
-      islamic: "Arte Islamico",
       watercolor: "Acuarela"
     }
   }
