@@ -240,6 +240,9 @@ h2{
 .artwork a:hover{
   opacity: 0.6;
 }
+.gridWrapper{
+  column-count:2;
+}
 .content-artwork {
   margin: auto;
   list-style: none;
@@ -250,7 +253,6 @@ h2{
   float:left;
 }*/
 .content-artwork .grid{
-  width: 45%;
   display: inline-block;
   padding: auto;
   margin: 5% auto;
@@ -276,21 +278,22 @@ h2{
 }
 
 @media only screen and (max-width: 501px) {
+.gridWrapper{
+  column-count:1;
+}
+
   #secHeader{
     font-size: 1.6em;
-  }
-  .content-artwork .grid{
-    width: 80%;
   }
 }
 @media only screen and (min-width: 770px) {
   #secHeader{
     font-size: 1.4em;
   }
-
-  .content-artwork .grid{
-    width: 30%;
+  .gridWrapper {
+    column-count: 3;
   }
+
   .contact-icons{
      position: fixed;
      bottom:0;
