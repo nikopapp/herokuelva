@@ -156,9 +156,6 @@ body{
   min-height: 500px;
   color: #336f7a;
 }
-body.normal{
-  background-image: url('../images/back.jpg');
-}
 
 div{
   margin:0 0 0 0;

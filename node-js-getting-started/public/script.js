@@ -10,7 +10,6 @@ function showClick(menuItem){
   }
 }
 function clickEvent(event){
-  console.log(event);
   if(event.target === document.getElementById("#m3")){
     // showClick(artwork);
   }else{
@@ -21,14 +20,12 @@ function clickEvent(event){
 function transformFirma(){
   var imgInfo = document.getElementsByClassName("info-img-img")[0];
   var computedStyle = window.getComputedStyle(imgInfo);
-  console.log(computedStyle);
 }
 function waitForLoad(){
   var body = document.getElementsByTagName('body');
   var url = document.URL;
   if(url.endsWith("contact.html")) putDrops();
   var bodyCont = body.innerHTML;
-  console.log("waiting for load");
   return bodyCont;
 }
 function putDrops(){
@@ -38,7 +35,6 @@ function putDrops(){
   for(var i = 0;i<10;i++){
     drops.push(document.createElement("img"));
     var raNum = 1+random()%45;
-    console.log(""+i+" image "+raNum);
     drops[i].setAttribute("src", "images/animation/m"+raNum+".png");
     drops[i].setAttribute("id", itemName+i);
     drops[i].setAttribute("width", (40+(i%9)+"px"));
@@ -49,7 +45,6 @@ function putDrops(){
     drops[i].style.zIndex="-1";
     ranDrops[0].appendChild(drops[i]);
   }
-  console.log(drops);
 
 }
 function headerHide(){

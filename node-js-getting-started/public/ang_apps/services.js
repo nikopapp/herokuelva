@@ -1,6 +1,6 @@
 // Creates the $resource connection to the server
-angular.module("paintings").factory("Painting", function($resource) {
-    var TodoObject = $resource("/api/paintings/:id", {id: "@id"}, {
+angular.module("paintings").factory("Colourfields", function($resource) {
+    var TodoObject = $resource("/api/colourfields_series/:id", {id: "@id"}, {
         "update": {method: "PUT"}
     });
     return TodoObject;
@@ -19,18 +19,18 @@ angular.module("paintings").factory("Watercolor", function($resource) {
 });
 angular.module("paintings").service("languageService", ["$routeParams", function(routeParams) {
   var self = this;
-  console.log(routeParams);
+
   self.languageObj = {
     value: routeParams.lang
   };
   self.titleBank = {
     "ENG": {
-      paintings: "Paintings",
+      colourfields_series: "Colourfields Series",
       mix_tech: "Mixed Techniques",
       watercolor: "Watercolour"
      },
     "ESP": {
-      paintings: "Pintura",
+      colourfields_series: "Series Campos de color",
       mix_tech: "Tecnicas Mixtas",
       watercolor: "Acuarela"
     }

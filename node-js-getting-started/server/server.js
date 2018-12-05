@@ -51,7 +51,7 @@ module.exports = function(port, middleware, callback) {
    var gallery = {
       paintings: {
          items: paintings.items,
-         folder:"images/gallery_pictures/painting/"
+         folder:"images/gallery_pictures/colourfields_series/"
       },
       mix_tech:{
          items: mix_tech.items,
@@ -181,7 +181,7 @@ module.exports = function(port, middleware, callback) {
     var stateChangeId = 0;
     var status = {"notFound": 404, "ok": 200, "created": 201};
 
-    app.get("/api/paintings",function(req,res){
+    app.get("/api/colourfields_series",function(req,res){
       res.json({items:gallery.paintings.items,folder: gallery.paintings.folder});
     });
     app.get("/api/mix_tex",function(req,res){
