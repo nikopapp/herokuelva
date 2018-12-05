@@ -119,7 +119,7 @@ function makePortals(drop,i){
 function makePortalDrops(drop,i){
     drop.onmouseenter = function(){
       var imageSwap = new Image();
-      var randomNum = (1 + Math.floor((10000*Math.random())%27));
+      var randomNum = (1 + Math.floor((10000*Math.random())%22));
       console.log("1st"+randomNum);
       imageSwap.src = "images/gallery_pictures/colourfields_series/c"+ randomNum + ".jpg";
       // console.log(imageSwap[0]);

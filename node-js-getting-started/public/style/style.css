@@ -104,7 +104,6 @@ header{
   box-shadow: 0px 0px 10px 1px lightgrey;
   padding-bottom: 0;
   transition: all 1s ease;
-  opacity: 0.7;
 }
 .header-scrolled{
   top:-120px;
@@ -273,10 +272,6 @@ h2{
 .normal .grid img:hover{
   box-shadow: 0px 0px 4px 1px black;
 }
-.islamic .grid{
-  pointer-events: none;
-}
-
 @media only screen and (max-width: 501px) {
 .gridWrapper{
   column-count:1;

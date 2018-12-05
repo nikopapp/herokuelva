@@ -45,7 +45,6 @@ module.exports = function(port, middleware, callback) {
 
    var paintings = { items:[] };
    var mix_tech = { items:[] };
-   var islamic = { items:[] };
    var watercolor = { items:[] };
 
    var gallery = {
@@ -56,10 +55,6 @@ module.exports = function(port, middleware, callback) {
       mix_tech:{
          items: mix_tech.items,
          folder:"images/gallery_pictures/mix_tech/"
-      },
-      islamic:{
-        items: islamic.items,
-        folder:"images/gallery_pictures/islamic/"
       },
       watercolor:{
         items: watercolor.items,
@@ -72,16 +67,13 @@ module.exports = function(port, middleware, callback) {
      loadDB();
     //  });
    function loadDB(){
-     db.each("SELECT * FROM PAINTING ORDER BY timestamp DESC", function(err, row) {
+     db.each("SELECT * FROM PAINTING ORDER BY timestamp ASC", function(err, row) {
        paintings.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
-     db.each("SELECT * FROM MIX_TECH ORDER BY timestamp DESC", function(err, row) {
+     db.each("SELECT * FROM MIX_TECH ORDER BY timestamp ASC", function(err, row) {
        mix_tech.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
-     db.each("SELECT * FROM ISLAMIC ORDER BY timestamp DESC", function(err, row) {
-       islamic.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
-     });
-     db.each("SELECT * FROM WATERCOLOR ORDER BY timestamp DESC", function(err, row) {
+     db.each("SELECT * FROM WATERCOLOR ORDER BY timestamp ASC", function(err, row) {
        watercolor.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
 
@@ -186,9 +178,6 @@ module.exports = function(port, middleware, callback) {
     });
     app.get("/api/mix_tex",function(req,res){
       res.json({items:gallery.mix_tech.items,folder: gallery.mix_tech.folder});
-    });
-    app.get("/api/islamic",function(req,res){
-      res.json({items:gallery.islamic.items,folder:gallery.islamic.folder});
     });
     app.get("/api/watercolor",function(req,res){
       res.json({items:gallery.watercolor.items,folder: gallery. watercolor.folder});
