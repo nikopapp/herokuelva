@@ -7,6 +7,10 @@ npm-debug.log
 *.env
 *.dev
 .DS_Store
+../.DS_Store
+package-lock.json
+.idea/
+
 
 # Docker
 Dockerfile

@@ -4,9 +4,8 @@
   <h1 id="secHeader" class="artwork">{{paintingCtrl.title.value}}</h1>
     <div class="gridWrapper">
         <div class="grid" ng-repeat="painting in paintingCtrl.paintings track by $index">
-            <a href="#!/info/{{paintingCtrl.gallery}}/{{$index}}">
-                <img src="{{paintingCtrl.folder}}{{painting.path}}" alt="{{painting.alt}}"></img>
-            </a>
+            <img src="{{paintingCtrl.folder}}{{painting.path}}" alt="{{painting.alt}}"/>
+            <span class="title">{{painting.alt}}</span>
         </div>
     </div>
 </section>

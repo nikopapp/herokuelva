@@ -7,7 +7,7 @@ var animate = function(callback) {
   var anchors = new Array();
 
   images.push(document.getElementById('titleEAT'));
-  for (var i=1; i<=47;i++){
+  for (var i=1; i<=43;i++){
     anchors.push(document.createElement("a"));
     images.push(document.createElement("img"));
     images[i].setAttribute("src", "images/animation/m"+i+".png");
@@ -16,9 +16,6 @@ var animate = function(callback) {
     anchors[i-1].appendChild(images[i]);
     divAnim.appendChild(anchors[i-1]);
   }
-  var header =  document.getElementById('iheader');
-  var mainImage0 = document.getElementById('logo-wet');
-  var mainImage = document.getElementById('logo');
   var animDiv = document.getElementsByClassName('animation');
   var counter = 0;
   var counter2 = 10;
@@ -29,11 +26,7 @@ var animate = function(callback) {
   images[0].style.top = (posY+10) +"%";
   images[0].style.left = (posX+8) +"%";
 
-  // mainImage0.style.top=mainImage.style.top = (posY-6) +"%";
-  // mainImage0.style.left=mainImage.style.left = (posX-15) +"%";
-
   for (var i=1;i<15;i++){
-    console.log("dike mou");
     images[i].style.top = (posY+getRandomArbitrary(15,40)) +"%";
     images[i].style.left = (posX+getRandomArbitrary(0,20)) +"%";
     // console.log(images[i].style.left);
@@ -47,7 +40,7 @@ var animate = function(callback) {
     makePortalDrops(images[i], i);
   }
 
-  for (var i=30;i<=47;i++){
+  for (var i=30;i<=43;i++){
     images[i].style.top = (posY+getRandomArbitrary(-5,80)) +"%";
     images[i].style.left = (posX+getRandomArbitrary(-30,75)) +"%";
     // console.log(images[i].style.left);
@@ -103,37 +96,6 @@ var animate = function(callback) {
       else if (counter == 77) images[41].style.opacity = 0.81;
       else if (counter == 78) images[42].style.opacity = 0.81;
       else if (counter == 82) images[43].style.opacity = 0.6;
-      else if (counter == 83) images[44].style.opacity = 0.6;
-      else if (counter == 86) images[45].style.opacity = 0.61;
-      else if (counter == 87) images[46].style.opacity = 0.61;
-      else if (counter == 88) images[47].style.opacity = 0.6;
-
-      else if(counter ==89){
-        mainImage0.style.opacity = 0.6;
-      } else if(counter ==90){
-      //  header.style.opacity=0.1;
-        mainImage.style.opacity = 0.05;
-      } else if(counter ==91){
-        mainImage.style.opacity = 0.1;
-        mainImage0.style.opacity= 0.55;
-      //  header.style.opacity=0.2;
-      } else if(counter ==92){
-        mainImage.style.opacity = 0.2;
-        mainImage0.style.opacity= 0.5;
-        //  header.style.opacity=0.3;
-      } else if(counter ==93){
-        mainImage.style.opacity = 0.35;
-        mainImage0.style.opacity= 0.35;
-        //  header.style.opacity=0.5;
-      } else if(counter ==94){
-        mainImage.style.opacity = 0.5;
-        mainImage0.style.opacity= 0.2;
-        //  header.style.opacity=0.8;
-      } else if(counter ==95){
-        mainImage0.style.opacity=0;
-        mainImage.style.opacity=0.6;
-        //  header.style.opacity=1;
-      }
       counter++;
   }
 }
@@ -143,7 +105,7 @@ function makePortals(drop,i){
     drop.onmouseleave = revertDrop;
     function makeBlownDrop(){
       drop.style.transition = "all 0.6s ease";
-      drop.setAttribute("src","images/gallery_pictures/painting/c" +
+      drop.setAttribute("src","images/gallery_pictures/colourfields_series/c" +
           (1 + Math.floor((10000*Math.random())%27)) + ".jpg");
       drop.setAttribute("width","200px");
       drop.style.zIndex="30";
@@ -157,13 +119,13 @@ function makePortals(drop,i){
 function makePortalDrops(drop,i){
     drop.onmouseenter = function(){
       var imageSwap = new Image();
-      var randomNum = (1 + Math.floor((10000*Math.random())%27));
+      var randomNum = (1 + Math.floor((10000*Math.random())%22));
       console.log("1st"+randomNum);
-      imageSwap.src = "images/gallery_pictures/painting/c"+ randomNum + ".jpg";
+      imageSwap.src = "images/gallery_pictures/colourfields_series/c"+ randomNum + ".jpg";
       // console.log(imageSwap[0]);
       drop.parentElement.href="#!/info/paintings/"+randomNum;
       drop.style.transition = "all 0.6s ease";
-      drop.setAttribute("src","images/gallery_pictures/painting/c" +
+      drop.setAttribute("src","images/gallery_pictures/colourfields_series/c" +
           randomNum + ".jpg");
       drop.setAttribute("width","200px");
       drop.style.transform = "translate3d(-75px,-75px,0px)";
@@ -223,13 +185,11 @@ function makeInit(){
       window.location.href.includes("about")){
     return;
   }
-  console.log("makeInit");
+
   divAnim = document.getElementById("animation");
   if(divAnim){
-    console.log("if");
     animate(makePortals);
   } else {
-    console.log("else");
     setTimeout(makeInit, 2000);
   }
 }
