@@ -128,28 +128,21 @@ var mix_tech = {
   {id:"t6",alt:"Donna I" , descriptionESP:"Collage sobre tabla, 30x 70 cm, 2011",descriptionENG:"Collage on woodboard, 30x 70 cm, 2011",path:"t5.jpg",thumb:"p5.jpg"},
   {id:"t5",alt: "El tiempo II", descriptionESP:"Collage sobre tabla, 46x 61 cm, 2010", descriptionENG:"Collage on woodboard, 46x 61 cm, 2010",path:"t6.jpg",thumb:"p6.jpg"},
   {id:"k13",  alt:"Mira en ti",       path:"k13.jpg",   descriptionESP:"Acrílico sobre tela, 100x 100 cm, 2001",                   descriptionENG:"Acrylic on canvas, 100x 100 cm, 2001", thumb:"c13.jpg"},
-  {id:"t7",alt: "La despedida", descriptionESP:"Collage sobre A4, 2011",descriptionENG:"Collage on A4, 2011",path:"t7.jpg",thumb:"p7.jpg"},
-  {id:"t8",alt: "El tiempo I", descriptionESP:"Collage sobre papel, 20x 12 cm, 2008",descriptionENG:"Collage on paper, 20x 12 cm, 2008",path:"t8.jpg",thumb:"p8.jpg"},
   {id:"t9",alt: "Las tres Marías", descriptionESP:"Collage sobre A4, 2007",descriptionENG:"Collage on A4, 2007",path:"t9.jpg",thumb:"p9.jpg"},
-  {id:"t10",alt: "Sin título", descriptionESP:"Collage sobre A5, 2008",descriptionENG:"Collage on A5, 2008",path:"t10.jpg",thumb:"p10.jpg"},
-  {id:"t11",alt: "Mujer con pajaros", descriptionESP:"Làpiz acuarelable, 46x 61 cm, 2015",descriptionENG:"Watercolor pencil, 46x 61 cm, 2015",path:"t11.jpg",thumb:"p11.jpg"},
-  {id:"t12",alt: "Mujer-pez I", descriptionESP:"pilot y acuarela, 46x 61 cm, 2008",descriptionENG:"Pen and watercolor, 46x 61 cm, 2008",path:"t12.jpg",thumb:"p12.jpg"},
-  {id:"t13",alt: "Quédate callada", descriptionESP:"Collage, 46x 61 cm, 2009",descriptionENG:"Collage, 46x 61 cm, 2009",path:"t13.jpg",thumb:"p13.jpg"},
   {id:"t14",alt: "Yoli", descriptionESP:"Collage, 46x 61 cm, 2009",descriptionENG:"Collage, 46x 61 cm, 2009",path:"yoli.jpg",thumb:"TODO"},
 ]
 };
 var watercolor = {
   items:[
-    {id:"w1",alt: "Akaki", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", descriptionENG:"Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
+    {id:"w3",alt: "Akaki", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", descriptionENG:"Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Akachi.jpg",thumb:"zThumbAkachi.jpg"},
     {id:"w2",alt: "Amanitas", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", descriptionENG:"Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"amanitas.jpg",thumb:"ZThumbamanitas.jpg"},
-    {id:"w3",alt: "Gea", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, 21x 27 cm, 2017", descriptionENG:"Watercolour on 21x 27 cm Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
-    {id:"w4",alt: "Colourfeelds", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
-    {id:"w5",alt: "Seleni", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Luna.jpg",thumb:"zThumbLuna.jpg"},
-    {id:"w6",alt: "Can't breath", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"cantbreath.jpg",thumb:"TODO"},
-    {id:"w7",alt: "Dreams can come true", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Dreamscancometrue.jpg",thumb:"TODO"},
+    {id:"w4",alt: "Gea", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, 21x 27 cm, 2017", descriptionENG:"Watercolour on 21x 27 cm Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"bluewind.jpg",thumb:"zThumbbluewind.jpg"},
+    {id:"w1",alt: "Colourfields", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"splash.jpg",thumb:"zThumbsplash.jpg"},
+    {id:"w5",alt: "Can't breath", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"cantbreath.jpg",thumb:"TODO"},
+    {id:"w9",alt: "Dreams can come true", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Dreamscancometrue.jpg",thumb:"TODO"},
     {id:"w8",alt: "Let me go", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"Letmego.jpg",thumb:"TODO"},
-    {id:"w9",alt: "Purple hue", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"purplehue.jpg",thumb:"TODO"},
-    {id:"w10",alt: "Willing", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"willing.jpg",thumb:"TODO"},
+    {id:"w6",alt: "Purple hue", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"purplehue.jpg",thumb:"TODO"},
+    {id:"w7",alt: "Willing", descriptionESP:"Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", descriptionENG:"Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb, 2017",path:"willing.jpg",thumb:"TODO"},
   ]
 }
 

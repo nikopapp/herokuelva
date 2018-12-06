@@ -5,6 +5,7 @@
     <div class="gridWrapper">
         <div class="grid" ng-repeat="painting in paintingCtrl.paintings track by $index">
             <img src="{{paintingCtrl.folder}}{{painting.path}}" alt="{{painting.alt}}"/>
+            <span class="title">{{painting.alt}}</span>
         </div>
     </div>
 </section>

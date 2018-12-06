@@ -184,8 +184,14 @@ h2{
   height: 15%;
   width: 45%;
   display: inline-block;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
   padding-right: 0;
+}
+.title{
+    font-size:20px;
+    display:block;
+    margin-top:20px;
+    font-family: "Federica the great";
 }
 .content-info .grid img{
   width:60%;
@@ -236,9 +242,6 @@ h2{
 .artwork a:hover{
   opacity: 0.6;
 }
-.gridWrapper{
-  column-count:2;
-}
 .content-artwork {
   margin: auto;
   list-style: none;
@@ -251,26 +254,19 @@ h2{
 .content-artwork .grid{
   display: inline-block;
   padding: auto;
-  margin: 5% auto;
+  margin: 3% auto;
 }
 .content-artwork .grid img{
-   min-height:300px;
-   min-width:300px;
+   min-width:450px;
    background-color: rgba(140,150,130,0.5);
   border-radius: 3px;
   border-width: 2px;
-  width:80%;
+  width:30%;
 }
 .grid img{
   transition: all 0.3s ease;
   display:block;
   margin: auto;
-}
-.normal .grid img{
-  box-shadow: 0px 0px 4px 1px grey;
-}
-.normal .grid img:hover{
-  box-shadow: 0px 0px 4px 1px black;
 }
 @media only screen and (max-width: 501px) {
 .gridWrapper{
@@ -284,9 +280,6 @@ h2{
 @media only screen and (min-width: 770px) {
   #secHeader{
     font-size: 1.4em;
-  }
-  .gridWrapper {
-    column-count: 3;
   }
 
   .contact-icons{
