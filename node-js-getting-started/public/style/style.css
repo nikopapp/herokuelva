@@ -252,7 +252,7 @@ h2{
   float:left;
 }*/
 .content-artwork .grid{
-  display: inline-block;
+  display: block;
   padding: auto;
   margin: 3% auto;
 }
