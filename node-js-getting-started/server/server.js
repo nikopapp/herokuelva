@@ -67,13 +67,13 @@ module.exports = function(port, middleware, callback) {
      loadDB();
     //  });
    function loadDB(){
-     db.each("SELECT * FROM PAINTING ORDER BY id DESC", function(err, row) {
+     db.each("SELECT * FROM PAINTING ORDER BY id + 0 DESC", function(err, row) {
        paintings.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
-     db.each("SELECT * FROM MIX_TECH ORDER BY id DESC", function(err, row) {
+     db.each("SELECT * FROM MIX_TECH ORDER BY id + 0 DESC", function(err, row) {
        mix_tech.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
-     db.each("SELECT * FROM WATERCOLOR ORDER BY id DESC", function(err, row) {
+     db.each("SELECT * FROM WATERCOLOR ORDER BY id + 0 DESC", function(err, row) {
        watercolor.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
      });
 
