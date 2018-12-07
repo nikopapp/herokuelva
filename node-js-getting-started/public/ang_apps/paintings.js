@@ -88,7 +88,6 @@ angular.module("paintings").controller("PgridVC", ["$scope", "Colourfields", "Mi
     self.setTitle = function(value){
       self.title.value = value;
     };
-    self.placeholderClassName = "";
     languageService.bindSetTitle(self.setTitle, routeParams.gallery);
     function getPaintings() {
       Painting.get().$promise.then(function(data){

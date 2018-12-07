@@ -272,6 +272,10 @@ h2{
 .gridWrapper{
   column-count:1;
 }
+.content-artwork .grid img{
+   min-width:300px;
+  width:30%;
+}
 
   #secHeader{
     font-size: 1.6em;
@@ -281,6 +285,9 @@ h2{
   #secHeader{
     font-size: 1.4em;
   }
+.margin-mid{
+    padding-bottom:  140px;
+}
 
   .contact-icons{
      position: fixed;
@@ -391,10 +398,9 @@ h2{
 
 #back2top{
   position: relative;
-  margin-top: 2em;
-  bottom: 4em;
+  bottom: 6em;
   display: block;
-  margin: auto;
+  margin: 11em auto 1em;
 }
 #back2top:hover{
   color:#01543F;
