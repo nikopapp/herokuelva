@@ -10,6 +10,7 @@ const session       = require('express-session');
 const userdb        = require('./db');
 const ensurelog     = require('connect-ensure-login');
 const compression   = require('compression');
+const Item = require("./Item").Item;
 
 passport.use(new Strategy(
   function(username, password, cb) {
@@ -68,13 +69,13 @@ module.exports = function(port, middleware, callback) {
     //  });
    function loadDB(){
      db.each("SELECT * FROM PAINTING ORDER BY id + 0 DESC", function(err, row) {
-       paintings.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
+       paintings.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.thumb));
      });
      db.each("SELECT * FROM MIX_TECH ORDER BY id + 0 DESC", function(err, row) {
-       mix_tech.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
+       mix_tech.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.thumb));
      });
      db.each("SELECT * FROM WATERCOLOR ORDER BY id DESC", function(err, row) {
-       watercolor.items.push({id:row.id,alt: row.alt, descriptionESP:row.descriptionESP,descriptionENG:row.descriptionENG,path:row.path,thumb:row.thumb});
+       watercolor.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.thumb));
      });
 
    }
