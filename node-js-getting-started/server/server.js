@@ -69,13 +69,13 @@ module.exports = function(port, middleware, callback) {
     //  });
    function loadDB(){
      db.each("SELECT * FROM PAINTING ORDER BY id DESC", function(err, row) {
-       paintings.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.thumb));
+       paintings.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.date, row.thumb));
      });
      db.each("SELECT * FROM MIX_TECH ORDER BY id DESC", function(err, row) {
-       mix_tech.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.thumb));
+       mix_tech.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.date, row.thumb));
      });
      db.each("SELECT * FROM WATERCOLOR ORDER BY id DESC", function(err, row) {
-       watercolor.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.thumb));
+       watercolor.items.push(new Item(row.id, row.alt, row.className, row.path, row.descriptionESP, row.descriptionENG, row.date, row.thumb));
      });
 
    }
@@ -189,7 +189,7 @@ module.exports = function(port, middleware, callback) {
       var id = req.params.id.split("/");
       console.log(id);
       if(id[0] === "paintings"){
-        db.run("DELETE FROM Painting WHERE path='"+id[1]+"'");
+        db.run("DELETE FROM PAINTING WHERE path='"+id[1]+"'");
       } else if(id[0] === "mix_tech") {
         db.run("DELETE FROM MIX_TECH WHERE path='"+id[1]+"'");
       }

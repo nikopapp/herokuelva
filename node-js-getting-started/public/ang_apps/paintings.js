@@ -91,7 +91,6 @@ angular.module("paintings").controller("PgridVC", ["$scope", "Colourfields", "Mi
     languageService.bindSetTitle(self.setTitle, routeParams.gallery);
     function getPaintings() {
       Painting.get().$promise.then(function(data){
-        debugger;
         self.paintings = data.items;
         self.folder = data.folder;
       });
