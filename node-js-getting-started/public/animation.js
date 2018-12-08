@@ -123,7 +123,7 @@ function makePortalDrops(drop,i){
       console.log("1st"+randomNum);
       imageSwap.src = "images/gallery_pictures/colourfields_series/c"+ randomNum + ".jpg";
       // console.log(imageSwap[0]);
-      drop.parentElement.href="#!/info/paintings/"+randomNum;
+      drop.parentElement.href="#!/grid/colourfields_series/ENG";
       drop.style.transition = "all 0.6s ease";
       drop.setAttribute("src","images/gallery_pictures/colourfields_series/c" +
           randomNum + ".jpg");
