@@ -11,14 +11,3 @@
   border-radius: 100px;
   -moz-border-radius: 100px;
 }
-#logo, #logo-wet{
-  position: absolute;
-  max-width: 85vw;
-  max-height: 85vh;
-  margin-left: -36vw;
-  line-height: 100vh;
-  top: 114px;
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-}
