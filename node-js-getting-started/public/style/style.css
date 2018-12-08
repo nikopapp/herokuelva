@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "OldStandard";
-    src: url("OldStandard-Regular.ttf") format("truetype");
-}
-
 * {
     box-sizing:content-box;
 }
@@ -146,7 +141,7 @@ nav li{
 body{
   overflow-x: hidden;
   margin: 0 0 0 0;
-  font-family: "OldStandard",'Dosis', serif;
+  font-family: "Noto Serif TC", serif;
   position: relative;
   height: auto;
   background-color: #FFF;
@@ -191,7 +186,7 @@ h2{
     font-size:20px;
     display:block;
     margin-top:20px;
-    font-family: "Federica the great";
+    font-family: "Noto Serif TC";
 }
 .content-info .grid img{
   width:60%;
