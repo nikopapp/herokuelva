@@ -416,4 +416,10 @@ h2{
 }
 #logo{
     width: 10em;
+    margin-bottom: 5em;
+}
+
+iframe{
+    display: block;
+    margin:1em auto;
 }
