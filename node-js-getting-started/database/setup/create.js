@@ -111,7 +111,7 @@ var watercolor = {
     new Item("4", "Gea", "","bluewind.jpg","Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, 21x 27 cm, 2017", "Watercolour on 21x 27 cm Winsor & Newton watercolour paper 300gsm/140lb"," 2017","zThumbbluewind.jpg"),
     new Item("3", "Akaki", "", "Akachi.jpg","Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", "Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb"," 2017","zThumbAkachi.jpg"),
     new Item("2", "Amanitas", "margin-mid","amanitas.jpg","Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A3, 2017", "Watercolour on A3 Winsor & Newton watercolour paper 300gsm/140lb"," 2017","ZThumbamanitas.jpg"),
-    new Item("1", "Colourfields", "","splash.jpg","Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", "Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb"," 2017","zThumbsplash.jpg"),
+    new Item("1", "Colourfeelds", "","splash.jpg","Acuarela sobre papel de acuarela Winsor & Newton 300gsm/140lb, A2, 2017", "Watercolour on A2 Winsor & Newton watercolour paper 300gsm/140lb"," 2017","zThumbsplash.jpg"),
   ]
 }
 
