@@ -70,7 +70,7 @@ var paintings = {
         new Item("21",   "Angeliki",      "" ,"angeliki.jpg",    "Acrílico sobre tela, 61x 91 cm, 2017", "Acrylic on canvas, 61x 91 cm"," 2018", "TODO"),
         new Item("20",   "Sara",      "" ,"sara.jpg",    "Acrílico sobre tela, 61x 91 cm, 2017", "Acrylic on canvas, 61x 91 cm"," 2018", "TODO"),
         new Item("19",   "La familia",      "" ,"Family.jpg",    "Acrílico sobre tela, 61x 91 cm, 2017", "Acrylic on canvas, 61x 91 cm"," 2018", "TODO"),
-        new Item("18",  "Los cinco",        "" ,"los-cinco.jpg",   "Acrílico y esmalte sintético sobre tabla, 160x 80 cm, 2006","Acrylic and synthetic enamel on woodboard, 160x 80 cm"," 2006", "c19.jpg"),
+        new Item("18",  "Los cinco",        "" ,"los cinco.jpg",   "Acrílico y esmalte sintético sobre tabla, 160x 80 cm, 2006","Acrylic and synthetic enamel on woodboard, 160x 80 cm"," 2006", "c19.jpg"),
         new Item("17",   "Xela y Berni",     "" ,"xela.jpg",    "Acrílico sobre tela, 120x 40 cm, 2014",                    "Acrylic on canvas, 120x 40 cm"," 2014", "c4.jpg"),
         new Item("16",  "El recreo",        "" ,"recreo.jpg",   "Acrílico y esmalte sintético sobre tabla, 160x 120 cm, 2006","Acrylic and synthetic enamel on woodboard, 160x 120 cm"," 2006", "c16.jpg"),
         new Item("15",  "Santiago",         "" ,"k17.jpg",   "Esmalte sintético sobre tabla, 70x 32 cm, 2005",          "Synthetic enamel on woodboard, 70x 32 cm"," 2005", "c17.jpg"),
