@@ -184,6 +184,7 @@ function makeInit(){
       window.location.href.includes("info")||
       window.location.href.includes("video")||
       window.location.href.includes("about")){
+        putLogoToBottomOverlay();
     return;
   }
   putLogoFixedToBottom();
@@ -202,7 +203,9 @@ function getRandomArbitrary(min, max) {
 }
 function putLogoFixedToBottom(){
   var logoSignature = document.getElementById("logo");
-  logoSignature.style.position ="fixed";
-  logoSignature.style.bottom = "0";
-  logoSignature.style.marginLeft = "-5.5em";
+  logoSignature.className = logoSignature.className + " animation";
+}
+function putLogoToBottomOverlay(){
+  var logoSignature = document.getElementById("logo");
+  logoSignature.className = logoSignature.className.replace(" animation", "");
 }
