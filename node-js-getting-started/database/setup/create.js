@@ -115,13 +115,6 @@ var watercolor = {
   ]
 }
 
-//Gea, 2017.
-//Akaki, 2017.
-//Amanita, 2017.
-
-
-//Colourfeelds, 2017
-
 
 
 var gallery = {

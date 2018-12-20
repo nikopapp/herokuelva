@@ -370,14 +370,17 @@ h2{
 }
 /* end of drop down menu */
 
-/*--------------------about.html page*-----------------------------*/
+/*--------------------about page*-----------------------------*/
 /*#info{
   position:relative;
   top:-100px;
 }*/
+
+
 .disc{
   margin: 3em auto;
 }
+
 
 
 #back2top{
@@ -393,9 +396,15 @@ h2{
 #logo{
     width: 11em;
     margin-bottom: 5em;
+    margin-top: 3em;
 }
-
+#logo.animation{
+  position: fixed;
+  bottom:0;
+  margin-left: -5.5em;
+}
+/*--------------------video page*-----------------------------*/
 iframe{
     display: block;
-    margin:1em auto;
+    margin: 140px auto;
 }
