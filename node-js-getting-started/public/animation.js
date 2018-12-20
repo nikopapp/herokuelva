@@ -182,9 +182,11 @@ function putMask(){
 function makeInit(){
   if(window.location.href.includes("grid") ||
       window.location.href.includes("info")||
+      window.location.href.includes("video")||
       window.location.href.includes("about")){
     return;
   }
+  putLogoFixedToBottom();
 
   divAnim = document.getElementById("animation");
   if(divAnim){
@@ -197,4 +199,10 @@ window.onload = makeInit;
 
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
+}
+function putLogoFixedToBottom(){
+  var logoSignature = document.getElementById("logo");
+  logoSignature.style.position ="fixed";
+  logoSignature.style.bottom = "0";
+  logoSignature.style.marginLeft = "-5.5em";
 }
