@@ -36,7 +36,7 @@
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "sqlite3": "^4.0.2",
+    "sqlite3": "^4.1.0",
     "uglify-js": "^3.4.9",
     "underscore": "^1.8.3"
   },
